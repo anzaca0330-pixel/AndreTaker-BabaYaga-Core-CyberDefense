@@ -358,3 +358,33 @@ Amenazas Identificadas:
  - Inyección EFI detectada en BIOS: PXE BOOT
 Acción Automática: Activado aislamiento de particiones y derivación de Boot a Kernel Limpio.
 ====================================================
+====================================================
+⚠️ ALERTA FORENSE: INTERCEPTACIÓN DE ARRANQUE Y BIOS DETECTADA
+Fecha/Hora: 2026-08-31 23:57:49 UTC
+Firma SHA-256 de GRUB: no_disponible
+Amenazas Identificadas:
+ - Inyección EFI detectada en BIOS: LENOVO CLOUD
+ - Inyección EFI detectada en BIOS: ThinkShield secure wipe
+ - Inyección EFI detectada en BIOS: PXE BOOT
+Acción Automática: Activado aislamiento de particiones y derivación de Boot a Kernel Limpio.
+====================================================
+====================================================
+⚠️ ALERTA FORENSE: INTERCEPTACIÓN DE ARRANQUE Y BIOS DETECTADA
+Fecha/Hora: 2026-09-01 00:01:26 UTC
+Firma SHA-256 de GRUB: no_disponible
+Amenazas Identificadas:
+ - Inyección EFI detectada en BIOS: LENOVO CLOUD
+ - Inyección EFI detectada en BIOS: ThinkShield secure wipe
+ - Inyección EFI detectada en BIOS: PXE BOOT
+Acción Automática: Activado aislamiento de particiones y derivación de Boot a Kernel Limpio.
+====================================================
+====================================================
+⚠️ ALERTA FORENSE: INTERCEPTACIÓN DE ARRANQUE Y BIOS DETECTADA
+Fecha/Hora: 2026-09-01 00:06:26 UTC
+Firma SHA-256 de GRUB: no_disponible
+Amenazas Identificadas:
+ - Inyección EFI detectada en BIOS: LENOVO CLOUD
+ - Inyección EFI detectada en BIOS: ThinkShield secure wipe
+ - Inyección EFI detectada en BIOS: PXE BOOT
+Acción Automática: Activado aislamiento de particiones y derivación de Boot a Kernel Limpio.
+====================================================
