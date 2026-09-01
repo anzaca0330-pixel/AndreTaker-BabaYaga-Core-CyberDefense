@@ -21,8 +21,12 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install setuptools wheel build
+        pip install setuptools wheel build pillow
 
     - name: Run 12 Forensic Unit Tests
       run: |
         python3 BABAYAGA_CORE/run_tests.py
+
+    - name: Run 4 AI Nodes Unit Tests
+      run: |
+        python3 BABAYAGA_CORE/test_ai_nodes.py
