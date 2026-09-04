@@ -41,3 +41,4 @@ System Volume Information/
 # Enable Chris downloads
 !downloads/
 !downloads/*.zip
+downloads/*.zip

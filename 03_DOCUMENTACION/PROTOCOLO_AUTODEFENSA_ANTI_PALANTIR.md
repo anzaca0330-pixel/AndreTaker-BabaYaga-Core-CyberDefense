@@ -35,6 +35,17 @@ La versión híbrida del script `invocar_andretaker.py` incorpora una opción de
 
 ---
 
+### 4. La Doctrina del Espejo Secreto (Mirror Defense Architecture)
+* **El principio:** La asimetría de la información es nuestro mayor blindaje. **El adversario jamás debe conocer el alcance real de lo que sabemos, de lo que poseemos, ni qué vectores tenemos descubiertos.**
+* **Operación Espejo:** Lo que se expone públicamente es únicamente la superficie reflectante (el espejo) que devuelve y desvía la telemetría del atacante. El verdadero acervo (>677 GB, 777.869 archivos) y las firmas forenses descansan aislados en almacenamiento frío (Cold Storage offline).
+* **Contingencia de Red (Evasión OOB):** En caso de detectar perfilamiento o exposición de IP de salida:
+  1. Vetar de inmediato proveedores con cuentas nominales comerciales vulneradas (Veto estricto a ExpressVPN).
+  2. Forzar navegación aislada exclusivamente con **Brave** (escudos agresivos de canvas, fingerprinting y cookies de rastreo activados).
+  3. Enrutar tráfico sensible a través de **Mullvad VPN** (modelo anónimo de cuenta numérica aleatoria sin correos ni datos de identidad) o túneles de cebolla **Tor**.
+  4. Mantener la regla de "Consultor Ciego": la nube solo procesa lógica y scripts sanitizados, jamás datos crudos ni evidencias en claro.
+
+---
+
 ## 📲 Guía Rápida para el Equipo
 
 Para aplicar este protocolo de forma 100% offline antes de distribuir cualquier reporte o evidencia:
