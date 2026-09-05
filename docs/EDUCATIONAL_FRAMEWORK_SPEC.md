@@ -36,12 +36,19 @@ El conocimiento que no se comparte queda vulnerable al olvido. La misión de **A
 
 ### 2. COMPONENTES DEL PILAR EDUCATIVO
 
-#### A. Videojuego Táctico: "Guardianes Digitales" (Cyber-RPG)
+#### A. Videojuego Táctico: "Guardianes Digitales" (Cyber-RPG para Escuelas, ONGs e Instituciones Públicas)
+* **Público Objetivo Prioritario:** 
+  * 🏫 **Escuelas, Colegios y Bibliotecas Públicas:** Alfabetización digital temprana y prevención del ciberacoso/phishing.
+  * 🏛️ **Instituciones Públicas y Casas Comunitarias:** Capacitación ágil y sin costo prohibitivo para funcionarios locales.
+  * 🕊️ **Pequeñas ONGs y Colectivos de Derechos Humanos:** Entrenamiento táctico en higiene digital y protección de fuentes periodísticas.
+* **Modelo de Despliegue Abierto & Sin Costo Prohibitivo:**
+  * Binario autónomo sin conexión a internet (*Offline First / Standalone AppImage / Web*) para funcionar en salas de cómputo comunitarias con computadores básicos o recursos limitados.
+  * Cero licencias privativas por usuario: un solo archivo descargable libre para todo un colegio o pequeña ONG.
 * **Concepto Narrativo:** Un universo interactivo donde el jugador acompaña a *Arturius, Chris, Tobias (el centinela perimetral) y Bianca* para defender la "Bóveda de la Verdad" frente a ciberamenazas, campañas de desinformación y ataques silenciosos.
 * **Mecánicas Pedagógicas:**
   1. **El Escudo Criptográfico:** Aprendizaje visual del funcionamiento de hashes SHA-256 mediante rompecabezas de integridad (si un bloque cambia 1 bit, el color del portal colapsa).
   2. **Rastreo de Balizas:** Identificación de conexiones no autorizadas, torres celulares anómalas y redes Wi-Fi gemelas (*Evil Twin*).
-  3. **Higiene Digital Familiar:** Misiones prácticas de configuración de 2FA con llaves de hardware (FIDO2), gestión de contraseñas y detección de ingeniería social / phishing.
+  3. **Higiene Digital Familiar e Institucional:** Misiones prácticas de configuración de 2FA con llaves de hardware (FIDO2), gestión de contraseñas y detección de ingeniería social / phishing.
   4. **Seguridad y Resistencia Pacífica:** Resolución de conflictos mediante análisis lógico, protección de datos y rutas de escape sin recurrir a violencia.
 
 #### B. Laboratorio Forense Interactivo (*Synthetic DFIR Sandbox*)
