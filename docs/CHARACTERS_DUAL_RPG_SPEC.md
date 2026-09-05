@@ -20,12 +20,13 @@
 ┌─────────────────────────────────────────┐ ┌─────────────────────────────────────────┐
 │     EDICIÓN INFANTIL / ESCOLAR (KIDS)   │ │  EDICIÓN ADULTOS / TÁCTICA (CYBER-OPS)  │
 ├─────────────────────────────────────────┤ ├─────────────────────────────────────────┤
-│ • Estilo: Cartoon místico, amigable,    │ │ • Estilo: Cyberpunk sobrio, novela      │
-│   inspirado en el logo animado BabaYaga │   gráfica pericial, realismo táctico      │
-│ • Enfoque: Phishing escolar, llaves     │ │ • Enfoque: Decompilación /FlateDecode,  │
-│   mágicas (2FA), cuidar las contraseñas │   análisis XREF, troyanos, OpSec en campo │
-│ • Tono: Aventura, misterio, trabajo en  │ │ • Tono: Contrainteligencia, resistencia │
-│   equipo y protección del hogar         │   pacífica, blindaje forense e inmunidad  │
+│ • Escenario: "El Reino de lo            │ │ • Escenario: "El Infierno Tecnológico"  │
+│   Incomprendido" / Oscuridad Cibernética│   (Asedio digital, vigilancia masiva y    │
+│ • Tono: Aventura, rescate de la verdad, │   borrado de servidores en tiempo real)   │
+│   cooperación y luz frente al engaño    │ • Tono: Contrainteligencia, resistencia   │
+│ • Enfoque: Cero miedo / Cero pesadillas;│   ética inquebrantable ("Hell cannot      │
+│   aprender a no caer en trampas y cuidar│   claim our souls") y peritaje forense    │
+│   la Bóveda de la Verdad con llaves 2FA │ • Enfoque: Decompilación /FlateDecode,    │
 └─────────────────────────────────────────┘ └─────────────────────────────────────────┘
 ```
 
