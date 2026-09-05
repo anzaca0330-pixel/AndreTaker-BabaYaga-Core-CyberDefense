@@ -21,7 +21,7 @@ El ecosistema **AndreTaker** se estructura formalmente como una organización pa
        ┌─────────────────────────────────────┼─────────────────────────────────────┐
        ▼                                     ▼                                     ▼
 ┌─────────────────────────────┐┌─────────────────────────────┐┌─────────────────────────────┐
-│    andretaker-forensics     ││     andretaker-security     ││     andretaker-academy      │
+│    andretaker-forensics     ││     andretaker-security     ││    andretaker-educational   │
 │       (BaBaYaga Core)       ││     (Defensive Shield)      ││    (Educación & Gamified)   │
 ├─────────────────────────────┤├─────────────────────────────┤├─────────────────────────────┤
 │ • Ingesta masiva y scraping ││ • Blindaje de endpoints     ││ • Juego "Guardianes         │
@@ -73,11 +73,11 @@ El ecosistema **AndreTaker** se estructura formalmente como una organización pa
   * Verificación de interfaces locales y aislamiento de puertos.
   * Protección de identidad y ofuscación de metadatos sensibles (*Entity Redaction*).
 
-#### D. `andretaker-academy` / Pedagogía Pericial (El Brazo Educativo & Lúdico)
+#### D. `andretaker-educational` / Pedagogía Pericial (El Brazo Educativo & Lúdico)
 * **Propósito:** Democratizar el conocimiento en ciberseguridad, alfabetización digital y auditoría forense mediante interfaces interactivas, narrativas inmersivas y gamificación táctica.
 * **Componentes clave:**
   1. 🎮 **"Guardianes Digitales" (Juego Táctico de Ciberdefensa):**
-     * Experiencia lúdica donde los usuarios aprenden principios de DFIR, detección de phishing, protección de llaves criptográficas y defensa de bóvedas digitales junto a *Arthurius (11 años), Chris, Tobias el perrito y el escuadrón*.
+     * Experiencia lúdica donde los usuarios aprenden principios de DFIR, detección de phishing, protección de llaves criptográficas y defensa de bóvedas digitales junto a *Arturius, Chris, Tobias el perrito y el escuadrón*.
      * Dinámicas de rol (RPG de ciberseguridad) para entrenar a jóvenes, periodistas y activistas en ambientes seguros y sin frustración técnica.
   2. 🧪 **Laboratorios Prácticos con Datos Sintéticos (*Synthetic Forensics Sandbox*):**
      * Muestras de actas y archivos PDF simulados para que estudiantes y auditores aprendan a detectar inyecciones de capas vectoriales (`1bpc`) y desfasajes XREF paso a paso sin comprometer datos reales.
@@ -89,12 +89,12 @@ El ecosistema **AndreTaker** se estructura formalmente como una organización pa
 ### 3. ESTRATEGIA DE REPOSITORIOS Y EMPAQUETADO
 
 * **Fase 1 (Actual - Monorepo Transicional):**
-  * Mantener el repositorio actual organizado internamente con las carpetas `core/`, `forensics/`, `security/`, `academy/` y `docs/`.
+  * Mantener el repositorio actual organizado internamente con las carpetas `core/`, `forensics/`, `security/`, `educational/` y `docs/`.
 * **Fase 2 (Desacoplamiento Modular):**
   * Creación de la organización de GitHub `AndreTaker-Org`.
   * Publicación del paquete base en PyPI (`pip install andretaker-core`).
   * Lanzamiento de binarios independientes compilados (AppImage / Standalone para Linux, macOS y Windows).
-  * Despliegue de la plataforma interactiva web en `andretaker.org/academy`.
+  * Despliegue de la plataforma interactiva web en `andretaker.org/educational`.
 
 ---
 

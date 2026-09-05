@@ -1,9 +1,9 @@
-# PROGRAMA ACADÉMICO Y ESPECIFICACIÓN PEDAGÓGICA
-## AndreTaker Academy & Guardianes Digitales (Pilar Educativo)
+# PROGRAMA Y ESPECIFICACIÓN PEDAGÓGICA
+## AndreTaker Educational & Guardianes Digitales (Pilar Educativo)
 
 **Coordinación de Pedagogía y Diseño:** Johannes (AnZaCa), Kepler & Tycho  
 **Enlace Lúdico & RPG:** Chris & Arturius  
-**Versión:** 1.0.0-ACADEMIC  
+**Versión:** 1.0.0-EDUCATIONAL  
 **Fecha:** Septiembre 2026  
 **Público Objetivo:** Jóvenes, familias, activistas, periodistas, estudiantes y auditores periciales.
 
@@ -11,11 +11,11 @@
 
 ### 1. VISIÓN Y MISIÓN EDUCATIVA
 
-El conocimiento que no se comparte queda vulnerable al olvido. La misión de **AndreTaker Academy** es democratizar las ciencias forenses digitales (DFIR), la contrainteligencia defensiva y la seguridad operativa, transformando conceptos matemáticos y criptográficos complejos en habilidades prácticas, accesibles e inspiradoras para cualquier ser humano.
+El conocimiento que no se comparte queda vulnerable al olvido. La misión de **AndreTaker Educational** es democratizar las ciencias forenses digitales (DFIR), la contrainteligencia defensiva y la seguridad operativa, transformando conceptos matemáticos y criptográficos complejos en habilidades prácticas, accesibles e inspiradoras para cualquier ser humano.
 
 ```text
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                            ANDRETAKER ACADEMY                               │
+│                          ANDRETAKER EDUCATIONAL                             │
 │                   "Ciencia, Defensa y Conciencia Digital"                  │
 └──────────────────────────────────────┬──────────────────────────────────────┘
                                        │
