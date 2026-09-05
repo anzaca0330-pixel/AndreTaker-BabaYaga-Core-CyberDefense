@@ -45,7 +45,6 @@ const TRANSLATIONS = {
     manifesto_legend_quote: "Baba Yaga no es una bruja. Es un principio de desobediencia inteligente.",
     manifesto_ritual_title: "🌌 El Ritual de la Resistencia — Invocación a Baba Yaga",
     manifesto_ritual_body: "En un escenario post-apocalíptico de asedio digital donde \"Ellos\" lo dominan todo —controlando voces, pensamientos y destruyendo la historia— los pocos supervivientes forman la Resistencia. Nos quitamos el calzado en la penumbra para bailar descalzos sobre la tierra viva, sintiendo lo que es real e inalterable bajo nuestros pies.",
-    manifesto_ritual_quote1: "\"Invocamos a Baba Yaga danzando en la noche, recordando lo que es verdadero y vale la pena salvar. Cuando la mentira impera, la verdad baila sin miedo.\"",
     manifesto_ritual_quote2: "\"Conocemos el infierno, hemos sobrevivido a él, pero no puede reclamar nuestras almas. Vivimos bajo un infierno tecnológico, y escoger estar del lado de los buenos requiere mucho más coraje y agallas, porque sabes exactamente a lo que te estás enfrentando. Pero también podemos ser unos diablos como ellos si la situación lo exige.\" — Andrea Zabala Cárcamo (AnZaCa)",
     metric_vault: "Acervo Probatorio Auditado",
     metric_docs: "Documentos Electorales Preservados",
@@ -59,7 +58,13 @@ const TRANSLATIONS = {
     card_nvme_title: "🖥️ Sistema Local / NVMe",
     card_nvme_desc: "Repositorio activo repo_github_comparacion, motor BabaYaga Core v2.1 y entorno virtual Python de auditoría forense.",
     card_backup_title: "💽 Bóveda BACKUP",
-    card_backup_desc: "Paquete comprimido primario Junio-1-001 (1.62 GB), capturas de alertas ExpressVPN Identity Defender (ID [REST-ID-REDACTED]) y resguardo de seguridad."
+    card_backup_desc: "Paquete comprimido primario Junio-1-001 (1.62 GB), capturas de alertas ExpressVPN Identity Defender (ID [REST-ID-REDACTED]) y resguardo de seguridad.",
+    sim_title: "Consola de Diagnóstico BabaYaga (Simulador & Voces)",
+    sim_desc: "Prueba el motor de auditoría forense directamente en tu navegador y escucha la síntesis de voz propia de cada agente.",
+    sim_select_title: "⚡ Seleccionar Muestra del Acervo",
+    sim_btn_run: "Ejecutar Interrogatorio Forense",
+    sim_console_title: "🤖 Consola de Salida Forense",
+    sim_console_idle: "Esperando orden de escaneo..."
   },
   en: {
     nav_overview: "Overview & Scale",
@@ -119,7 +124,13 @@ const TRANSLATIONS = {
     card_nvme_title: "🖥️ Local NVMe Workstation",
     card_nvme_desc: "Active repo_github_comparacion repository, BabaYaga Core v2.1 forensic engine, and Python virtual forensic environment.",
     card_backup_title: "💽 Bóveda BACKUP",
-    card_backup_desc: "Primary compressed bundle Junio-1-001 (1.62 GB), ExpressVPN Identity Defender alert logs (ID [REST-ID-REDACTED]), and emergency security mirror."
+    card_backup_desc: "Primary compressed bundle Junio-1-001 (1.62 GB), ExpressVPN Identity Defender alert logs (ID [REST-ID-REDACTED]), and emergency security mirror.",
+    sim_title: "BabaYaga Diagnostic Console (Simulator & Voices)",
+    sim_desc: "Test the forensic auditing engine directly in your browser and listen to each agent's voice synthesis.",
+    sim_select_title: "⚡ Select Evidence Vault Sample",
+    sim_btn_run: "Execute Forensic Interrogation",
+    sim_console_title: "🤖 Forensic Output Console",
+    sim_console_idle: "Awaiting scan command..."
   },
   fr: {
     nav_overview: "Aperçu & Échelle",
@@ -179,7 +190,13 @@ const TRANSLATIONS = {
     card_nvme_title: "🖥️ Station Locale NVMe",
     card_nvme_desc: "Répertoire actif repo_github_comparacion, moteur légal BabaYaga Core v2.1 et environnement virtuel d'expertise forensique.",
     card_backup_title: "💽 Coffre BACKUP",
-    card_backup_desc: "Archive compressée primaire Junio-1-001 (1,62 Go), alertes ExpressVPN Identity Defender (ID [REST-ID-REDACTED]) et miroir de sécurité d'urgence."
+    card_backup_desc: "Archive compressée primaire Junio-1-001 (1,62 Go), alertes ExpressVPN Identity Defender (ID [REST-ID-REDACTED]) et miroir de sécurité d'urgence.",
+    sim_title: "Console de Diagnostic BabaYaga (Simulateur & Voix)",
+    sim_desc: "Testez le moteur d'audit forensique directement dans votre navigateur et écoutez la synthèse vocale propre à chaque agent.",
+    sim_select_title: "⚡ Sélectionner un Échantillon du Coffre",
+    sim_btn_run: "Exécuter l'Interrogatoire Forensique",
+    sim_console_title: "🤖 Console de Sortie Forensique",
+    sim_console_idle: "En attente de l'ordre d'analyse..."
   }
 };
 
@@ -469,42 +486,118 @@ document.addEventListener('DOMContentLoaded', () => {
         simConsole.scrollTop = simConsole.scrollHeight;
       };
 
-      printLog('🪓 [BABAYAGA CORE] Iniciando interrogatorio de evidencia...', '#38bdf8');
-      speakAgent('babayaga', 'Iniciando interrogatorio de evidencia. La verdad no pide permiso.');
+      const isEn = window.currentLang === 'en';
+      const isFr = window.currentLang === 'fr';
+
+      printLog(
+        isEn ? '🪓 [BABAYAGA CORE] Starting evidence interrogation...' :
+        isFr ? '🪓 [BABAYAGA CORE] Démarrage de l\'interrogatoire des preuves...' :
+        '🪓 [BABAYAGA CORE] Iniciando interrogatorio de evidencia...',
+        '#38bdf8'
+      );
+      speakAgent(
+        'babayaga',
+        isEn ? 'Starting evidence interrogation. Truth asks no permission.' :
+        isFr ? 'Démarrage de l\'interrogatoire. La vérité ne demande pas de permission.' :
+        'Iniciando interrogatorio de evidencia. La verdad no pide permiso.',
+        isEn ? 'en-US' : (isFr ? 'fr-FR' : 'es-CO')
+      );
 
       setTimeout(() => {
-        printLog('🔒 [CAPA 1] Calculando SHA-256 de la muestra...', '#94a3b8');
+        printLog(
+          isEn ? '🔒 [LAYER 1] Computing sample SHA-256...' :
+          isFr ? '🔒 [COUCHE 1] Calcul du SHA-256 de l\'échantillon...' :
+          '🔒 [CAPA 1] Calculando SHA-256 de la muestra...',
+          '#94a3b8'
+        );
       }, 400);
 
       setTimeout(() => {
         if (val === 'e14_mesa_1' || val === 'e14_mesa_2') {
           printLog('⚡ [SHA-256] b10ec66970d6911ffc5ffaed53e9d91793d9b15683c254f6ca137ebddf89f9ed', '#14b8a6');
-          printLog('🔍 [CAPA 2 - XREF] Evaluando estructura interna de objetos...', '#94a3b8');
+          printLog(
+            isEn ? '🔍 [LAYER 2 - XREF] Inspecting internal object hierarchy...' :
+            isFr ? '🔍 [COUCHE 2 - XREF] Évaluation de la hiérarchie interne des objets...' :
+            '🔍 [CAPA 2 - XREF] Evaluando estructura interna de objetos...',
+            '#94a3b8'
+          );
         } else {
           printLog('⚡ [SHA-256] 4a8f9c12b73e51082a44b1c900e57f123456789abcdef0123456789abcdef012', '#14b8a6');
-          printLog('🔍 [CAPA 2 - XREF] Evaluando estructura interna de objetos...', '#94a3b8');
+          printLog(
+            isEn ? '🔍 [LAYER 2 - XREF] Inspecting internal object hierarchy...' :
+            isFr ? '🔍 [COUCHE 2 - XREF] Évaluation de la hiérarchie interne des objets...' :
+            '🔍 [CAPA 2 - XREF] Evaluando estructura interna de objetos...',
+            '#94a3b8'
+          );
         }
       }, 1000);
 
       setTimeout(() => {
         if (val === 'e14_mesa_1' || val === 'e14_mesa_2') {
           printLog('⚠️ [ALERTA XREF] reported number of objects (15) is not one plus the highest object number (13)', '#ef4444');
-          printLog('🎨 [CAPA 3 - RASTER] Escaneando capas 1bpc e inyecciones sintéticas...', '#94a3b8');
+          printLog(
+            isEn ? '🎨 [LAYER 3 - RASTER] Scanning 1bpc masks & synthetic layers...' :
+            isFr ? '🎨 [COUCHE 3 - RASTER] Analyse des masques 1bpc et calques synthétiques...' :
+            '🎨 [CAPA 3 - RASTER] Escaneando capas 1bpc e inyecciones sintéticas...',
+            '#94a3b8'
+          );
         } else {
-          printLog('✅ [XREF] Estructura de objetos 100% íntegra. Sin descalces.', '#10b981');
-          printLog('🎨 [CAPA 3 - RASTER] Verificando varianza en canales de imagen...', '#94a3b8');
+          printLog(
+            isEn ? '✅ [XREF] Object structure 100% intact. Zero delta.' :
+            isFr ? '✅ [XREF] Structure des objets 100% intacte. Aucun décalage.' :
+            '✅ [XREF] Estructura de objetos 100% íntegra. Sin descalces.',
+            '#10b981'
+          );
+          printLog(
+            isEn ? '🎨 [LAYER 3 - RASTER] Verifying image channel variance...' :
+            isFr ? '🎨 [COUCHE 3 - RASTER] Vérification de la variance des canaux d\'image...' :
+            '🎨 [CAPA 3 - RASTER] Verificando varianza en canales de imagen...',
+            '#94a3b8'
+          );
         }
       }, 1800);
 
       setTimeout(() => {
         if (val === 'e14_mesa_1' || val === 'e14_mesa_2') {
-          printLog('⚠️ [RASTER] Varianza Cero detectada (Std = 0.0) — Capa de fondo sintética inyectada.', '#ef4444');
-          printLog('🚨 [VEREDICTO FINAL] ARCHIVO ALTERADO DIGITALMENTE — CICATRIZ XREF DETECTADA.', '#ef4444');
-          speakAgent('tycho', 'Alerta. Discrepancia XREF y varianza cero confirmadas. Archivo alterado.');
+          printLog(
+            isEn ? '⚠️ [RASTER] Zero Variance detected (Std = 0.0) — Synthetic background mask injected.' :
+            isFr ? '⚠️ [RASTER] Variance nulle détectée (Std = 0.0) — Masque de fond synthétique injecté.' :
+            '⚠️ [RASTER] Varianza Cero detectada (Std = 0.0) — Capa de fondo sintética inyectada.',
+            '#ef4444'
+          );
+          printLog(
+            isEn ? '🚨 [FINAL VERDICT] DIGITALLY ALTERED FILE — XREF PHANTOM SCAR DETECTED.' :
+            isFr ? '🚨 [VERDICT FINAL] FICHIER MODIFIÉ NUMÉRIQUEMENT — CICATRICE XREF FANTÔME DÉTECTÉE.' :
+            '🚨 [VEREDICTO FINAL] ARCHIVO ALTERADO DIGITALMENTE — CICATRIZ XREF DETECTADA.',
+            '#ef4444'
+          );
+          speakAgent(
+            'tycho',
+            isEn ? 'Alert. XREF discrepancy and zero variance confirmed. Document altered.' :
+            isFr ? 'Alerte. Discrépance XREF et variance zéro confirmées. Document modifié.' :
+            'Alerta. Discrepancia XREF y varianza cero confirmadas. Archivo alterado.',
+            isEn ? 'en-US' : (isFr ? 'fr-FR' : 'es-CO')
+          );
         } else {
-          printLog('✅ [RASTER] Ruido térmico óptico normal (Std > 12.4). Sin máscaras sintéticas.', '#10b981');
-          printLog('🎉 [VEREDICTO FINAL] EVIDENCIA LIMPIA Y ESTRUCTURALMENTE ÍNTEGRA.', '#10b981');
-          speakAgent('tycho', 'Estructura íntegra. No se detectan anomalías digitales.');
+          printLog(
+            isEn ? '✅ [RASTER] Normal optical thermal noise (Std > 12.4). No synthetic masks.' :
+            isFr ? '✅ [RASTER] Bruit thermique optique normal (Std > 12.4). Aucun masque synthétique.' :
+            '✅ [RASTER] Ruido térmico óptico normal (Std > 12.4). Sin máscaras sintéticas.',
+            '#10b981'
+          );
+          printLog(
+            isEn ? '🎉 [FINAL VERDICT] CLEAN EVIDENCE, STRUCTURALLY INTEGRAL.' :
+            isFr ? '🎉 [VERDICT FINAL] PREUVE PROPRE ET STRUCTURELLEMENT INTACTE.' :
+            '🎉 [VEREDICTO FINAL] EVIDENCIA LIMPIA Y ESTRUCTURALMENTE ÍNTEGRA.',
+            '#10b981'
+          );
+          speakAgent(
+            'tycho',
+            isEn ? 'Integral structure. No digital anomalies detected.' :
+            isFr ? 'Structure intacte. Aucune anomalie numérique détectée.' :
+            'Estructura íntegra. No se detectan anomalías digitales.',
+            isEn ? 'en-US' : (isFr ? 'fr-FR' : 'es-CO')
+          );
         }
       }, 2600);
     });
