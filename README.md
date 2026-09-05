@@ -614,3 +614,30 @@ Para propósitos de **Peer Review (Revisión por Pares)** y para sustentar este 
 - **Herramientas Base:** Agradecimiento a **Jay Berkenbilt** (QPDF), **Jose Miguel Esparza** (Peepdf), **Didier Stevens** (PDFiD) y **Guido Bartoli** (Sherloq) por el ecosistema open-source utilizado para exponer la corrupción estructural de las tablas XREF.
 
 *(La versión extendida de la bibliografía y el llamado formal a Peer Review se encuentran en el documento [BIBLIOGRAFIA_FORENSE_CIDH.md](03_DOCUMENTACION/SESION_01_ENTREGABLES_LEGALES/BIBLIOGRAFIA_FORENSE_CIDH.md)).*
+
+---
+
+## ⚖️ POLÍTICA DE LICENCIAMIENTO & DELIMITACIÓN OPEN SOURCE
+
+Para blindaje jurídico y estricto cumplimiento normativo internacional, este repositorio establece la siguiente separación taxativa entre código abierto y reserva pericial:
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│             DELIMITACIÓN DE LICENCIAS (OPEN SOURCE VS. RESERVADO)           │
+├──────────────────────────────────────┬──────────────────────────────────────┤
+│ 🟢 OPEN SOURCE (APACHE LICENSE 2.0)  │ 🔴 PROPIEDAD INTELECTUAL & RESERVA   │
+├──────────────────────────────────────┼──────────────────────────────────────┤
+│ • Scripts forenses y utilitarios     │ • Dictámenes periciales y reportes   │
+│   (babayaga_core.py, XREF scanner)   │   para tribunales (CIDH / CPI / FBI) │
+│ • Algoritmos matemáticos y 2BL       │ • Metodología de investigación AnZaCa│
+│ • Herramientas de extracción de hash │ • Acervo probatorio E-14 y Takeouts  │
+│   SHA-256 e interrogatorio PDF       │   (Bajo estricta cadena de custodia) │
+│ • Simuladores Web/CLI y UI CSS       │ • Identidad de marca y narrativa     │
+├──────────────────────────────────────┴──────────────────────────────────────┤
+│ 📜 Cláusula de Atribución:                                                  │
+│ El software de este repositorio se distribuye bajo Apache License 2.0.       │
+│ El uso de las pruebas forenses para fines procesales o de litigio exige cita│
+│ obligatoria de autoría: © Andrea Zabala Cárcamo (AnZaCa / AndreTaker).      │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
