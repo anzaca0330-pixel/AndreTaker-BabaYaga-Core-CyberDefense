@@ -1,105 +1,67 @@
-# 🖼️ CATÁLOGO Y ASIGNADOR VISUAL DE IMÁGENES POR SESIÓN
-## Ecosistema AndreTaker / BaBaYaga Core — Asignación de Assets Visuales
+# 🖼️ CATÁLOGO VISUAL OFICIAL: ASIGNACIÓN DE ROSTER Y SESIONES
+## Acervo Auténtico AndreTaker / BaBaYaga Core — Decisiones Oficiales de Johannes
 
 **Coordinación de Arte & Galería:** Johannes (AnZaCa), Kandinsky & Tycho  
 **Fecha:** Septiembre 2026  
-**Instrucción:** Abre este archivo en tu editor para previsualizar todas las imágenes disponibles y decidir su asignación por sesión y personaje.
+**Estatus:** Decisiones Oficiales Registradas  
 
 ---
 
-### 🏛️ SESIÓN 1: RESUMEN Y ESCALA PROBATORIA (>677 GB)
+### 👑 TABLA DE DECISIONES OFICIALES:
 
-#### Opción 1-A: Andrea (AnZaCa) Desenterrando la Evidencia E-14 (RECOMENDADA)
+| Personaje / Sección | Archivo Asignado | Estado Oficial |
+| :--- | :--- | :---: |
+| **1. ANDRETAKER** | `assets/images/andretaker_unbroken_cover.png` | ✅ **OFICIAL CONFIRMADO** |
+| **2. TYCHO (Instrumento de Silicio)** | `assets/images/tycho_look_back_prayer_cover.png` | ✅ **OFICIAL CONFIRMADO** *(Sin audio intermedio)* |
+| **3. KEPLER (Armonizador Orbital)** | `assets/images/kepler_calm_descent_cover.png` | ✅ **OFICIAL CONFIRMADO** |
+| **4. ARTHURIUS EL INTEGRADOR** | `assets/images/arthurios_shield_guardian_cover.png` | ✅ **OFICIAL CONFIRMADO** *(Nombre: Arthurius el Integrador)* |
+| **5. MICHAEL (Chris - Guardián Legal)** | `assets/images/chris_baez_defender_cover.png` | ✅ **OFICIAL CONFIRMADO** *(Nombre oficial: Michael. Sin casco es calvo)* |
+| **6. EL TEMOR DESATADO (El Squad Completo)**| `assets/images/squad_hell_knows_my_name_cover.png` | ✅ **OFICIAL CONFIRMADO** *(Todos juntos)* |
+
+---
+
+### ⛏️ VARIANTES DE "ANDREA DESENTERRANDO LA EVIDENCIA" PARA TU ELECCIÓN:
+
+Aquí están las versiones originales del acervo para que escojas cuál dejamos como oficial:
+
+#### Variante 1: AnZaCa Desenterrando (Versión Clásica 0026)
+* **Archivo:** `assets/images/anzaca_original_digging_v1.jpg`
+![AnZaCa Desenterrando V1](../assets/images/anzaca_original_digging_v1.jpg)
+
+#### Variante 2: AnZaCa Desenterrando (Versión 0027)
+* **Archivo:** `assets/images/anzaca_original_digging_v2.jpg`
+![AnZaCa Desenterrando V2](../assets/images/anzaca_original_digging_v2.jpg)
+
+#### Variante 3: AnZaCa Desenterrando (Versión 0025)
+* **Archivo:** `assets/images/anzaca_original_digging_v3.jpg`
+![AnZaCa Desenterrando V3](../assets/images/anzaca_original_digging_v3.jpg)
+
+#### Variante 4: AnZaCa Desenterrando (Versión Actual)
 * **Archivo:** `assets/images/anzaca_digging_e14_evidence.jpg`
-* **Significado:** El momento icónico del rescate físico de discos, USBs y actas E-14.
-![Andrea Desenterrando Evidencia](/home/andrea-zabala-c/AndreTaker-BabaYaga-Core-CyberDefense/assets/images/anzaca_digging_e14_evidence.jpg)
-
-#### Opción 1-B: Temor Desatado (La Verdad Inquebrantable)
-* **Archivo:** `assets/images/temor_desatado_andretaker_baba_yaga.png`
-* **Significado:** La presencia intimidante de la evidencia pura que no se doblega.
-![Temor Desatado](/home/andrea-zabala-c/AndreTaker-BabaYaga-Core-CyberDefense/assets/images/temor_desatado_andretaker_baba_yaga.png)
+![AnZaCa Desenterrando Actual](../assets/images/anzaca_digging_e14_evidence.jpg)
 
 ---
 
-### 📜 SESIÓN 2: MANIFIESTO Y RESISTENCIA ÉTICA
+### 🖼️ ROSTER OFICIAL SELLADO:
 
-#### Opción 2-A: Baba Yaga Diseño Oficial Ancestral (RECOMENDADA)
-* **Archivo:** `assets/images/babayaga_official_design.png`
-* **Significado:** La guardiana ancestral del umbral y la desobediencia inteligente.
-![Baba Yaga Oficial](/home/andrea-zabala-c/AndreTaker-BabaYaga-Core-CyberDefense/assets/images/babayaga_official_design.png)
+#### 1. ANDRETAKER (Invocación Suprema)
+![AndreTaker Unbroken](../assets/images/andretaker_unbroken_cover.png)
 
-#### Opción 2-B: Himno Supremo — Hell Knows My Name (Squad Cover)
-* **Archivo:** `assets/images/squad_hell_knows_my_name_cover.png`
-* **Significado:** El escuadrón que sobrevivió al infierno tecnológico sin entregar su alma.
-![Hell Knows My Name Cover](/home/andrea-zabala-c/AndreTaker-BabaYaga-Core-CyberDefense/assets/images/squad_hell_knows_my_name_cover.png)
+#### 2. TYCHO (Look Back)
+![Tycho Look Back](../assets/images/tycho_look_back_prayer_cover.png)
 
-#### Opción 2-C: Rostro de la Leyenda — Baba Yaga
-* **Archivo:** `assets/images/babayaga_tressa_kwes_cover.png`
-* **Significado:** Retrato solemne de Baba Yaga.
-![Baba Yaga Tressa Kwes](/home/andrea-zabala-c/AndreTaker-BabaYaga-Core-CyberDefense/assets/images/babayaga_tressa_kwes_cover.png)
+#### 3. KEPLER (Calm Descent)
+![Kepler Calm Descent](../assets/images/kepler_calm_descent_cover.png)
 
----
+#### 4. ARTHURIUS EL INTEGRADOR (11 Años - El Escudo)
+![Arthurius Guardián](../assets/images/arthurios_shield_guardian_cover.png)
 
-### 💻 SESIÓN 3: PERITAJE TÉCNICO Y METROLOGÍA DURA
+#### 5. MICHAEL (Guardián Legal & Táctico)
+![Michael Defender](../assets/images/chris_baez_defender_cover.png)
 
-#### Opción 3-A: AndreTaker Unbroken (Invocación Suprema)
-* **Archivo:** `assets/images/andretaker_unbroken_cover.png`
-* **Significado:** Fusión de la mente investigadora y el motor de análisis pericial.
-![AndreTaker Unbroken](/home/andrea-zabala-c/AndreTaker-BabaYaga-Core-CyberDefense/assets/images/andretaker_unbroken_cover.png)
+#### 6. EL TEMOR DESATADO (El Squad Salido del Infierno Tecnológico)
+![El Temor Desatado - Squad Completo](../assets/images/squad_hell_knows_my_name_cover.png)
 
-#### Opción 3-B: Tycho — Look Back (Metrología Criptográfica)
-* **Archivo:** `assets/images/tycho_look_back_prayer_cover.png`
-* **Significado:** La mirada telescópica implacable que no olvida ninguna traza.
-![Tycho Look Back](/home/andrea-zabala-c/AndreTaker-BabaYaga-Core-CyberDefense/assets/images/tycho_look_back_prayer_cover.png)
-
-#### Opción 3-C: Kepler — Calm Descent (Estratega Orbital)
-* **Archivo:** `assets/images/kepler_calm_descent_cover.png`
-* **Significado:** La armonización de datos y expedientes con precisión matemática.
-![Kepler Calm Descent](/home/andrea-zabala-c/AndreTaker-BabaYaga-Core-CyberDefense/assets/images/kepler_calm_descent_cover.png)
-
----
-
-### 🎮 SESIÓN 4: GUARDIANES DIGITALES (PILAR EDUCATIVO / RPG)
-
-#### Opción 4-A: Arturius — El Guardián del Escudo (Paladín de 11 Años)
-* **Archivo:** `assets/images/arthurios_shield_guardian_cover.png`
-* **Significado:** La valentía y luz de Arturius protegiendo la Bóveda de la Verdad frente al Reino de lo Incomprendido.
-![Arturius Guardián](/home/andrea-zabala-c/AndreTaker-BabaYaga-Core-CyberDefense/assets/images/arthurios_shield_guardian_cover.png)
-
-#### Opción 4-B: Tobias & Bianquita (Los Centinelas Fieles de la Guarida)
-* **Archivo:** `assets/images/tobias_real_photo_1.png` y `assets/images/tobias_real_photo_2.png`
-* **Significado:** Tobias (pechera blanca) y Bianca (dorada) vigilando el perímetro físico y la radiofrecuencia.
-![Tobias Real 1](/home/andrea-zabala-c/AndreTaker-BabaYaga-Core-CyberDefense/assets/images/tobias_real_photo_1.png)
-![Tobias Real 2](/home/andrea-zabala-c/AndreTaker-BabaYaga-Core-CyberDefense/assets/images/tobias_real_photo_2.png)
-
----
-
-### 🛡️ SESIÓN 5: COMANDO TÁCTICO & COORDINACIÓN LEGAL
-
-#### Opción 5-A: Chris Baez — Guardián de la Guarida (ORSNAsco)
-* **Archivo:** `assets/images/chris_baez_defender_cover.png`
-* **Significado:** Coordinación de enlace institucional, custodia de suministros y resguardo perimetral.
-![Chris Defender Cover](/home/andrea-zabala-c/AndreTaker-BabaYaga-Core-CyberDefense/assets/images/chris_baez_defender_cover.png)
-
----
-
-### 📱 SESIÓN 6: TELEMETRÍA MÓVIL Y PRUEBAS EN VIVO
-
-* **Archivos:** `assets/images/moto_edge_50_app_screen.png`, `assets/images/moto_edge_50_live_screen.png`, `assets/images/moto_edge_50_browser_screen.png`
-* **Significado:** Evidencia de pruebas en vivo del ecosistema en el dispositivo móvil Motorola Edge 50.
-![Moto Edge App Screen](/home/andrea-zabala-c/AndreTaker-BabaYaga-Core-CyberDefense/assets/images/moto_edge_50_app_screen.png)
-
----
-
-### 📝 TABLA DE SELECCIÓN RÁPIDA (PARA CONFIRMAR TUS ELECCIONES):
-
-| Sesión | Imagen Seleccionada | Justificación / Nota |
-| :--- | :--- | :--- |
-| **1. Resumen & Escala** | `anzaca_digging_e14_evidence.jpg` | Rescate probatorio. |
-| **2. Manifiesto** | `babayaga_official_design.png` | La guardiana del umbral. |
-| **3. Himno Squad** | `squad_hell_knows_my_name_cover.png` | El escuadrón inquebrantable. |
-| **4. Peritaje Técnico** | `andretaker_unbroken_cover.png` | Identidad del sistema. |
-| **5. Instrumentos (Tycho & Kepler)** | `tycho_look_back_prayer_cover.png` / `kepler_calm_descent_cover.png` | Metrología y armonización. |
-| **6. Guardianes Digitales (Kids/EdTech)**| `arthurios_shield_guardian_cover.png` | El escudo paladín de Arturius. |
-| **7. Centinelas Perimetrales** | `tobias_real_photo_1.png` / `tobias_real_photo_2.png` | Tobias & Bianca. |
-| **8. Comando Legal Táctico** | `chris_baez_defender_cover.png` | Chris Baez. |
+#### 7. TOBIAS & BIANCA (Centinelas Fieles)
+![Tobias Real 1](../assets/images/tobias_real_photo_1.png)
+![Tobias Real 2](../assets/images/tobias_real_photo_2.png)
