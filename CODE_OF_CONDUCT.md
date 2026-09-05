@@ -1,29 +1,49 @@
-# Contributor Covenant Code of Conduct
+# CONTRIBUTOR COVENANT CODE OF CONDUCT
+## Ecosistema Pericial AndreTaker / BaBaYaga Core
 
-## Our Pledge
+### 1. Our Pledge
+We, as members, contributors, and maintainers of the **AndreTaker / BaBaYaga Core** project, pledge to make participation in our community a harassment-free and empowering experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
-We as members, contributors, and leaders pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, caste, color, religion, or sexual identity and orientation.
+We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and scientifically rigorous community.
 
-We pledge to act and interact in ways that contribute to an open, welcoming, diverse, inclusive, and healthy community.
+---
 
-## Our Standards
+### 2. Our Standards
+Examples of behavior that contributes to a positive environment for our project include:
+* Demonstrating empathy, scientific rigor, and kindness toward other people.
+* Being respectful of differing opinions, viewpoints, and experiences.
+* Giving and gracefully accepting constructive feedback based on empirical data and reproducible tests.
+* Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience.
+* Focusing on what is best not just for us as individuals, but for the human rights and open-source forensics community as a whole.
 
-Examples of behavior that contributes to a positive environment for our community include:
+Examples of unacceptable behavior include:
+* The use of sexualized language or imagery, and sexual attention or advances of any kind.
+* Trolling, insulting or derogatory comments, and personal or political attacks.
+* Public or private harassment, doxxing, or unauthorized disclosure of personal identity records.
+* Publishing others' private information, such as physical or email addresses, without their explicit permission.
+* Advocating for or attempting to introduce offensive cyber-weapons, spyware, or malicious payloads into the codebase.
 
-* Demonstrating empathy and kindness toward other people
-* Being respectful of differing opinions, viewpoints, and experiences
-* Giving and gracefully accepting constructive feedback
-* Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience
-* Focusing on what is best not just for us as individuals, but for the overall community
+---
 
-## Enforcement Responsibilities
+### 3. Enforcement Responsibilities
+Project maintainers are responsible for clarifying and enforcing our standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.
 
-Community leaders are responsible for clarifying and enforcing our standards of acceptable behavior and will take appropriate and fair corrective action in response to any behavior that they deem inappropriate, threatening, offensive, or harmful.
+Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned with this Code of Conduct, and will communicate reasons for moderation decisions when appropriate.
 
-## Scope
+---
 
-This Code of Conduct applies within all project spaces, and also applies when an individual is officially representing the project in public spaces.
+### 4. Scope
+This Code of Conduct applies within all project spaces (GitHub repositories, issue trackers, pull requests, community discussions, and communication channels), and also applies when an individual is officially representing the project in public spaces.
 
-## Attribution
+---
 
+### 5. Enforcement & Reporting
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project lead at:  
+📧 **`andretaker@proton.me`**
+
+All complaints will be reviewed and investigated promptly and fairly. All maintainers are obligated to respect the privacy and security of the reporter of any incident.
+
+---
+
+### 6. Attribution
 This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org), version 2.1.
