@@ -617,27 +617,34 @@ Para propósitos de **Peer Review (Revisión por Pares)** y para sustentar este 
 
 ---
 
-## ⚖️ POLÍTICA DE LICENCIAMIENTO & DELIMITACIÓN OPEN SOURCE
+## ⚖️ POLÍTICA DE LICENCIAMIENTO, SERVICIOS COMERCIALES & SECRETO EMPRESARIAL (*TRADE SECRETS*)
 
-Para blindaje jurídico y estricto cumplimiento normativo internacional, este repositorio establece la siguiente separación taxativa entre código abierto y reserva pericial:
+Para blindaje jurídico integral, protección de propiedad intelectual y estricto cumplimiento normativo internacional, este repositorio establece la delimitación taxativa de sus activos:
 
 ```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│             DELIMITACIÓN DE LICENCIAS (OPEN SOURCE VS. RESERVADO)           │
-├──────────────────────────────────────┬──────────────────────────────────────┤
-│ 🟢 OPEN SOURCE (APACHE LICENSE 2.0)  │ 🔴 PROPIEDAD INTELECTUAL & RESERVA   │
-├──────────────────────────────────────┼──────────────────────────────────────┤
-│ • Scripts forenses y utilitarios     │ • Dictámenes periciales y reportes   │
-│   (babayaga_core.py, XREF scanner)   │   para tribunales (CIDH / CPI / FBI) │
-│ • Algoritmos matemáticos y 2BL       │ • Metodología de investigación AnZaCa│
-│ • Herramientas de extracción de hash │ • Acervo probatorio E-14 y Takeouts  │
-│   SHA-256 e interrogatorio PDF       │   (Bajo estricta cadena de custodia) │
-│ • Simuladores Web/CLI y UI CSS       │ • Identidad de marca y narrativa     │
-├──────────────────────────────────────┴──────────────────────────────────────┤
-│ 📜 Cláusula de Atribución:                                                  │
-│ El software de este repositorio se distribuye bajo Apache License 2.0.       │
-│ El uso de las pruebas forenses para fines procesales o de litigio exige cita│
-│ obligatoria de autoría: © Andrea Zabala Cárcamo (AnZaCa / AndreTaker).      │
-└─────────────────────────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│               DELIMITACIÓN TRIPARTITA DE ACTIVOS (CÓDIGO, EVIDENCIA Y COMERCIO)                        │
+├───────────────────────────────┬───────────────────────────────┬────────────────────────────────────────┤
+│ 🟢 OPEN SOURCE (APACHE 2.0)   │ 🔴 RESERVA PERICIAL / JUDICIAL│ 💼 LÍNEA COMERCIAL & SERVICIOS (VENTA) │
+├───────────────────────────────┼───────────────────────────────┼────────────────────────────────────────┤
+│ • Scripts forenses y utilitarios│ • Dictámenes periciales y     │ • Informes de auditoría pericial       │
+│   (babayaga_core.py, XREF)    │   reportes para cortes (CIDH) │   privada y forense corporativa        │
+│ • Algoritmos matemáticos y 2BL│ • Metodología de investigación│ • Consultoría de contrainteligencia,   │
+│ • Herramientas de cálculo hash│ • Bóvedas probatorias >677 GB │   mitigación Anti-Palantir y OpSec     │
+│   SHA-256 e interrogatorio    │ • Actas crudas E-14 y Takeouts│ • Licencias de uso institucional de los│
+│ • Demos web y simuladores     │ • Cadena de custodia cerrada  │   motores avanzados de auditoría       │
+├───────────────────────────────┴───────────────────────────────┴────────────────────────────────────────┤
+│ 🛡️ PROTECCIÓN DE SECRETO EMPRESARIAL (TRADE SECRET PROTECTION - 18 U.S.C. § 1836 / DTSA & VIRGINIA UTSA):│
+│ La arquitectura propietaria de correlación, ponderaciones heurísticas de detección, modelos analíticos │
+│ y el know-how forense de AndreTaker constituyen SECRETOS EMPRESARIALES (Trade Secrets) propiedad de   │
+│ AndreTaker CyberDefense LLC / Andrea Zabala Cárcamo. Su sustracción, copia no autorizada, revelación   │
+│ indebida o explotación comercial por terceros sin contrato formal acarreará responsabilidad civil      │
+│ y persecución penal conforme al estatuto federal estadounidense de defensa de secretos comerciales.    │
+├────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 📜 Cláusula de Atribución y Explotación:                                                               │
+│ El software comunitario se distribuye bajo Apache License 2.0 para fines de auditoría cívica abierta. │
+│ Prohibida toda comercialización, reventa o monetización por terceros no autorizados.                  │
+│ Todos los derechos de explotación comercial reservados a © Andrea Zabala Cárcamo (AnZaCa / AndreTaker).│
+└────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
