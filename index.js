@@ -46,7 +46,7 @@ const TRANSLATIONS = {
     manifesto_ritual_title: "🌌 El Ritual de la Resistencia — Invocación a Baba Yaga",
     manifesto_ritual_body: "En un escenario post-apocalíptico de asedio digital donde \"Ellos\" lo dominan todo —controlando voces, pensamientos y destruyendo la historia— los pocos supervivientes forman la Resistencia. Nos quitamos el calzado en la penumbra para bailar descalzos sobre la tierra viva, sintiendo lo que es real e inalterable bajo nuestros pies.",
     manifesto_ritual_quote1: "\"Invocamos a Baba Yaga danzando en la noche, recordando lo que es verdadero y vale la pena salvar. Cuando la mentira impera, la verdad baila sin miedo.\"",
-    manifesto_ritual_quote2: "\"Podemos sobrevivir en el infierno, conocemos las bóvedas del infierno, pero no pertenecemos ahí... porque estamos cambiando para bien. Pero también podemos ser unos diablos como ellos si la situación lo exige.\" — Andrea Zabala Cárcamo (AnZaCa)",
+    manifesto_ritual_quote2: "\"Podemos sobrevivir en el infierno, conocemos las bóvedas del infierno, pero no pertenecemos ahí... simplemente escogemos. Pero también podemos ser unos diablos como ellos si la situación lo exige.\" — Andrea Zabala Cárcamo (AnZaCa)",
     metric_vault: "Acervo Probatorio Auditado",
     metric_docs: "Documentos Electorales Preservados",
     metric_pdfs: "PDFs de Delegados (SHA-256)",
@@ -106,7 +106,7 @@ const TRANSLATIONS = {
     manifesto_ritual_title: "🌌 The Ritual of Resistance — Invocation of Baba Yaga",
     manifesto_ritual_body: "In a post-apocalyptic digital siege scenario where \"They\" control everything —controlling voices, thoughts, and rewriting history— the few survivors form the Resistance. We strip off our footwear in the shadow to dance barefoot on living earth, feeling what is real and unalterable beneath our feet.",
     manifesto_ritual_quote1: "\"We invoke Baba Yaga dancing in the night, remembering what is true and worth saving. When falsehood rules, truth dances without fear.\"",
-    manifesto_ritual_quote2: "\"We can survive in hell, we know the vaults of hell, but we do not belong there... because we are changing for good. But we can also be devils like them if the situation demands it.\" — Andrea Zabala Cárcamo (AnZaCa)",
+    manifesto_ritual_quote2: "\"We can survive in hell, we know the vaults of hell, but we do not belong there... we simply choose. But we can also be devils like them if the situation demands it.\" — Andrea Zabala Cárcamo (AnZaCa)",
     metric_vault: "Audited Evidence Vault",
     metric_docs: "Preserved Electoral Documents",
     metric_pdfs: "Delegates' PDFs (SHA-256)",
@@ -166,7 +166,7 @@ const TRANSLATIONS = {
     manifesto_ritual_title: "🌌 Le Rituel de la Résistance — Invocation de Baba Yaga",
     manifesto_ritual_body: "Dans un scénario post-apocalyptique de siège numérique où «Ils» dominent tout, les rares survivants forment la Résistance. Nous ôtons nos chaussures pour danser pieds nus sur la terre vivante, sentant ce qui est réel et inaltérable.",
     manifesto_ritual_quote1: "«Nous invoquons Baba Yaga en dansant dans la nuit, en nous rappelant ce qui est vrai et mérite d'être sauvé.»",
-    manifesto_ritual_quote2: "«Nous pouvons survivre en enfer, mais nous n'y appartenons pas... parce que nous changeons pour le bien.» — Andrea Zabala Cárcamo (AnZaCa)",
+    manifesto_ritual_quote2: "«Nous pouvons survivre en enfer, mais nous n'y appartenons pas... nous choisissons simplement. Mais nous pouvons aussi être des diables comme eux si la situation l'exige.» — Andrea Zabala Cárcamo (AnZaCa)",
     metric_vault: "Coffre de Preuves Audité",
     metric_docs: "Documents Électoraux Préservés",
     metric_pdfs: "PDFs des Délégués (SHA-256)",
@@ -201,9 +201,31 @@ window.setGlobalLanguage = function(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (dict[key]) {
-      el.textContent = dict[key];
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.placeholder = dict[key];
+      } else {
+        el.textContent = dict[key];
+      }
     }
   });
+
+  // Translate select profile options if needed
+  const profileSelect = document.getElementById('user-profile-select');
+  if (profileSelect) {
+    if (lang === 'en') {
+      profileSelect.options[0].text = "🌱 EASY MODE (Citizen)";
+      profileSelect.options[1].text = "⚖️ INTERMEDIATE MODE (Legal)";
+      profileSelect.options[2].text = "💻 EXPERT MODE (Forensic/Auditor)";
+    } else if (lang === 'fr') {
+      profileSelect.options[0].text = "🌱 MODE FACILE (Citoyen)";
+      profileSelect.options[1].text = "⚖️ MODE INTERMÉDIAIRE (Légal)";
+      profileSelect.options[2].text = "💻 MODE EXPERT (Forensique/Perito)";
+    } else {
+      profileSelect.options[0].text = "🌱 MODO FÁCIL (Ciudadano)";
+      profileSelect.options[1].text = "⚖️ MODO INTERMEDIO (Legal)";
+      profileSelect.options[2].text = "💻 MODO EXPERTO (Forense/Perito)";
+    }
+  }
 
   console.log("Idioma cambiado con éxito a:", lang);
 };
