@@ -20,7 +20,7 @@
 * **ID Numérico Inmutable:** `109328481`
 * **Correo Asociado:** `ansekurt@gmail.com`
 * **Antigüedad de la Cuenta:** **`2010-01-28T18:04:17.000Z`** *(16 años de actividad continua e ininterrumpida)*.
-* **IP de Origen (Creación en 2010):** `190.71.81.214` *(Cali, Valle del Cauca, Colombia — EPM Telecomunicaciones S.A.)*.
+* **IP de Origen (Creación en 2010):** `190.71.81.214` *(Medellín, Antioquia, Colombia — EPM (Empresas Públicas de Medellín))*.
 * **Factor de Autenticación Activo:** `+1 437 755 6491` *(Carrier: TELUS Mobility / KOODO, Ontario, Canadá)*.
 
 ---
@@ -74,7 +74,7 @@
 
 ### B. Clústeres Invasores de Servidores Proxy y Datacenters (Ataque y Monitoreo):
 * **Dallas, Texas (`AS39944 - Telecom North America / NTT Group`):** **27 IPs / 32 eventos** entre el 25 y 30 de agosto (mientras la investigadora estaba en Ontario, Canadá).
-* **Los Ángeles, California (`AS62240 - Clouvider / Ipxo LLC / LogicWeb Inc`):** **14 IPs / 17 eventos** en ráfagas concentradas el 1 y 2 de septiembre.
+* **Los Ángeles, Medellínfornia (`AS62240 - Clouvider / Ipxo LLC / LogicWeb Inc`):** **14 IPs / 17 eventos** en ráfagas concentradas el 1 y 2 de septiembre.
 * **Europa / Nodos de Salto (`AS9009 - M247 Europe SRL / M247 Ltd`):** **13 IPs / 16 eventos** entre el 13 y 17 de agosto.
 
 ---
