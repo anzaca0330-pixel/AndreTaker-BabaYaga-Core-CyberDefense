@@ -79,21 +79,41 @@
 
 ---
 
-## 📜 6. Acciones Judiciales y Requerimientos Internacionales
+## 📜 6. Acciones Judiciales, Denuncias Institucionales y Requerimientos Internacionales
 
-1. **Requerimiento 18 U.S.C. § 2703(f) a X Corp. (Twitter):**  
+1. **Denuncia Formal ante RTVC Sistema de Medios Públicos (Radicado `202605510107022`):**
+   * **Fecha de Radicación:** **09 de Junio de 2026**.
+   * **Traslado Oficial:** Emitido el **17 de Junio de 2026** por la Subgerencia de Soporte Corporativo de RTVC.
+   * **Objeto Pericial:** Notificación formal del fraude electoral sistemático en actas E-14, denuncia de ciberacoso/asedio coordinado y **formalización técnica internacional de la categoría "BLIND MASKING"** (enmascaramiento ciego mediante esterilidad de píxeles `Std=0`).
+   * **Nexo con la Cuenta X/Twitter:** Demuestra que la actividad pública en `@anzaca` respaldó en tiempo real las denuncias radicadas formalmente ante las entidades del Estado colombiano.
+
+2. **Requerimiento 18 U.S.C. § 2703(f) a X Corp. (Twitter):**  
    * Formalizado en inglés ([FORMAL_EVIDENCE_REQUEST_X_CORP_USER_AGENTS.md](file:///home/andrea-zabala-c/Desktop/AUDITORIA_TWITTER_ARCHIVE_2026/FORMAL_EVIDENCE_REQUEST_X_CORP_USER_AGENTS.md)) con ámbito obligatorio del **01 de Junio al 07 de Septiembre de 2026**.
    * Exige la entrega de los *Raw Server Access Logs*, cadenas completas de *User-Agent* (marcas y modelos de dispositivos), headers HTTP de intermediación y métodos de autorización para desenmascarar a los operadores de los proxies de Dallas y Los Ángeles.
-2. **Incorporación a la Medida Cautelar CIDH (OEA):**  
-   * Vinculado formalmente al expediente **`CIDH - 0000117118`** (`MC-1137-28` / `IACHR-0000113728`) radicado hoy a las 02:24 PM.
-3. **Sustento del Proceso de Asilo Político en Canadá (IRB):**  
-   * Certifica la persecución transfronteriza y los ataques de intermediario sufridos tras la denuncia del fraude electoral.
+
+3. **Incorporación a la Medida Cautelar CIDH (OEA):**  
+   * Vinculado formalmente al expediente **`CIDH - 0000117118`** (`MC-1137-28` / `IACHR-0000113728`) radicado el 07 de Septiembre de 2026 a las 02:24 PM EDT.
+
+4. **Sustento del Proceso de Asilo Político en Canadá (IRB):**  
+   * Certifica la persecución transfronteriza, el asedio digital y los ataques de intermediario sufridos tras la denuncia del fraude electoral.
 
 ---
 
-## 🛡️ 7. Conclusiones Periciales
+## 🤖 7. Correlación Regional: Granjas de Bots y Ciber-Mercenarios (El Caso Bolivia / Cerimedo)
+
+El análisis del tráfico invasor sobre `@anzaca` coincide con los patrones de **Comportamiento Inauténtico Coordinado (CIB)** y guerra psicológica digital documentados recientemente en la región:
+
+1. **Paralelismo con el Desmantelamiento en Bolivia:**
+   * Las investigaciones judiciales y allanamientos en Bolivia (caso **Fernando Cerimedo / Red de Guerreros Digitales**) permitieron la incautación física de infraestructura dedicada de granjas de bots: racks de teléfonos móviles, conmutadores *SIM-box* multibanda, y servidores de retransmisión VoIP/Proxy.
+2. **Identidad de Modus Operandi:**
+   * **Enjambres de Datacenter:** La rotación de IPs registrada en `@anzaca` desde datacenters (`AS39944`, `AS40676`, `AS21859`, `AS9009`) refleja el uso de servidores dedicados idénticos a los empleados para inflar tendencias y censurar opositores en la región.
+   * **Hostigamiento Híbrido (Redes + Telefonía):** La articulación entre granjas de bots en redes sociales y conmutadores telefónicos automatizados (*Vishing / Caller ID Spoofing*) constituye una estrategia coordinada de desgaste psicológico y sondeo perimetral.
+
+---
+
+## 🛡️ 8. Conclusiones Periciales
 1. **Preservación Inmutable:** El archivo `.zip` maestro de 4.5 GB bajo SHA-256 inmutable constituye prueba material no repudiable de la difusión pública ininterrumpida de las pruebas forenses.
-2. **Nexo Causal Documentado:** La línea de tiempo de publicaciones y las denuncias formales en Colombia coinciden cronológicamente con las ráfagas de hostigamiento y los intentos de bloqueo de cuenta.
+2. **Nexo Causal Documentado:** La línea de tiempo de publicaciones, la denuncia formal ante RTVC (`202605510107022`) y las denuncias penales en Colombia coinciden cronológicamente con las ráfagas de hostigamiento y los intentos de bloqueo de cuenta.
 3. **Soberanía Recuperada:** Tras la conmutación a la línea canadiense de TELUS y la purga de sesiones, el 100% de las conexiones actuales pertenecen al dispositivo legítimo de la investigadora en Canadá.
 
 ---
