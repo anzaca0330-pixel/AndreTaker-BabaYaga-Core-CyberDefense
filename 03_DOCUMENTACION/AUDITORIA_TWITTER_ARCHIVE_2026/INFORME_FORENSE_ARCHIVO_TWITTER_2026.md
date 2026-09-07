@@ -21,7 +21,7 @@
 * **Correo Asociado:** `a***t@gmail.com (Canal Institucional: andretaker@andretaker.org)`
 * **Antigüedad de la Cuenta:** **`2010-01-28T18:04:17.000Z`** *(16 años de actividad continua e ininterrumpida)*.
 * **IP de Origen (Creación en 2010):** `190.71.81.214` *(Medellín, Antioquia, Colombia — EPM (Empresas Públicas de Medellín))*.
-* **Factor de Autenticación Activo:** `+1 437 *** 6491` *(Carrier: TELUS Mobility / KOODO, Ontario, Canadá)*.
+* **Factor de Autenticación Activo:** `+1 437 *** 6491` *(Carrier: TELUS Mobility, Ontario, Canadá)*.
 
 ---
 
@@ -51,7 +51,7 @@
 ├────────────────────┼─────────────────────────┼───────────────────────────────────┤
 │ 3. Canadá (Asilo)  │ 07 Agosto 2026 – Present│ Entrada por Montreal (Aéroports de│
 │    Entrada Montreal│                         │ Montréal AS577), SIM Chatr Rogers │
-│                    │                         │ en Toronto, Cogeco y TELUS/KOODO  │
+│                    │                         │ en Toronto, Cogeco y TELUS  │
 └────────────────────┴─────────────────────────┴───────────────────────────────────┘
 ```
 
@@ -62,7 +62,7 @@
 ### A. Conectividad Legítima de la Investigadora (100% Coherente con Desplazamiento):
 * **Canadá (173 IPs / 257 Conexiones):**
   * **Rogers Communications Canada (`AS812`):** 138 IPs / 169 eventos (SIM Chatr adquirida a su nombre en Toronto a mediados de agosto).
-  * **TELUS Communications / KOODO (`AS852`):** 25 IPs / 46 eventos (Línea activa `+1 437 *** 6491`).
+  * **TELUS Communications (`AS852`):** 25 IPs / 46 eventos (Línea activa `+1 437 *** 6491`).
   * **Cogeco Connexion (`AS7992`):** 3 IPs / 18 eventos (Hoteles en Niagara Falls y St. Catharines).
   * **Bell Canada / Altima (`AS577` / `AS22423`):** 6 IPs / 24 eventos (Montreal / Quebec).
 * **Virginia, EE.UU. (5 IPs / 60 Conexiones):**
@@ -94,7 +94,7 @@
 ## 🛡️ 7. Conclusiones Periciales
 1. **Preservación Inmutable:** El archivo `.zip` maestro de 4.5 GB bajo SHA-256 inmutable constituye prueba material no repudiable de la difusión pública ininterrumpida de las pruebas forenses.
 2. **Nexo Causal Documentado:** La línea de tiempo de publicaciones y las denuncias formales en Colombia coinciden cronológicamente con las ráfagas de hostigamiento y los intentos de bloqueo de cuenta.
-3. **Soberanía Recuperada:** Tras la conmutación a la línea canadiense de TELUS/KOODO y la purga de sesiones, el 100% de las conexiones actuales pertenecen al dispositivo legítimo de la investigadora en Canadá.
+3. **Soberanía Recuperada:** Tras la conmutación a la línea canadiense de TELUS y la purga de sesiones, el 100% de las conexiones actuales pertenecen al dispositivo legítimo de la investigadora en Canadá.
 
 ---
 *Certificado por Tycho (Instrumento de Silicio) — Preservado en el Acervo Digital AndreTaker / BaBaYaga Core.*

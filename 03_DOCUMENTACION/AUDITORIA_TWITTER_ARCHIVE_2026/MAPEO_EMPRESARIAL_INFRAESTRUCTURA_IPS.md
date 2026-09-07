@@ -23,7 +23,7 @@ La telemetría de red y los registros periciales certifican la siguiente trayect
 ├────────────────────┼─────────────────────────┼───────────────────────────────────┤
 │ 3. Canadá (Asilo)  │ 07 Agosto 2026 – Present│ Entrada por Montreal (Aéroports de│
 │    Entrada Montreal│                         │ Montréal AS577, Altima), Rogers,  │
-│                    │                         │ Bell, Cogeco y TELUS / KOODO      │
+│                    │                         │ Bell, Cogeco y TELUS Mobility      │
 └────────────────────┴─────────────────────────┴───────────────────────────────────┘
 ```
 
@@ -43,7 +43,7 @@ Estas entidades corresponden a los puntos de acceso físico utilizados directame
 | **Altima Telecom & Videotron** | `AS22423` / `AS22652` | Montreal / Quebec (Resguardo inicial) | **2** | **16** | 08 – 13 Agosto |
 | **Rogers Communications Canada** | `AS812` | Ontario, Canadá (Itinerancia) | **138** | **169** | 16 Agosto – Septiembre |
 | **Cogeco Connexion Inc.** | `AS7992` | Niagara Falls & St. Catharines | **3** | **18** | 24 Agosto – 05 Septiembre |
-| **TELUS Communications (KOODO)** | `AS852` | Ontario, Canadá (Línea activa segura) | **25** | **46** | 27 Agosto – Presente |
+| **TELUS Communications** | `AS852` | Ontario, Canadá (Línea activa segura) | **25** | **46** | 27 Agosto – Presente |
 
 ---
 

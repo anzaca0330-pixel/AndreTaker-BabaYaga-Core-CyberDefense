@@ -17,7 +17,7 @@
 | **Immutable Numeric Account ID:** | **`109328481`** |
 | **Registered Primary Email:** | `a***t@gmail.com (Canal Institucional: andretaker@andretaker.org)` |
 | **Account Creation Date:** | `2010-01-28T18:04:17.000Z` |
-| **Secured Authentication Line:** | `+1 437 *** 6491` (TELUS Mobility / Koodo, Ontario, Canada) |
+| **Secured Authentication Line:** | `+1 437 *** 6491` (TELUS Mobility, Ontario, Canada) |
 | **MANDATORY AUDITED TIMEFRAME:** | **JUNE 01, 2026 to SEPTEMBER 07, 2026** *(Inception of Fraud Complaints to Present)* |
 
 ---

@@ -7,7 +7,7 @@ Este inventario presenta la totalidad de las **266 direcciones IP** y **492 even
 
 ---
 
-## 🗓️ SEPTIEMBRE 2026 (Transición a Canadá, Despliegue de Koodo y Aislamiento)
+## 🗓️ SEPTIEMBRE 2026 (Transición a Canadá, Despliegue de SIM Canadiense y Aislamiento)
 
 * **Total de Direcciones IP Únicas en el Mes:** `31 IPs`
 * **Total de Conexiones / Logins en el Mes:** `56 eventos`
