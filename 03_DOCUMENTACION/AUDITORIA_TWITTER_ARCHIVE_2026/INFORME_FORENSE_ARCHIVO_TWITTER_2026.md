@@ -18,10 +18,10 @@
 * **Nombre de Pantalla:** Anzaca
 * **Nombre de Usuario:** `@anzaca`
 * **ID Numérico Inmutable:** `109328481`
-* **Correo Asociado:** `ansekurt@gmail.com`
+* **Correo Asociado:** `a***t@gmail.com (Canal Institucional: andretaker@andretaker.org)`
 * **Antigüedad de la Cuenta:** **`2010-01-28T18:04:17.000Z`** *(16 años de actividad continua e ininterrumpida)*.
 * **IP de Origen (Creación en 2010):** `190.71.81.214` *(Medellín, Antioquia, Colombia — EPM (Empresas Públicas de Medellín))*.
-* **Factor de Autenticación Activo:** `+1 437 755 6491` *(Carrier: TELUS Mobility / KOODO, Ontario, Canadá)*.
+* **Factor de Autenticación Activo:** `+1 437 *** 6491` *(Carrier: TELUS Mobility / KOODO, Ontario, Canadá)*.
 
 ---
 
@@ -62,7 +62,7 @@
 ### A. Conectividad Legítima de la Investigadora (100% Coherente con Desplazamiento):
 * **Canadá (173 IPs / 257 Conexiones):**
   * **Rogers Communications Canada (`AS812`):** 138 IPs / 169 eventos (SIM Chatr adquirida a su nombre en Toronto a mediados de agosto).
-  * **TELUS Communications / KOODO (`AS852`):** 25 IPs / 46 eventos (Línea activa `+14377556491`).
+  * **TELUS Communications / KOODO (`AS852`):** 25 IPs / 46 eventos (Línea activa `+1 437 *** 6491`).
   * **Cogeco Connexion (`AS7992`):** 3 IPs / 18 eventos (Hoteles en Niagara Falls y St. Catharines).
   * **Bell Canada / Altima (`AS577` / `AS22423`):** 6 IPs / 24 eventos (Montreal / Quebec).
 * **Virginia, EE.UU. (5 IPs / 60 Conexiones):**

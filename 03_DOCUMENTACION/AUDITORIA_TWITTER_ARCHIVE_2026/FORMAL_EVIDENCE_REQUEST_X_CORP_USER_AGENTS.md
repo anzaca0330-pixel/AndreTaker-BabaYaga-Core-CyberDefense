@@ -15,9 +15,9 @@
 | :--- | :--- |
 | **Account Username:** | `@anzaca` |
 | **Immutable Numeric Account ID:** | **`109328481`** |
-| **Registered Primary Email:** | `ansekurt@gmail.com` |
+| **Registered Primary Email:** | `a***t@gmail.com (Canal Institucional: andretaker@andretaker.org)` |
 | **Account Creation Date:** | `2010-01-28T18:04:17.000Z` |
-| **Secured Authentication Line:** | `+1 437 755 6491` (TELUS Mobility / Koodo, Ontario, Canada) |
+| **Secured Authentication Line:** | `+1 437 *** 6491` (TELUS Mobility / Koodo, Ontario, Canada) |
 | **MANDATORY AUDITED TIMEFRAME:** | **JUNE 01, 2026 to SEPTEMBER 07, 2026** *(Inception of Fraud Complaints to Present)* |
 
 ---
@@ -73,5 +73,5 @@ For all connection, authentication, and API interaction events across the entire
 **Andrea Zabala Cárcamo (AnZaCa / AndreTaker)**  
 *Lead Forensic Investigator & Account Owner*  
 *IACHR Protected Beneficiary (Resolution CIDH - 0000117118 / MC-1137-28)*  
-Contact: `andretaker@andretaker.org` / `ansekurt@gmail.com`  
+Contact: `andretaker@andretaker.org` / `a***t@gmail.com (Canal Institucional: andretaker@andretaker.org)`  
 Date: **September 07, 2026**
