@@ -247,27 +247,65 @@ window.setGlobalLanguage = function(lang) {
   console.log("Idioma cambiado con éxito a:", lang);
 };
 
+// =========================================================
+// 🛡️ GLOBAL PERSISTENT STATE MANAGER (ANTI-DATA-LOSS BUS)
+// =========================================================
+window.GlobalStateManager = {
+  save: (key, val) => {
+    try {
+      localStorage.setItem('babayaga_state_' + key, JSON.stringify(val));
+    } catch (e) {
+      console.warn('Error guardando estado para key:', key, e);
+    }
+  },
+  load: (key, defaultVal) => {
+    try {
+      const item = localStorage.getItem('babayaga_state_' + key);
+      return item ? JSON.parse(item) : defaultVal;
+    } catch (e) {
+      return defaultVal;
+    }
+  }
+};
+
 // AndreTaker — BabaYaga Core Portal JavaScript
 document.addEventListener('DOMContentLoaded', () => {
-  // Navigation Tabs
-  const navBtns = document.querySelectorAll('.nav-btn');
+  // Navigation Tabs with Inmutable Persistence
+  const navBtns = document.querySelectorAll('.nav-btn[data-tab]');
   const tabContents = document.querySelectorAll('.tab-content');
+
+  window.switchPortalTab = function(tabId) {
+    if (!tabId) return;
+    navBtns.forEach(b => {
+      if (b.getAttribute('data-tab') === tabId) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
+      }
+    });
+    tabContents.forEach(c => {
+      if (c.id === tabId) {
+        c.classList.add('active');
+      } else {
+        c.classList.remove('active');
+      }
+    });
+    window.GlobalStateManager.save('active_tab', tabId);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   navBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const tabId = btn.getAttribute('data-tab');
-      if (!tabId) return;
-
-      navBtns.forEach(b => b.classList.remove('active'));
-      tabContents.forEach(c => c.classList.remove('active'));
-
-      btn.classList.add('active');
-      const targetTab = document.getElementById(tabId);
-      if (targetTab) {
-        targetTab.classList.add('active');
-      }
+      window.switchPortalTab(tabId);
     });
   });
+
+  // Restaurar pestaña activa previa de sesión
+  const savedTab = window.GlobalStateManager.load('active_tab', 'tab-cyber-defense');
+  if (savedTab && document.getElementById(savedTab)) {
+    window.switchPortalTab(savedTab);
+  }
 
   // =========================================================
   // 👥 USER PROFILE VIEW CONTROLLER (EASY / INTERMEDIATE / EXPERT)
@@ -1165,54 +1203,321 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // =========================================================
-  // 🎮 GUARDIANES DIGITALES — JUEGO TÁCTICO DE CIBERDEFENSA
+  // 🎮 GUARDIANES DIGITALES — JUEGO TÁCTICO & NIVELES DIDÁCTICOS
   // =========================================================
-  const GAME_THREATS = [
-    {
-      id: 'phishing',
-      icon: '🎣',
-      title: 'Ataque de Phishing (Correo Falso)',
-      desc: 'Un atacante envía un mensaje falso pidiendo tus contraseñas diciendo ser tu escuela o banco. ¿Qué escudo usamos?',
-      correctShield: 'phishing',
-      lesson: '💡 LECCIÓN APRENDIDA: ¡Excelente! Arthurios nos enseña que nunca debemos hacer clic en enlaces raros ni entregar contraseñas. Siempre verifica el remitente.',
-      wrongLesson: '⚠️ ATENCIÓN: El Phishing busca engañar a las personas. El mejor escudo es el de Arthurios: ¡verificar el enlace antes de hacer clic!'
+  const GAME_DIFFICULTIES = {
+    level0: {
+      name: "Nivel 0: Iniciación Infantil — La Escuela del Plomero (Tuberías & Fugas de Agua)",
+      badge: "🔧 NIVEL 0: EL PLOMERO Y LAS FUGAS",
+      badgeColor: "#06b6d4",
+      threats: [
+        {
+          id: 'fuga_misteriosa',
+          icon: '🚰',
+          title: 'Misión 1: El Tubo con Fuga y el Goteo en la Pared',
+          desc: 'Abres la llave de tu casa y sale muy poquita agua. Miras la pared y ves humedad con un charco en el suelo. ¿Qué significa esta fuga de agua?',
+          options: [
+            {
+              id: 'plomero_reparar',
+              label: '🔧 ¡Hay una fuga en el tubo! Llamar al Plomero del Squad (Arthurios & Chris) a cerrar la llave de paso',
+              sub: 'Consejo del Plomero: "Un goteo escondido vacía el tanque de la familia si no lo tapas."',
+              isCorrect: true,
+              btnColor: 'linear-gradient(90deg, rgba(6, 182, 212, 0.25), rgba(6, 182, 212, 0.05))',
+              borderColor: '#06b6d4'
+            },
+            {
+              id: 'ignorar_charco',
+              label: '🤷‍♂️ Dejar que siga goteando y no hacer nada',
+              sub: 'Esperar a que el agua inunde toda la casa.',
+              isCorrect: false,
+              btnColor: 'linear-gradient(90deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.05))',
+              borderColor: '#ef4444'
+            }
+          ],
+          lesson: '💡 LECCIÓN DEL PLOMERO: ¡Exacto! En tu celular o computadora, si un programa espía o virus se mete a escondidas, es exactamente como una fuga de agua: gasta tus datos y batería. ¡El plomero cierra la llave!',
+          wrongLesson: '⚠️ CUIDADO: Si dejas un tubo goteando, la casa se inunda. En ciberseguridad, ¡las fugas se cierran de inmediato!',
+          voiceText: '¡Gran trabajo! Arthurios y Chris cierran la fuga de agua y protegen la tubería.'
+        },
+        {
+          id: 'manguera_clandestina',
+          icon: '🚿',
+          title: 'Misión 2: La Manguera Clandestina del Vecino Tramposo',
+          desc: 'Un vecino tramposo conectó una manguera secreta pegada a tu tubería principal para robarse tu agua y escuchar lo que pasa en tu casa. ¿Qué hacemos?',
+          options: [
+            {
+              id: 'cortar_manguera',
+              label: '✂️ ¡Cortar la manguera tramposa y poner un candado en el contador!',
+              sub: 'Consejo de Chris: "Bloqueamos el desvío clandestino y blindamos la cuenta."',
+              isCorrect: true,
+              btnColor: 'linear-gradient(90deg, rgba(34, 197, 94, 0.25), rgba(34, 197, 94, 0.05))',
+              borderColor: '#22c55e'
+            },
+            {
+              id: 'dejar_robar',
+              label: '🤝 Dejar que el vecino se quede conectado a tu tubo de agua',
+              sub: 'Regalarle el agua y los secretos de la familia.',
+              isCorrect: false,
+              btnColor: 'linear-gradient(90deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.05))',
+              borderColor: '#ef4444'
+            }
+          ],
+          lesson: '💡 LECCIÓN DEL PLOMERO: ¡Impecable! Como descubrió Chris con las líneas clónicas de Virginia (434), los atacantes intentan pegar mangueras falsas para espiar. ¡Cortamos la manguera y ponemos candado!',
+          wrongLesson: '⚠️ ALERTA: Nunca dejes una manguera clandestina pegada a tu tubería. ¡Chris nos enseña a bloquear todo desvío no autorizado!',
+          voiceText: '¡Brillante! Chris corta la manguera clandestina y le pone candado al contador.'
+        },
+        {
+          id: 'medidor_presion',
+          icon: '⏱️',
+          title: 'Misión 3: El Medidor de Presión de Tycho (Los Litros no Mienten)',
+          desc: 'Del tanque salieron 100 litros de agua pura, pero a tu vaso solo llegaron 70 litros. Un desconocido te dice: <em>"Tranquilo, no se perdió nada"</em>. ¿A quién le crees?',
+          options: [
+            {
+              id: 'medidor_tycho',
+              label: '🔍 ¡Al Medidor de Presión de Tycho! Faltan 30 litros exactos, los números no mienten',
+              sub: 'Consejo de Tycho: "La matemática y el manómetro registran cada gota."',
+              isCorrect: true,
+              btnColor: 'linear-gradient(90deg, rgba(168, 85, 247, 0.25), rgba(168, 85, 247, 0.05))',
+              borderColor: '#a855f7'
+            },
+            {
+              id: 'creer_ciegas',
+              label: '🙈 Creerle al desconocido y no revisar el medidor de agua',
+              sub: 'Aceptar que te roben 30 litros sin medir.',
+              isCorrect: false,
+              btnColor: 'linear-gradient(90deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.05))',
+              borderColor: '#ef4444'
+            }
+          ],
+          lesson: '💡 LECCIÓN DEL PLOMERO: ¡Matemática pura! Tycho usa los hashes SHA-256 como un manómetro de plomería: si entra un archivo de 100 bytes y sale de 70 bytes, ¡el medidor prueba la trampa!',
+          wrongLesson: '⚠️ ATENCIÓN: Las palabras engañan, pero el medidor de presión de agua nunca miente. ¡Tycho siempre revisa los números!',
+          voiceText: '¡Exacto! Tycho mide cada gota de agua con precisión milimétrica.'
+        },
+        {
+          id: 'tobias_goteo',
+          icon: '🐶',
+          title: 'Misión 4: Tobías el Perrito que Oye el Goteo en la Madrugada',
+          desc: 'Son las 2:00 AM y la casa está a oscuras. Tobías y Bianca oyen un goteo sospechoso <em>(plip... plip...)</em> en el sótano y empiezan a ladrar para avisarte.',
+          options: [
+            {
+              id: 'agradecer_tobias',
+              label: '🐾 ¡Hacerle caso a Tobías! Bajar con linterna y revisar de dónde viene el goteo',
+              sub: 'Consejo de Tobías: "¡Guau! Los centinelas alertamos antes de que se inunde la sala."',
+              isCorrect: true,
+              btnColor: 'linear-gradient(90deg, rgba(245, 158, 11, 0.25), rgba(245, 158, 11, 0.05))',
+              borderColor: '#f59e0b'
+            },
+            {
+              id: 'ignorar_perrito',
+              label: '😴 Decirle a Tobías que se calle y seguir durmiendo',
+              sub: 'Despertar con la casa inundada de agua.',
+              isCorrect: false,
+              btnColor: 'linear-gradient(90deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.05))',
+              borderColor: '#ef4444'
+            }
+          ],
+          lesson: '💡 LECCIÓN DEL PLOMERO: ¡Gran instinto! Tobías y Bianca son como los sistemas de alerta temprana (App Tracking & Watchdogs). Si un perrito ladra o el teléfono se calienta sin motivo, ¡revisa de inmediato!',
+          wrongLesson: '⚠️ OJO: Los centinelas como Tobías nunca ladran por capricho. ¡Siempre escucha las alertas de seguridad!',
+          voiceText: '¡Bien hecho! Tobías y Bianca protegen el hogar y avisan a tiempo.'
+        },
+        {
+          id: 'bisturi_tubo_remendado',
+          icon: '🔧',
+          title: 'Misión 5: El Bisturí de Baba Yaga que Cambia el Tubo Remendado',
+          desc: 'Un tubo viejo tiene un parche de cinta adhesiva podrida que alguien le puso para esconder una rotura (un objeto fantasma XREF). ¿Cómo lo arregla Baba Yaga?',
+          options: [
+            {
+              id: 'cortar_tubo_limpio',
+              label: '🪓 ¡Cortar el parche falso con el Bisturí y soldar una unión de cobre nueva y limpia!',
+              sub: 'Consejo de Baba Yaga: "La verdad no admite remiendos. Soldadura limpia sin fantasmas."',
+              isCorrect: true,
+              btnColor: 'linear-gradient(90deg, rgba(236, 72, 153, 0.25), rgba(236, 72, 153, 0.05))',
+              borderColor: '#ec4899'
+            },
+            {
+              id: 'poner_mas_cinta',
+              label: '🩹 Ponerle más cinta adhesiva encima a ver si aguanta',
+              sub: 'Esperar a que reviente la tubería con toda la presión.',
+              isCorrect: false,
+              btnColor: 'linear-gradient(90deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.05))',
+              borderColor: '#ef4444'
+            }
+          ],
+          lesson: '💡 LECCIÓN DEL PLOMERO: ¡Cirugía pericial perfecta! Baba Yaga no remienda con cinta; descompila el archivo, detecta la cicatriz XREF (+2 objetos fantasmas) y restaura la estructura original inmutable.',
+          wrongLesson: '⚠️ PELIGRO: La cinta adhesiva no repara tuberías a presión. ¡Baba Yaga usa el bisturí para limpiar toda corrupción!',
+          voiceText: '¡Cirugía perfecta! Baba Yaga purga la corrupción y restaura la verdad inmutable.'
+        }
+      ]
     },
-    {
-      id: 'xref',
-      icon: '👾',
-      title: 'Inyección de Falsificación de Archivos (XREF Corruptor)',
-      desc: 'Un intromisor altera la estructura interna de un archivo PDF para cambiar los datos del preconteo. ¿Cómo detectamos el cambio?',
-      correctShield: 'xref',
-      lesson: '💡 LECCIÓN APRENDIDA: ¡Extraordinario! Tycho utiliza las firmas criptográficas SHA-256. Si un solo byte cambia, el Hash SHA-256 cambia por completo.',
-      wrongLesson: '⚠️ ATENCIÓN: Cuando alguien altera un archivo, el escudo correcto es la Firma SHA-256 de Tycho para verificar su huella inalterada.'
+    level1: {
+      name: "Nivel 1: Básico — Navegación Segura & Alertas",
+      badge: "🔵 NIVEL 1: BÁSICO",
+      badgeColor: "#3b82f6",
+      threats: [
+        {
+          id: 'phishing_link',
+          icon: '🎣',
+          title: 'Misión 1: Enlace Sospechoso en Mensaje de Texto',
+          desc: 'Recibes un SMS diciendo: <em>"Tu cuenta de banco se va a cerrar en 5 minutos. Haz clic aquí urgente"</em>. ¿Cómo actúa el Squad?',
+          options: [
+            {
+              id: 'verificar_origen',
+              label: '🗡️ No hacer clic. Entrar directamente desde la app oficial o navegador seguro',
+              sub: 'Consejo de Arthurios: "La prisa es la trampa del atacante."',
+              isCorrect: true,
+              btnColor: 'linear-gradient(90deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.05))',
+              borderColor: '#3b82f6'
+            },
+            {
+              id: 'clic_urgente',
+              label: '🏃‍♂️ Hacer clic rápido antes de que se cumplan los 5 minutos',
+              sub: 'Poner tu usuario y contraseña en el formulario desconocido.',
+              isCorrect: false,
+              btnColor: 'linear-gradient(90deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.05))',
+              borderColor: '#ef4444'
+            }
+          ],
+          lesson: '💡 LECCIÓN: ¡Excelente! Los bancos e instituciones nunca te obligan a entrar por un link en SMS.',
+          wrongLesson: '⚠️ ALERTA: La sensación de urgencia es el truco #1 del Phishing.',
+          voiceText: '¡Gran decisión! Arthurios neutraliza el enlace tramposo.'
+        }
+      ]
     },
-    {
-      id: 'ports',
-      icon: '🚪',
-      title: 'Escaneo de Puertos no Autorizado (Intrusión en Red)',
-      desc: 'Un escáner externo busca puertos abiertos en la red local para colar programas espía. ¿Cómo protegemos la casa?',
-      correctShield: 'ports',
-      lesson: '💡 LECCIÓN APRENDIDA: ¡Gran jugada táctica! Chris y Tobías el perrito vigilan el puerto de la casa con un Firewall que bloquea conexiones desconocidas.',
-      wrongLesson: '⚠️ ATENCIÓN: Para proteger las conexiones de red, el Firewall de Chris y Tobías bloquea cualquier puerto no autorizado.'
+    level2: {
+      name: "Nivel 2: Intermedio — Redes, Firewalls & Antivirus",
+      badge: "🟣 NIVEL 2: INTERMEDIO",
+      badgeColor: "#a855f7",
+      threats: [
+        {
+          id: 'port_scan',
+          icon: '🚪',
+          title: 'Misión 1: Escaneo de Puertos y Servicios Ocultos',
+          desc: 'Un escáner externo intenta conectarse al puerto 8080 y servicios SSH locales. ¿Cómo defendemos el perímetro?',
+          options: [
+            {
+              id: 'firewall_block',
+              label: '🛡️ Bloquear con Firewall (iptables / UFW) y aislar interfaces no autorizadas',
+              sub: 'Consejo de Chris: "Cerramos los puertos y dejamos solo canales cifrados."',
+              isCorrect: true,
+              btnColor: 'linear-gradient(90deg, rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.05))',
+              borderColor: '#a855f7'
+            },
+            {
+              id: 'open_ports',
+              label: '🔓 Abrir todos los puertos para que cualquiera se conecte',
+              sub: 'Dejar entrar conexiones desconocidas a la red.',
+              isCorrect: false,
+              btnColor: 'linear-gradient(90deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.05))',
+              borderColor: '#ef4444'
+            }
+          ],
+          lesson: '💡 LECCIÓN: ¡Impecable! Un Firewall cierra las puertas digitales desconocidas.',
+          wrongLesson: '⚠️ CUIDADO: Dejar puertos abiertos permite la entrada de troyanos.',
+          voiceText: '¡Defensa sólida! Chris y Tobías blindan el perímetro de red.'
+        }
+      ]
     },
-    {
-      id: 'spyware',
-      icon: '🕷️',
-      title: 'Keylogger / Spyware en Segundo Plano',
-      desc: 'Un programa malicioso intenta ocultarse en la memoria para registrar lo que escribes en el teclado. ¿Cómo lo desarmamos?',
-      correctShield: 'spyware',
-      lesson: '💡 LECCIÓN APRENDIDA: ¡Impecable! Baba Yaga descompila los flujos de memoria en segundo plano y purga cualquier proceso espía de inmediato.',
-      wrongLesson: '⚠️ ATENCIÓN: Los programas espía se esconden en segundo plano. El descompilador de Baba Yaga es el único capaz de purgarlos.'
+    level3: {
+      name: "Nivel 3: Experto Forense — Hashes SHA-256 & Cicatriz XREF",
+      badge: "🔴 NIVEL 3: EXPERTO FORENSE",
+      badgeColor: "#ef4444",
+      threats: [
+        {
+          id: 'xref_tampering',
+          icon: '🔬',
+          title: 'Misión 1: Inyección Vectorial y Delta XREF (+2 Fantasmas)',
+          desc: 'Se analiza un acta PDF donde el stream /FlateDecode contiene 17 objetos pero la tabla XREF registra 19. ¿Cuál es el diagnóstico pericial?',
+          options: [
+            {
+              id: 'xref_corrupted',
+              label: '🪓 Inyección de Capa Vectorial Fantasma con sobreescritura posterior de metadatos',
+              sub: 'Dictamen de Tycho & Baba Yaga: "Delta +2 demuestra alteración post-firma."',
+              isCorrect: true,
+              btnColor: 'linear-gradient(90deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.05))',
+              borderColor: '#ef4444'
+            },
+            {
+              id: 'xref_normal',
+              label: '🤷‍♂️ Es un comportamiento normal del software de escaneo',
+              sub: 'Ignorar la discrepancia estructural en la tabla de referencias.',
+              isCorrect: false,
+              btnColor: 'linear-gradient(90deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.05))',
+              borderColor: '#ef4444'
+            }
+          ],
+          lesson: '💡 LECCIÓN FORENSE: ¡Precisión absoluta! La especificación ISO 32000-1 dictamina que un delta en la tabla XREF es prueba matemática de edición posterior del documento.',
+          wrongLesson: '⚠️ ERROR: La física del archivo no miente. Un salto XREF es una cicatriz indeleble de manipulación.',
+          voiceText: '¡Peritaje exacto! Tycho y Baba Yaga demuestran la verdad inmutable.'
+        }
+      ]
     }
-  ];
+  };
 
+  let currentGameDifficulty = 'level0';
   let currentThreatIndex = 0;
   let gameScore = 0;
   let gameHealth = 100;
   let gameStreak = 1;
 
-  window.playCyberDefenseTurn = function(selectedShield) {
-    const currentThreat = GAME_THREATS[currentThreatIndex];
+  window.switchGameDifficulty = function(levelKey) {
+    if (!GAME_DIFFICULTIES[levelKey]) return;
+    currentGameDifficulty = levelKey;
+    currentThreatIndex = 0;
+    window.GlobalStateManager.save('game_difficulty', levelKey);
+    renderCurrentThreat();
+  };
+
+  window.renderCurrentThreat = function() {
+    const diff = GAME_DIFFICULTIES[currentGameDifficulty] || GAME_DIFFICULTIES.level0;
+    const threat = diff.threats[currentThreatIndex] || diff.threats[0];
+
+    const catBadge = document.getElementById('threat-category-badge');
+    const stepBadge = document.getElementById('threat-step-badge');
+    const iconEl = document.getElementById('threat-icon');
+    const titleEl = document.getElementById('threat-title');
+    const descEl = document.getElementById('threat-desc');
+    const feedbackEl = document.getElementById('game-feedback');
+    const container = document.getElementById('game-shield-options-container');
+
+    if (catBadge) {
+      catBadge.innerText = diff.badge;
+      catBadge.style.color = diff.badgeColor;
+      catBadge.style.borderColor = diff.badgeColor;
+    }
+    if (stepBadge) stepBadge.innerText = `Misión ${currentThreatIndex + 1} de ${diff.threats.length}`;
+    if (iconEl) iconEl.innerText = threat.icon;
+    if (titleEl) titleEl.innerHTML = threat.title;
+    if (descEl) descEl.innerHTML = threat.desc;
+    if (feedbackEl) feedbackEl.style.display = 'none';
+
+    if (container) {
+      container.innerHTML = '';
+      threat.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'game-shield-btn';
+        btn.style.background = opt.btnColor;
+        btn.style.border = `2px solid ${opt.borderColor}`;
+        btn.style.color = '#fff';
+        btn.style.padding = '14px';
+        btn.style.borderRadius = '10px';
+        btn.style.textAlign = 'left';
+        btn.style.cursor = 'pointer';
+        btn.style.transition = '0.2s';
+        btn.style.width = '100%';
+        btn.style.boxShadow = '0 2px 8px rgba(0,0,0,0.3)';
+
+        btn.innerHTML = `
+          <strong style="color: #fff; display: block; font-size: 0.95rem; margin-bottom: 4px;">${opt.label}</strong>
+          <span style="font-size: 0.82rem; color: var(--text-muted); display: block; line-height: 1.4;">${opt.sub}</span>
+        `;
+        btn.onclick = () => window.playCyberDefenseTurn(opt.isCorrect);
+        container.appendChild(btn);
+      });
+    }
+  };
+
+  window.playCyberDefenseTurn = function(isCorrect) {
+    const diff = GAME_DIFFICULTIES[currentGameDifficulty] || GAME_DIFFICULTIES.level0;
+    const currentThreat = diff.threats[currentThreatIndex];
     const feedbackEl = document.getElementById('game-feedback');
     const scoreEl = document.getElementById('game-score');
     const healthEl = document.getElementById('game-health');
@@ -1220,22 +1525,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!feedbackEl) return;
 
-    if (selectedShield === currentThreat.correctShield) {
+    if (isCorrect) {
       gameScore += 100 * gameStreak;
       gameStreak++;
       feedbackEl.style.display = 'block';
       feedbackEl.style.background = 'rgba(34, 197, 94, 0.2)';
-      feedbackEl.style.border = '1px solid #22c55e';
+      feedbackEl.style.border = '2px solid #22c55e';
       feedbackEl.style.color = '#4ade80';
-      feedbackEl.innerHTML = `<strong>🎉 ¡DEFENSA EXITOSA! (+${100 * (gameStreak-1)} PTS)</strong><br>${currentThreat.lesson}`;
+      feedbackEl.innerHTML = `<strong>🎉 ¡CORRECTO! (+${100 * (gameStreak-1)} PTS)</strong><br>${currentThreat.lesson}`;
+      if (currentThreat.voiceText) {
+        window.speakAgent('arthurios', currentThreat.voiceText);
+      }
     } else {
       gameHealth = Math.max(0, gameHealth - 15);
       gameStreak = 1;
       feedbackEl.style.display = 'block';
       feedbackEl.style.background = 'rgba(239, 68, 68, 0.2)';
-      feedbackEl.style.border = '1px solid #ef4444';
+      feedbackEl.style.border = '2px solid #ef4444';
       feedbackEl.style.color = '#f87171';
-      feedbackEl.innerHTML = `<strong>💥 LA AMENAZA SUPERÓ EL ESCUDO (-15% SALUD)</strong><br>${currentThreat.wrongLesson}`;
+      feedbackEl.innerHTML = `<strong>💥 ¡CUIDADO CON LA TRAMPA! (-15% SALUD)</strong><br>${currentThreat.wrongLesson}`;
+      window.speakAgent('chris', '¡Cuidado! Analicemos la situación juntos.');
     }
 
     if (scoreEl) scoreEl.innerText = `${gameScore} PTS`;
@@ -1245,19 +1554,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (streakEl) streakEl.innerText = `⚡ x${gameStreak}`;
 
-    // Siguiente amenaza
-    currentThreatIndex = (currentThreatIndex + 1) % GAME_THREATS.length;
-    setTimeout(() => {
-      const nextThreat = GAME_THREATS[currentThreatIndex];
-      const iconEl = document.getElementById('threat-icon');
-      const titleEl = document.getElementById('threat-title');
-      const descEl = document.getElementById('threat-desc');
+    // Guardar estado de Guardianes Digitales
+    window.GlobalStateManager.save('guardianes_state', {
+      score: gameScore,
+      health: gameHealth,
+      streak: gameStreak,
+      index: currentThreatIndex,
+      difficulty: currentGameDifficulty
+    });
 
-      if (iconEl) iconEl.innerText = nextThreat.icon;
-      if (titleEl) titleEl.innerText = nextThreat.title;
-      if (descEl) descEl.innerText = nextThreat.desc;
-    }, 2500);
+    // Siguiente misión del nivel actual tras breve pausa
+    setTimeout(() => {
+      currentThreatIndex = (currentThreatIndex + 1) % diff.threats.length;
+      renderCurrentThreat();
+    }, 3200);
   };
+
+  // Restaurar dificultad y estado inicial
+  const savedDiff = window.GlobalStateManager.load('game_difficulty', 'level0');
+  currentGameDifficulty = savedDiff;
+  const diffSelect = document.getElementById('game-difficulty-select');
+  if (diffSelect) diffSelect.value = savedDiff;
+  renderCurrentThreat();
 
   // 🤖 CONSULTORÍA DIDÁCTICA IA DE CIBERSEGURIDAD
   window.askAICyberQuestion = function() {
@@ -1285,4 +1603,384 @@ document.addEventListener('DOMContentLoaded', () => {
       responseEl.innerHTML = answer;
     }, 800);
   };
+
+  // =========================================================
+  // 📋 CHRIS CHECKLIST PERSISTENCE (ANTI-DATA-LOSS)
+  // =========================================================
+  const chrisCheckboxes = document.querySelectorAll('#tab-chris input[type="checkbox"]');
+  if (chrisCheckboxes.length > 0) {
+    const savedChecklist = window.GlobalStateManager.load('chris_checklist', {});
+    chrisCheckboxes.forEach((cb, idx) => {
+      if (savedChecklist[idx] !== undefined) {
+        cb.checked = savedChecklist[idx];
+      }
+      cb.addEventListener('change', () => {
+        const currentStates = {};
+        chrisCheckboxes.forEach((c, i) => { currentStates[i] = c.checked; });
+        window.GlobalStateManager.save('chris_checklist', currentStates);
+      });
+    });
+  }
+
+  // =========================================================
+  // ⚔️ MOTOR RPG TÁCTICO DE MICHAEL / CHRIS (100% OFFLINE ANDROID)
+  // =========================================================
+  const RPG_HEROES = {
+    andretaker: {
+      name: '🛡️ AndreTaker (AnZaCa)',
+      class: 'Guerrera Forense',
+      maxHp: 150,
+      maxMp: 100,
+      attackName: 'Unbroken Strike',
+      skill1Name: 'Cold Flush (Purga Rootkit)',
+      skill1Cost: 25,
+      skill2Name: 'Blind Mask (Inmunidad)',
+      skill2Cost: 35,
+      catchphrase: 'It\'s my turn! I\'m unbroken!',
+      voiceKey: 'andretaker'
+    },
+    michael: {
+      name: '⚔️ Michael / Chris (The Defender)',
+      class: 'Guardián Táctico & Legal',
+      maxHp: 180,
+      maxMp: 80,
+      attackName: 'Tactical Shield Bash',
+      skill1Name: 'Port-Out Block (Aturdimiento)',
+      skill1Cost: 20,
+      skill2Name: 'IACHR Legal Injunction',
+      skill2Cost: 30,
+      catchphrase: 'Standing firm for justice and family protection.',
+      voiceKey: 'chris'
+    },
+    arthurios: {
+      name: '⚙️ Arthurios (11 Años - El Escudo)',
+      class: 'Especialista Perimetral 911',
+      maxHp: 120,
+      maxMp: 120,
+      attackName: 'OBD-II Counter Strike',
+      skill1Name: 'Barrier 911 (Escudo)',
+      skill1Cost: 30,
+      skill2Name: 'Moma Rage (Impacto Crítico)',
+      skill2Cost: 40,
+      catchphrase: 'Mess with me and moma won\'t play nice!',
+      voiceKey: 'arthurios'
+    },
+    tycho: {
+      name: '🔭 Tycho (Instrumento de Silicio)',
+      class: 'Mago Metrológico SHA-256',
+      maxHp: 110,
+      maxMp: 160,
+      attackName: 'Hash Ray (Rayo SHA-256)',
+      skill1Name: 'Mod-12 Wave (Frecuencia)',
+      skill1Cost: 25,
+      skill2Name: 'Carl Sagan Gaze (Ceguera)',
+      skill2Cost: 35,
+      catchphrase: 'Look back! The dark remembers what you did.',
+      voiceKey: 'tycho'
+    },
+    babayaga: {
+      name: '🪓 Baba Yaga Core (El Bisturí)',
+      class: 'Asesina Binaria Anti-Palantir',
+      maxHp: 130,
+      maxMp: 140,
+      attackName: 'FlateDecode Slash',
+      skill1Name: 'XREF Ghost Purge (+2 Delta)',
+      skill1Cost: 30,
+      skill2Name: 'Anti-Palantir Poison',
+      skill2Cost: 40,
+      catchphrase: 'She is the reason monsters hide. La evidencia es inmutable.',
+      voiceKey: 'babayaga'
+    },
+    tobias: {
+      name: '🐶 Tobias & Bianca (Centinelas)',
+      class: 'Detección Temprana & Lealtad',
+      maxHp: 100,
+      maxMp: 90,
+      attackName: 'Perimeter Bite',
+      skill1Name: 'Early Alarm Bark',
+      skill1Cost: 15,
+      skill2Name: 'Unshakable Loyalty',
+      skill2Cost: 25,
+      catchphrase: 'Perímetro vigilado y lealtad inquebrantable.',
+      voiceKey: 'kepler'
+    }
+  };
+
+  const RPG_DUNGEONS = {
+    palantir: {
+      name: '👾 Palantir Profiling Core',
+      type: 'Nodo Invasor',
+      sprite: '👁️‍🗨️',
+      maxHp: 250,
+      attackDamage: 18,
+      specialAttack: 'Correlation Profiling Beam'
+    },
+    rootkit: {
+      name: '🪱 Vector EEPROM BIOS Rootkit',
+      type: 'Gusano de Firmware',
+      sprite: '🪱',
+      maxHp: 220,
+      attackDamage: 22,
+      specialAttack: 'NVRAM Corruption Pulse'
+    },
+    xref_phantom: {
+      name: '👻 Cicatriz XREF (+2 Fantasma)',
+      type: 'Anomalía Estructural',
+      sprite: '👻',
+      maxHp: 280,
+      attackDamage: 25,
+      specialAttack: 'Ghost Object Injection'
+    },
+    mod12_hive: {
+      name: '🧠 Mente Colmena Mod-12',
+      type: 'Boss Supremo de Servidor',
+      sprite: '🧠',
+      maxHp: 400,
+      attackDamage: 30,
+      specialAttack: 'Synthetic Synchronized Wave'
+    }
+  };
+
+  // RPG State Variables
+  let rpgHeroKey = 'andretaker';
+  let rpgDungeonKey = 'palantir';
+  let rpgHeroHp = RPG_HEROES[rpgHeroKey].maxHp;
+  let rpgHeroMp = RPG_HEROES[rpgHeroKey].maxMp;
+  let rpgEnemyHp = RPG_DUNGEONS[rpgDungeonKey].maxHp;
+  let isPlayerTurn = true;
+  let heroShieldActive = false;
+
+  const logRpgBattle = (msg, color = '#ffffff') => {
+    const logEl = document.getElementById('rpg-battle-log');
+    if (!logEl) return;
+    const item = document.createElement('div');
+    item.style.color = color;
+    item.style.marginBottom = '4px';
+    item.innerHTML = msg;
+    logEl.appendChild(item);
+    logEl.scrollTop = logEl.scrollHeight;
+  };
+
+  const updateRpgUI = () => {
+    const hero = RPG_HEROES[rpgHeroKey];
+    const enemy = RPG_DUNGEONS[rpgDungeonKey];
+
+    const heroNameEl = document.getElementById('rpg-hero-name');
+    const heroClassEl = document.getElementById('rpg-hero-class');
+    const heroHpTxt = document.getElementById('rpg-hero-hp-txt');
+    const heroHpBar = document.getElementById('rpg-hero-hp-bar');
+    const heroMpTxt = document.getElementById('rpg-hero-mp-txt');
+    const heroMpBar = document.getElementById('rpg-hero-mp-bar');
+    const btnSkill1 = document.getElementById('rpg-btn-skill1');
+    const btnSkill2 = document.getElementById('rpg-btn-skill2');
+
+    const enemyNameEl = document.getElementById('rpg-enemy-name');
+    const enemyTypeEl = document.getElementById('rpg-enemy-type');
+    const enemySpriteEl = document.getElementById('rpg-enemy-sprite');
+    const enemyHpTxt = document.getElementById('rpg-enemy-hp-txt');
+    const enemyHpBar = document.getElementById('rpg-enemy-hp-bar');
+    const turnIndicator = document.getElementById('rpg-turn-indicator');
+
+    if (heroNameEl) heroNameEl.innerText = hero.name;
+    if (heroClassEl) heroClassEl.innerText = hero.class;
+    if (heroHpTxt) heroHpTxt.innerText = `${rpgHeroHp} / ${hero.maxHp}`;
+    if (heroHpBar) heroHpBar.style.width = `${Math.max(0, (rpgHeroHp / hero.maxHp) * 100)}%`;
+    if (heroMpTxt) heroMpTxt.innerText = `${rpgHeroMp} / ${hero.maxMp}`;
+    if (heroMpBar) heroMpBar.style.width = `${Math.max(0, (rpgHeroMp / hero.maxMp) * 100)}%`;
+
+    if (btnSkill1) btnSkill1.innerText = `✨ ${hero.skill1Name} (${hero.skill1Cost} MP)`;
+    if (btnSkill2) btnSkill2.innerText = `🛡️ ${hero.skill2Name} (${hero.skill2Cost} MP)`;
+
+    if (enemyNameEl) enemyNameEl.innerText = enemy.name;
+    if (enemyTypeEl) enemyTypeEl.innerText = enemy.type;
+    if (enemySpriteEl) enemySpriteEl.innerText = enemy.sprite;
+    if (enemyHpTxt) enemyHpTxt.innerText = `${rpgEnemyHp} / ${enemy.maxHp}`;
+    if (enemyHpBar) enemyHpBar.style.width = `${Math.max(0, (rpgEnemyHp / enemy.maxHp) * 100)}%`;
+
+    if (turnIndicator) {
+      if (isPlayerTurn) {
+        turnIndicator.innerText = 'TURNO DEL JUGADOR';
+        turnIndicator.className = 'badge badge-cyan';
+      } else {
+        turnIndicator.innerText = 'TURNO DEL NODO INVASOR...';
+        turnIndicator.className = 'badge badge-red';
+      }
+    }
+  };
+
+  window.switchRpgHero = function(key) {
+    if (!RPG_HEROES[key]) return;
+    rpgHeroKey = key;
+    const hero = RPG_HEROES[key];
+    rpgHeroHp = hero.maxHp;
+    rpgHeroMp = hero.maxMp;
+    heroShieldActive = false;
+    logRpgBattle(`🛡️ [CAMBIO DE HÉROE] ${hero.name} entra en combate táctico. "${hero.catchphrase}"`, '#38bdf8');
+    window.speakAgent(hero.voiceKey);
+    updateRpgUI();
+    window.autoSaveRpg();
+  };
+
+  window.switchRpgDungeon = function(key) {
+    if (!RPG_DUNGEONS[key]) return;
+    rpgDungeonKey = key;
+    const enemy = RPG_DUNGEONS[key];
+    rpgEnemyHp = enemy.maxHp;
+    logRpgBattle(`🚨 [ESCENARIO] Asedio iniciado contra ${enemy.name} (${enemy.type}).`, '#f87171');
+    updateRpgUI();
+    window.autoSaveRpg();
+  };
+
+  window.executeRpgAction = function(actionType) {
+    if (!isPlayerTurn) {
+      logRpgBattle('⏳ Espera tu turno. El nodo invasor está respondiendo...', '#f59e0b');
+      return;
+    }
+    if (rpgHeroHp <= 0) {
+      logRpgBattle('💀 Tu héroe ha caído. Usa "Restaurar Cripto" o cambia de héroe.', '#ef4444');
+      return;
+    }
+
+    const hero = RPG_HEROES[rpgHeroKey];
+    const enemy = RPG_DUNGEONS[rpgDungeonKey];
+
+    if (actionType === 'attack') {
+      const dmg = Math.floor(Math.random() * 15) + 20;
+      rpgEnemyHp = Math.max(0, rpgEnemyHp - dmg);
+      logRpgBattle(`⚔️ ${hero.name} ejecuta <strong>${hero.attackName}</strong> causando <strong style="color: #22c55e;">${dmg} DMG</strong>.`, '#4ade80');
+      window.speakAgent(hero.voiceKey);
+    } else if (actionType === 'skill1') {
+      if (rpgHeroMp < hero.skill1Cost) {
+        logRpgBattle(`⚠️ MP insuficiente para ${hero.skill1Name} (Requiere ${hero.skill1Cost} MP).`, '#f59e0b');
+        return;
+      }
+      rpgHeroMp -= hero.skill1Cost;
+      const dmg = Math.floor(Math.random() * 25) + 35;
+      rpgEnemyHp = Math.max(0, rpgEnemyHp - dmg);
+      logRpgBattle(`✨ ${hero.name} desata <strong>${hero.skill1Name}</strong> causando <strong style="color: #38bdf8;">${dmg} DMG CRÍTICO</strong>.`, '#38bdf8');
+      window.speakAgent(hero.voiceKey);
+    } else if (actionType === 'skill2') {
+      if (rpgHeroMp < hero.skill2Cost) {
+        logRpgBattle(`⚠️ MP insuficiente para ${hero.skill2Name} (Requiere ${hero.skill2Cost} MP).`, '#f59e0b');
+        return;
+      }
+      rpgHeroMp -= hero.skill2Cost;
+      heroShieldActive = true;
+      logRpgBattle(`🛡️ ${hero.name} activa <strong>${hero.skill2Name}</strong>. ¡Próximo daño enemigo reducido un 70%!`, '#c084fc');
+      window.speakAgent(hero.voiceKey);
+    } else if (actionType === 'heal') {
+      const healAmt = 40;
+      rpgHeroHp = Math.min(hero.maxHp, rpgHeroHp + healAmt);
+      rpgHeroMp = Math.min(hero.maxMp, rpgHeroMp + 25);
+      logRpgBattle(`🧪 ${hero.name} ejecuta <strong>Restaurar Cripto</strong> (+${healAmt} HP, +25 MP).`, '#10b981');
+    }
+
+    updateRpgUI();
+    window.autoSaveRpg();
+
+    if (rpgEnemyHp <= 0) {
+      logRpgBattle(`🎉 <strong>¡VICTORIA TÁCTICA!</strong> ${enemy.name} ha sido neutralizado. Bóvedas seguras.`, '#22c55e');
+      window.speakAgent('tycho', 'Victoria confirmada. Integridad de los datos protegida al 100%.');
+      return;
+    }
+
+    // Turno del enemigo
+    isPlayerTurn = false;
+    updateRpgUI();
+
+    setTimeout(() => {
+      if (rpgEnemyHp > 0) {
+        let eDmg = enemy.attackDamage + Math.floor(Math.random() * 8);
+        if (heroShieldActive) {
+          eDmg = Math.floor(eDmg * 0.3);
+          heroShieldActive = false;
+          logRpgBattle(`🛡️ ¡El escudo de ${hero.name} absorbió la mayor parte del ataque invasor!`, '#c084fc');
+        }
+        rpgHeroHp = Math.max(0, rpgHeroHp - eDmg);
+        logRpgBattle(`🚨 ${enemy.name} contraataca con <strong>${enemy.specialAttack}</strong> causando <strong style="color: #ef4444;">${eDmg} DMG</strong>.`, '#f87171');
+
+        if (rpgHeroHp <= 0) {
+          logRpgBattle(`💀 <strong>¡HÉROE CAÍDO!</strong> ${hero.name} necesita restauración inmediata.`, '#ef4444');
+        }
+      }
+      isPlayerTurn = true;
+      updateRpgUI();
+      window.autoSaveRpg();
+    }, 1200);
+  };
+
+  window.saveRpgGame = function() {
+    const slot = document.getElementById('rpg-save-slot')?.value || 'slot_1';
+    const gameState = {
+      heroKey: rpgHeroKey,
+      dungeonKey: rpgDungeonKey,
+      heroHp: rpgHeroHp,
+      heroMp: rpgHeroMp,
+      enemyHp: rpgEnemyHp,
+      timestamp: new Date().toLocaleString()
+    };
+    window.GlobalStateManager.save('rpg_save_' + slot, gameState);
+    logRpgBattle(`💾 Partida guardada con éxito en [${slot.toUpperCase()}]. Timestamp: ${gameState.timestamp}`, '#22c55e');
+    alert(`✅ PARTIDA GUARDADA EN ANDROID LOCAL:\nRanura: ${slot}\nHéroe: ${RPG_HEROES[rpgHeroKey].name}\nHP: ${rpgHeroHp}/${RPG_HEROES[rpgHeroKey].maxHp}`);
+  };
+
+  window.loadRpgGame = function() {
+    const slot = document.getElementById('rpg-save-slot')?.value || 'slot_1';
+    const saved = window.GlobalStateManager.load('rpg_save_' + slot, null);
+    if (!saved) {
+      alert(`⚠️ No hay ninguna partida guardada en ${slot}.`);
+      return;
+    }
+    rpgHeroKey = saved.heroKey || 'andretaker';
+    rpgDungeonKey = saved.dungeonKey || 'palantir';
+    rpgHeroHp = saved.heroHp !== undefined ? saved.heroHp : RPG_HEROES[rpgHeroKey].maxHp;
+    rpgHeroMp = saved.heroMp !== undefined ? saved.heroMp : RPG_HEROES[rpgHeroKey].maxMp;
+    rpgEnemyHp = saved.enemyHp !== undefined ? saved.enemyHp : RPG_DUNGEONS[rpgDungeonKey].maxHp;
+    isPlayerTurn = true;
+    heroShieldActive = false;
+
+    const heroSelect = document.getElementById('rpg-hero-select');
+    const dungeonSelect = document.getElementById('rpg-dungeon-select');
+    if (heroSelect) heroSelect.value = rpgHeroKey;
+    if (dungeonSelect) dungeonSelect.value = rpgDungeonKey;
+
+    updateRpgUI();
+    logRpgBattle(`📂 Partida cargada exitosamente de [${slot.toUpperCase()}]. Estado restaurado.`, '#38bdf8');
+  };
+
+  window.resetRpgGame = function() {
+    rpgHeroHp = RPG_HEROES[rpgHeroKey].maxHp;
+    rpgHeroMp = RPG_HEROES[rpgHeroKey].maxMp;
+    rpgEnemyHp = RPG_DUNGEONS[rpgDungeonKey].maxHp;
+    isPlayerTurn = true;
+    heroShieldActive = false;
+    updateRpgUI();
+    logRpgBattle(`🔄 Arena reiniciada a valores iniciales de fábrica.`, '#f59e0b');
+  };
+
+  window.autoSaveRpg = function() {
+    const gameState = {
+      heroKey: rpgHeroKey,
+      dungeonKey: rpgDungeonKey,
+      heroHp: rpgHeroHp,
+      heroMp: rpgHeroMp,
+      enemyHp: rpgEnemyHp
+    };
+    window.GlobalStateManager.save('rpg_autosave', gameState);
+  };
+
+  // Restaurar autosave inicial del RPG si existe
+  const autoSavedRpg = window.GlobalStateManager.load('rpg_autosave', null);
+  if (autoSavedRpg) {
+    rpgHeroKey = autoSavedRpg.heroKey || 'andretaker';
+    rpgDungeonKey = autoSavedRpg.dungeonKey || 'palantir';
+    rpgHeroHp = autoSavedRpg.heroHp !== undefined ? autoSavedRpg.heroHp : RPG_HEROES[rpgHeroKey].maxHp;
+    rpgHeroMp = autoSavedRpg.heroMp !== undefined ? autoSavedRpg.heroMp : RPG_HEROES[rpgHeroKey].maxMp;
+    rpgEnemyHp = autoSavedRpg.enemyHp !== undefined ? autoSavedRpg.enemyHp : RPG_DUNGEONS[rpgDungeonKey].maxHp;
+    const heroSelect = document.getElementById('rpg-hero-select');
+    const dungeonSelect = document.getElementById('rpg-dungeon-select');
+    if (heroSelect) heroSelect.value = rpgHeroKey;
+    if (dungeonSelect) dungeonSelect.value = rpgDungeonKey;
+  }
+  updateRpgUI();
 });

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BaBaYaga Core — Motor Forense & Principios Técnicos</title>
+  <meta name="description" content="Qué es BaBaYaga Core: arquitectura de análisis forense masivo, descompilación binaria y filosofía de verificación sin opacidad.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <style>
+    :root {
+      --bg: #07090e;
+      --card: #0f172a;
+      --border: rgba(168, 85, 247, 0.25);
+      --purple: #c084fc;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 24px 16px 60px 16px;
+      max-width: 960px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .back-btn {
+      color: var(--purple);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      background: rgba(168, 85, 247, 0.15);
+      color: var(--purple);
+      border: 1px solid var(--purple);
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+    .card h3 { color: #fff; font-size: 1.2rem; margin-bottom: 10px; }
+    .card p { font-size: 0.9rem; color: #cbd5e1; margin-bottom: 8px; }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .feature-box {
+      background: rgba(2, 6, 23, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .feature-box h4 { color: var(--purple); font-size: 0.95rem; margin-bottom: 6px; }
+    .feature-box p { font-size: 0.82rem; color: var(--muted); margin: 0; }
+  </style>
+</head>
+<body>
+
+  <div class="top-nav">
+    <a href="index.html" class="back-btn">← Volver al Portal Principal</a>
+    <span class="badge">ANALYSIS ENGINE SPECIFICATION</span>
+  </div>
+
+  <header style="margin-bottom: 24px;">
+    <h1 style="font-size: 1.8rem; font-weight: 900; color: #fff; margin-bottom: 6px;">🪓 BaBaYaga Core — El Bisturí Forense</h1>
+    <p style="color: var(--muted); font-size: 0.95rem;">
+      Motor de descompilación binaria, análisis metrológico masivo y verificación de integridad documental de alta fidelidad.
+    </p>
+  </header>
+
+  <div class="card">
+    <h3>¿Qué es BaBaYaga Core?</h3>
+    <p>
+      BaBaYaga Core es un motor pericial concebido bajo una premisa fundamental: <strong>la verdad matemática reside en la estructura física de los bytes, no en las interfaces visuales</strong>. Opera como un bisturí forense capaz de procesar cientos de miles de documentos heterogéneos sin requerir cómputo en la nube ni incurrir en costos masivos de API, ejecutando auditorías profundas directamente en el silicio local.
+    </p>
+    <p>
+      Su diseño sigue el principio de <em>Falla Cerrada (Fail-Closed)</em>: si la cobertura criptográfica, la continuidad de referencias o la integridad de las fuentes no alcanzan el estándar de certeza, el motor bloquea la afirmación de validez documental.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Capacidades Principales (Qué Puede Hacer)</h3>
+    <div class="feature-grid">
+      <div class="feature-box">
+        <h4>🔬 Descompilación Binaria ISO 32000-1</h4>
+        <p>Apertura directa de streams binarios <code>/FlateDecode</code> sin renderizado visual previo, localizando capas vectoriales inyectadas y deltas fantasma en la tabla <code>xref</code>.</p>
+      </div>
+      <div class="feature-box">
+        <h4>📊 Metrología Masiva (>677 GB)</h4>
+        <p>Procesamiento paralelo ultrarrápido sobre cientos de miles de registros, contrastando hashes SHA-256 reales contra metadatos y firmas de transmisión óptica.</p>
+      </div>
+      <div class="feature-box">
+        <h4>📐 Diagnóstico Estadístico 2BL</h4>
+        <p>Implementación rigurosa de la Ley de Benford del Segundo Dígito (Mebane) para detectar inyecciones artificiales de votos o clonación sintética de resultados.</p>
+      </div>
+      <div class="feature-box">
+        <h4>🛡️ Optimización e Inmunidad Criptográfica</h4>
+        <p>Generación de pruebas reproducibles por terceros protegiendo los algoritmos internos de descompilación para preservar la seguridad de la cadena de custodia.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="border-left: 4px solid var(--purple);">
+    <h3>Filosofía: Secreto sin Opacidad</h3>
+    <p>
+      Protegemos el código operativo de autodefensa y los scripts internos de decompilación para evitar la adaptación del atacante; sin embargo, <strong>los resultados, los hashes y los métodos de contraste son 100% públicos y auditables por cualquier tribunal o perito independiente</strong>.
+    </p>
+  </div>
+
+</body>
+</html>

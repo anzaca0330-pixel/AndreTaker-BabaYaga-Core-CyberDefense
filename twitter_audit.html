@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auditoría Forense de Archivo Twitter/X (@anzaca) — AndreTaker</title>
+  <meta name="description" content="Informe pericial forense del archivo digital de Twitter / X (@anzaca): trazabilidad geográfica, nexo causal con denuncias formales y auditoría de clústeres invasores.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  
+  <style>
+    :root {
+      --bg: #07090e;
+      --card: #0f172a;
+      --border: rgba(56, 189, 248, 0.2);
+      --cyan: #38bdf8;
+      --purple: #c084fc;
+      --amber: #fbbf24;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 24px 16px 60px 16px;
+      max-width: 960px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .back-btn {
+      color: var(--cyan);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--cyan);
+      border: 1px solid var(--cyan);
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .metric-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+    }
+    .metric-val { font-size: 1.6rem; font-weight: 900; color: var(--cyan); }
+    .metric-lbl { font-size: 0.72rem; color: var(--muted); margin-top: 4px; text-transform: uppercase; font-weight: 700; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+    .card h3 { color: #fff; font-size: 1.2rem; margin-bottom: 10px; }
+    .card p { font-size: 0.9rem; color: #cbd5e1; margin-bottom: 10px; }
+    .timeline-box {
+      background: rgba(2, 6, 23, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 14px;
+      margin: 12px 0;
+      font-size: 0.85rem;
+    }
+    .timeline-item {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-item strong { color: var(--cyan); }
+    .hash-code {
+      font-family: monospace;
+      font-size: 0.75rem;
+      background: #020617;
+      padding: 8px 12px;
+      border-radius: 6px;
+      color: var(--cyan);
+      word-break: break-all;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-nav">
+    <a href="index.html" class="back-btn">← Volver al Portal Principal</a>
+    <span class="badge">ISO/IEC 27037:2012 FORENSIC EVIDENCE</span>
+  </div>
+
+  <header style="margin-bottom: 24px;">
+    <h1 style="font-size: 1.8rem; font-weight: 900; color: #fff; margin-bottom: 6px;">🔬 Informe Forense: Auditoría del Archivo Twitter/X (@anzaca)</h1>
+    <p style="color: var(--muted); font-size: 0.95rem;">
+      Preservación digital inmutable, nexo causal con denuncias oficiales y geolocalización de clústeres invasores (4.5 GB certificados).
+    </p>
+  </header>
+
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="metric-val">4.5 GB</div>
+      <div class="metric-lbl">Tamaño del Archivo Sellado</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val">19.808</div>
+      <div class="metric-lbl">Tweets Históricos (2010-2026)</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val">242</div>
+      <div class="metric-lbl">Publicaciones Periciales E-14</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val">266</div>
+      <div class="metric-lbl">IPs Únicas Auditadas</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>1. Cadena de Custodia & Hash Criptográfico Inmutable</h3>
+    <p>El paquete maestro oficial extraído de los servidores de Twitter / X se encuentra archivado en custodia física bajo el estándar de preservación ISO/IEC 27037:2012:</p>
+    <div class="hash-code">
+      SHA-256: 18045e289795fe5d6a863057513f359c6e2fda8245a17186aa5a13c7d1c36a18
+    </div>
+    <p style="font-size: 0.82rem; color: var(--muted); margin: 0;">
+      Archivo: <code>twitter-2026-09-06-9eb32ebc9ab3f304dda1ae8d61c292b565a78a29832755256030833f3f559b39.zip</code> (Bloqueado en modo de solo lectura <code>chmod 400</code>).
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>2. Trayectoria Geográfica de la Investigadora (100% Consistente)</h3>
+    <p>El análisis de los 492 eventos de conexión auditados demuestra la perfecta coherencia del desplazamiento físico bajo asedio y posterior asilo:</p>
+    <div class="timeline-box">
+      <div class="timeline-item">
+        <strong>1. Virginia, EE.UU. (Hasta el 7 de Julio de 2026):</strong> Conectividad residencial y laboratorio bajo Central Virginia Services, INC (<code>AS23277</code>).
+      </div>
+      <div class="timeline-item">
+        <strong>2. México (7 de Julio – 7 de Agosto de 2026):</strong> Estancia temporal bajo redes Uninet / Telmex (<code>AS8151</code>) y Pegaso Movistar (<code>AS7438</code>).
+      </div>
+      <div class="timeline-item">
+        <strong>3. Canadá (7 de Agosto de 2026 – Presente):</strong> Ingreso formal por Montreal (Aéroports de Montréal <code>AS577</code>) y radicación protegida en Ontario con operadoras TELUS (<code>AS852</code>) y Rogers (<code>AS812</code>).
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="border-color: rgba(248, 113, 113, 0.4);">
+    <h3 style="color: #f87171;">3. Detección de Clústeres Invasores y Servidores Proxy</h3>
+    <p>Durante los periodos de mayor asedio se detectaron ráfagas simultáneas de acceso desde infraestructuras de datacenters y proxies comerciales que no corresponden al dispositivo físico de la investigadora:</p>
+    <ul style="font-size: 0.85rem; color: #cbd5e1; padding-left: 20px; line-height: 1.6;">
+      <li><strong>Dallas, Texas (AS39944 - Telecom North America):</strong> 27 IPs / 32 eventos entre el 25 y 30 de agosto mientras Andrea ya se encontraba en Ontario.</li>
+      <li><strong>Los Ángeles, California (AS62240 - Clouvider / LogicWeb):</strong> 14 IPs / 17 eventos en ráfagas los días 1 y 2 de septiembre.</li>
+      <li><strong>Nodos de Salto en Europa (AS9009 - M247):</strong> 13 IPs / 16 eventos entre el 13 y 17 de agosto.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>4. Vinculación Judicial Internacional</h3>
+    <p>Este informe pericial respalda tres pilares legales fundamentales:</p>
+    <ul style="font-size: 0.85rem; color: #cbd5e1; padding-left: 20px; line-height: 1.6;">
+      <li><strong>Denuncia ante RTVC (Radicado 202605510107022, 9 de junio de 2026):</strong> Prueba documental de la notificación temprana del fraude en actas y la formalización técnica del <em>Blind Masking</em>.</li>
+      <li><strong>Medida Cautelar ante la CIDH (OEA):</strong> Integrado al expediente <strong>CIDH - 0000117118</strong> (IACHR-0000113728) radicado formalmente en Washington D.C.</li>
+      <li><strong>Requerimiento 18 U.S.C. § 2703(f) a X Corp.:</strong> Solicitud obligatoria para preservar los registros de acceso en servidor y cadenas User-Agent de los atacantes.</li>
+    </ul>
+  </div>
+
+</body>
+</html>

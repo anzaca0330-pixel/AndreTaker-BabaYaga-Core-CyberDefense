@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ciberseguridad & Ciberdefensa Táctica — AndreTaker</title>
+  <meta name="description" content="Módulo de contrainteligencia táctica, detección de intrusiones, aislamiento de rootkits y protocolos de protección perimetral.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+  <style>
+    :root {
+      --bg: #07090e;
+      --card: #0f172a;
+      --border: rgba(239, 68, 68, 0.25);
+      --red: #f87171;
+      --cyan: #38bdf8;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 24px 16px 60px 16px;
+      max-width: 960px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .back-btn {
+      color: var(--red);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--red);
+      border: 1px solid var(--red);
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+    .card h3 { color: #fff; font-size: 1.2rem; margin-bottom: 10px; }
+    .card p { font-size: 0.9rem; color: #cbd5e1; margin-bottom: 8px; }
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .tool-box {
+      background: rgba(2, 6, 23, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .tool-box h4 { color: var(--red); font-size: 0.95rem; margin-bottom: 6px; }
+    .tool-box p { font-size: 0.82rem; color: var(--muted); margin: 0; }
+  </style>
+</head>
+<body>
+
+  <div class="top-nav">
+    <a href="index.html" class="back-btn">← Volver al Portal Principal</a>
+    <span class="badge">TACTICAL CYBERDEFENSE MODULE</span>
+  </div>
+
+  <header style="margin-bottom: 24px;">
+    <h1 style="font-size: 1.8rem; font-weight: 900; color: #fff; margin-bottom: 6px;">🛡️ Ciberseguridad & Ciberdefensa Táctica</h1>
+    <p style="color: var(--muted); font-size: 0.95rem;">
+      Protocolos de protección perimetral, contrainteligencia de dispositivos y auditoría contra asedio informático avanzado.
+    </p>
+  </header>
+
+  <div class="card">
+    <h3>Defensa Forjada en el Asedio</h3>
+    <p>
+      Este módulo reúne los protocolos y herramientas desarrolladas para resistir y neutralizar ataques coordinados de nivel estatal sufridos durante la investigación: inyecciones de rootkit en BIOS por hardware, detonaciones de borrado remoto forzado (Remote Wipe), barridos de sondas hostiles y trampas de suplantación de identidad.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Componentes y Protocolos Operativos</h3>
+    <div class="tool-grid">
+      <div class="tool-box">
+        <h4>🔒 Aislamiento de Rootkits & BIOS</h4>
+        <p>Técnicas de bypass de firmware y recuperación en modo air-gapped mediante inyección de entropía manual en buses de hardware protegidos.</p>
+      </div>
+      <div class="tool-box">
+        <h4>📡 Detección de Pegasus & Redes SS7</h4>
+        <p>Monitoreo perimetral y análisis forense de memoria frente a exploits zero-click e interceptores IMSI Catcher en espectro celular.</p>
+      </div>
+      <div class="tool-box">
+        <h4>🛡️ Protocolo Anti-Palantir (-ap)</h4>
+        <p>Inmunización de huella criptográfica mediante mutación controlada de hashes y purga total de metadatos Exif/XMP para cegar motores de ingesta masiva.</p>
+      </div>
+      <div class="tool-box">
+        <h4>⚡ Espejo Defensivo Reflectante</h4>
+        <p>Detección activa de barridos de puertos hostiles, registrando la firma ASN y User-Agent del atacante para neutralizar la sonda de reconocimiento.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="border-left: 4px solid var(--cyan);">
+    <h3 style="color: var(--cyan);">Herramienta Móvil: Consola APK1</h3>
+    <p>
+      La consola táctica ligera de gestión de dispositivo permite a defensores de derechos humanos y periodistas en terreno auditar sockets locales, normalizar portapapeles y verificar enlaces sospechosos bajo un diseño de perfil discreto.
+    </p>
+  </div>
+
+</body>
+</html>
