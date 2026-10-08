@@ -8,7 +8,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700&family=VT323&family=MS+Sans+Serif&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700;800&family=VT323&family=MS+Sans+Serif&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
 
   <style>
     /* ======================================================== */
@@ -105,6 +105,7 @@
       justify-content: center;
       cursor: pointer;
       line-height: 1;
+      color: var(--win-black);
     }
 
     .win-btn-sm:active {
@@ -126,6 +127,7 @@
       padding: 2px 6px;
       border-radius: 2px;
       position: relative;
+      user-select: none;
     }
 
     .menu-item:hover {
@@ -145,7 +147,7 @@
       top: 100%;
       left: 0;
       background: var(--win-gray);
-      min-width: 130px;
+      min-width: 150px;
       z-index: 100;
       padding: 2px;
     }
@@ -198,196 +200,197 @@
     .hero-banner p {
       font-size: 0.95rem;
       color: #94a3b8;
-      max-width: 780px;
-      line-height: 1.5;
+      max-width: 900px;
+      line-height: 1.6;
     }
 
-    /* Tira de Telemetría (Inspiración Terminal / Contador 95) */
+    /* Telemetría */
     .telemetry-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
+      background: #0f172a;
+      padding: 10px;
       margin-bottom: 24px;
-      background: var(--win-light-gray);
-      padding: 8px 12px;
-      font-family: 'Fira Code', monospace;
-      font-size: 0.8rem;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .telemetry-badge {
-      display: inline-flex;
+      background: var(--win-gray);
+      color: var(--win-black);
+      padding: 6px 12px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.78rem;
+      display: flex;
       align-items: center;
       gap: 6px;
-      padding: 3px 8px;
-      background: var(--win-white);
-      font-weight: 600;
-    }
-
-    .telemetry-badge strong {
-      color: #0369a1;
     }
 
     /* Cuadrícula de Módulos (Los 5 Pilares) */
     .modules-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 18px;
-      margin-bottom: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
     }
 
-    /* Ventana Hija / Tarjeta de Módulo Estilo Win95 */
     .card-win {
       background: var(--win-gray);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.15s ease;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
     .card-win:hover {
       transform: translateY(-2px);
-    }
-
-    .card-titlebar {
-      background: #475569;
-      color: var(--win-white);
-      padding: 4px 8px;
-      font-size: 0.82rem;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
     .card-win.highlight .card-titlebar {
-      background: linear-gradient(90deg, #0369a1, #0284c7);
+      background: linear-gradient(90deg, #0369a1 0%, #0284c7 100%);
+    }
+
+    .card-titlebar {
+      background: linear-gradient(90deg, #334155 0%, #475569 100%);
+      color: #ffffff;
+      padding: 4px 8px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Fira Code', monospace;
     }
 
     .card-body {
-      padding: 16px;
-      background: var(--win-white);
-      margin: 4px;
+      background: #f8fafc;
+      padding: 18px;
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      gap: 14px;
     }
 
     .card-header-icon {
-      font-size: 2rem;
-      margin-bottom: 8px;
-      display: block;
+      font-size: 1.8rem;
+      margin-bottom: 6px;
+      display: inline-block;
     }
 
     .card-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 1.15rem;
       font-weight: 800;
       color: #0f172a;
       margin-bottom: 6px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .card-domain-tag {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.72rem;
+      color: #0284c7;
+      background: #e0f2fe;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      display: inline-block;
+      word-break: break-all;
     }
 
     .card-desc {
-      font-size: 0.84rem;
+      font-size: 0.86rem;
       color: #475569;
       line-height: 1.5;
-      margin-bottom: 16px;
-      flex: 1;
+    }
+
+    .card-actions-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
     }
 
     .card-btn {
+      background: var(--win-gray);
+      color: var(--win-black);
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      padding: 7px 14px;
-      background: var(--win-gray);
-      color: var(--win-black);
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-decoration: none;
+      gap: 4px;
       cursor: pointer;
-      width: fit-content;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      border: none;
+      flex: 1;
+      text-align: center;
+    }
+
+    .card-btn.primary {
+      background: #0284c7;
+      color: #ffffff;
+      border: 2px solid;
+      border-color: #38bdf8 #0369a1 #0369a1 #38bdf8;
     }
 
     .card-btn:active {
       border-color: var(--win-black) var(--win-white) var(--win-white) var(--win-black);
     }
 
-    /* Barra de Estado Inferior de la Ventana */
+    /* Barra de Estado Inferior */
     .status-bar {
+      margin-top: 24px;
       display: flex;
-      gap: 4px;
-      margin-top: 16px;
-      padding-top: 6px;
-      border-top: 1px solid var(--win-dark-gray);
+      gap: 6px;
       font-size: 0.75rem;
-      color: #334155;
+      color: var(--win-black);
     }
 
     .status-panel {
-      padding: 2px 8px;
-      background: var(--win-light-gray);
+      background: var(--win-gray);
+      padding: 4px 8px;
     }
 
-    /* Barra de Tareas Inferior Fija (Taskbar Win95) */
+    /* Taskbar Retro */
     .taskbar {
       position: fixed;
       bottom: 0;
       left: 0;
       right: 0;
-      height: 38px;
+      height: 36px;
       background: var(--win-gray);
       border-top: 2px solid var(--win-white);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 3px 6px;
+      padding: 2px 4px;
       z-index: 1000;
-      box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
     }
 
     .start-btn {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 6px;
-      height: 28px;
-      padding: 0 10px;
-      background: var(--win-gray);
+      padding: 2px 10px;
       font-weight: bold;
       font-size: 0.85rem;
       cursor: pointer;
-    }
-
-    .start-btn:active {
-      border-color: var(--win-black) var(--win-white) var(--win-white) var(--win-black);
-    }
-
-    .taskbar-apps {
-      display: flex;
-      gap: 6px;
-      flex: 1;
-      margin-left: 12px;
-      overflow-x: auto;
+      height: 28px;
     }
 
     .task-item {
-      height: 26px;
-      padding: 0 10px;
-      background: var(--win-gray);
-      font-size: 0.78rem;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 4px;
+      padding: 2px 8px;
+      font-size: 0.78rem;
       text-decoration: none;
-      color: inherit;
-      white-space: nowrap;
-    }
-
-    .task-item.active {
-      background: #e2e8f0;
-      border-color: var(--win-black) var(--win-white) var(--win-white) var(--win-black);
-      font-weight: 600;
+      color: var(--win-black);
+      height: 28px;
+      background: var(--win-gray);
     }
 
     .tray {
@@ -395,24 +398,22 @@
       align-items: center;
       gap: 10px;
       padding: 2px 10px;
-      background: var(--win-light-gray);
-      font-family: 'Fira Code', monospace;
       font-size: 0.75rem;
+      font-family: 'Fira Code', monospace;
+      height: 28px;
     }
 
-    /* Modal / Ventana Emergente Estilo Win95 */
+    /* Modales Retro OS (Windows 95 Windowed Dialogs) */
     .modal-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.45);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.55);
       z-index: 2000;
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 12px;
+      padding: 14px;
+      backdrop-filter: blur(4px);
     }
 
     .modal-overlay.active {
@@ -426,11 +427,17 @@
       max-height: 90vh;
       display: flex;
       flex-direction: column;
-      box-shadow: 4px 4px 16px rgba(0,0,0,0.5);
+      box-shadow: 6px 6px 24px rgba(0,0,0,0.6);
+      animation: popIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
 
     .modal-body {
-      padding: 16px 18px;
+      padding: 20px;
       overflow-y: auto;
       background: #f8fafc;
       font-size: 0.9rem;
@@ -440,7 +447,7 @@
 
     .modal-body h2 {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.35rem;
+      font-size: 1.4rem;
       color: #0369a1;
       margin-bottom: 8px;
       display: flex;
@@ -457,8 +464,38 @@
     }
 
     .modal-body p {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       color: #334155;
+    }
+
+    .modal-bullet-list {
+      margin: 10px 0 16px 20px;
+      color: #1e293b;
+    }
+
+    .modal-bullet-list li {
+      margin-bottom: 6px;
+    }
+
+    .modal-domain-banner {
+      background: #e0f2fe;
+      border-left: 4px solid #0284c7;
+      padding: 10px 14px;
+      margin: 12px 0 16px 0;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.82rem;
+      color: #0369a1;
+      word-break: break-all;
+    }
+
+    .modal-actions-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-end;
+      margin-top: 20px;
+      padding-top: 14px;
+      border-top: 1px solid #cbd5e1;
     }
 
     .manifesto-box {
@@ -505,7 +542,7 @@
       <div class="title-bar">
         <div class="title-bar-left">
           <img src="assets/images/logo.png" alt="AndreTaker Logo" class="title-logo-img">
-          <span>AndreTaker Forensic OS v2.1 — [Ecosistema BaBaYaga Core]</span>
+          <span id="windowMainTitle">AndreTaker Forensic OS v2.1 — [Ecosistema BaBaYaga Core]</span>
         </div>
         <div class="title-bar-controls">
           <div class="win-btn-sm" onclick="alert('Ventana minimizada al dock.')">_</div>
@@ -516,12 +553,12 @@
 
       <!-- Menú Clásico Desplegable con Selector de Idiomas Trilingüe -->
       <div class="menu-bar">
-        <div class="menu-item" onclick="openAboutModal()"><span style="text-decoration: underline;">A</span>cerca de nosotros</div>
-        <div class="menu-item" onclick="location.href='#modulos'"><span style="text-decoration: underline;">E</span>xplorador</div>
+        <div class="menu-item" onclick="openAboutModal()" id="menuAbout">Acerca de nosotros</div>
+        <div class="menu-item" onclick="location.href='#modulos'" id="menuExplorer">Explorador</div>
         
         <!-- Menú de Idiomas Trilingüe -->
         <div class="lang-dropdown menu-item">
-          <span style="text-decoration: underline;">I</span>dioma: <strong id="currentLangTag">ES</strong> ▼
+          <span id="menuLang">Idioma:</span> <strong id="currentLangTag">ES</strong> ▼
           <div class="lang-menu-content bevel-outset">
             <div class="lang-opt" onclick="setLanguage('ES')">🇨🇴 Español (ES)</div>
             <div class="lang-opt" onclick="setLanguage('EN')">🇨🇦 English (EN)</div>
@@ -529,7 +566,7 @@
           </div>
         </div>
 
-        <div class="menu-item" onclick="openAboutModal()"><span style="text-decoration: underline;">A</span>yuda / Manifiesto</div>
+        <div class="menu-item" onclick="openAboutModal()" id="menuHelp">Ayuda / Manifiesto</div>
       </div>
 
       <!-- Cuerpo Interior de la Ventana -->
@@ -546,16 +583,16 @@
         <!-- Tira de Telemetría Numérica -->
         <div class="telemetry-bar bevel-inset">
           <div class="telemetry-badge bevel-outset">
-            <span>📦 Bóveda Preservada:</span> <strong>>677 GB</strong>
+            <span id="telemetryVaultLabel">📦 Bóveda Preservada:</span> <strong>>677 GB</strong>
           </div>
           <div class="telemetry-badge bevel-outset">
-            <span>🔒 Hashes SHA-256:</span> <strong>777.869</strong>
+            <span id="telemetryHashesLabel">🔒 Hashes SHA-256:</span> <strong>777.869</strong>
           </div>
           <div class="telemetry-badge bevel-outset">
-            <span>👥 Testigos Digitales:</span> <strong>75.000</strong>
+            <span id="telemetryWitnessesLabel">👥 Testigos Digitales:</span> <strong>75.000</strong>
           </div>
           <div class="telemetry-badge bevel-outset">
-            <span>🏛️ CERN Zenodo DOI:</span> <a href="https://doi.org/10.5281/zenodo.23188146" target="_blank" style="color: #0369a1; text-decoration: none;"><strong>10.5281/zenodo.23188146</strong></a>
+            <span id="telemetryDoiLabel">🏛️ CERN Zenodo DOI:</span> <a href="https://doi.org/10.5281/zenodo.23188146" target="_blank" style="color: #0369a1; text-decoration: none;"><strong>10.5281/zenodo.23188146</strong></a>
           </div>
         </div>
 
@@ -563,7 +600,7 @@
         <div class="modules-grid" id="modulos">
 
           <!-- Módulo 1: Forensic Suite Web (Nueva) -->
-          <div class="card-win bevel-outset highlight">
+          <div class="card-win bevel-outset highlight" onclick="openModuleModal(1)">
             <div class="card-titlebar">
               <span>🔬 App: ForensicSuite.exe</span>
               <span>[RUN]</span>
@@ -572,38 +609,44 @@
               <div>
                 <span class="card-header-icon">⚡</span>
                 <h2 class="card-name" id="cardSuiteTitle">Forensic Suite v2.1 (Web + IA)</h2>
+                <div class="card-domain-tag">https://anzaca0330-pixel.github.io/AndreTaker-Forensic-Suite/</div>
                 <p class="card-desc" id="cardSuiteDesc">
                   Aplicación web interactiva completa: Inspector XREF, Ley de Benford (2BL), ELA / 1bpc, Oráculo IA de 3 audiencias y terminal pericial en vivo.
                 </p>
               </div>
-              <a href="https://anzaca0330-pixel.github.io/AndreTaker-Forensic-Suite/" target="_blank" class="card-btn bevel-outset" id="cardSuiteBtn">
-                Abrir Forensic Suite <span>→</span>
-              </a>
+              <div class="card-actions-row">
+                <button class="card-btn primary bevel-outset" onclick="openModuleModal(1)">
+                  <span>📖</span> <span id="cardSuiteInfoBtn">Abrir Ventana / Info</span>
+                </button>
+              </div>
             </div>
           </div>
 
-          <!-- Módulo 2: Acervo Probatorio E-14 -->
-          <div class="card-win bevel-outset">
+          <!-- Módulo 2: Acervo Probatorio E-14 (Colombia 2026) -->
+          <div class="card-win bevel-outset" onclick="openModuleModal(2)">
             <div class="card-titlebar">
-              <span>🏛️ Doc: Acervo_E14.pdf</span>
+              <span>🏛️ Doc: Acervo_E14_Colombia.pdf</span>
               <span>[DOC]</span>
             </div>
             <div class="card-body bevel-inset">
               <div>
                 <span class="card-header-icon">🏛️</span>
-                <h2 class="card-name" id="cardE14Title">Acervo Probatorio E-14</h2>
+                <h2 class="card-name" id="cardE14Title">Investigación Elecciones Colombia 2026</h2>
+                <div class="card-domain-tag">https://www.andretaker.org/fraude_electoral_colombia.html</div>
                 <p class="card-desc" id="cardE14Desc">
-                  Investigación metrológica sobre la alteración estructural de actas electorales en Colombia (2026), 2BL Benford, Blind Masking y solicitud abierta de los E-10.
+                  Investigación metrológica sobre la alteración estructural de actas electorales en Colombia, 2BL Benford, Blind Masking y solicitud abierta de los E-10.
                 </p>
               </div>
-              <a href="forense.html" class="card-btn bevel-outset" id="cardE14Btn">
-                Explorar Peritaje <span>→</span>
-              </a>
+              <div class="card-actions-row">
+                <button class="card-btn primary bevel-outset" onclick="openModuleModal(2)">
+                  <span>📖</span> <span id="cardE14InfoBtn">Abrir Ventana / Info</span>
+                </button>
+              </div>
             </div>
           </div>
 
           <!-- Módulo 3: BaBaYaga Core -->
-          <div class="card-win bevel-outset">
+          <div class="card-win bevel-outset" onclick="openModuleModal(3)">
             <div class="card-titlebar">
               <span>🪓 Bin: babayaga_core.bin</span>
               <span>[CLI]</span>
@@ -611,19 +654,22 @@
             <div class="card-body bevel-inset">
               <div>
                 <span class="card-header-icon">🪓</span>
-                <h2 class="card-name" id="cardBabaTitle">BaBaYaga Core</h2>
+                <h2 class="card-name" id="cardBabaTitle">BaBaYaga Core (Motor Binario)</h2>
+                <div class="card-domain-tag">https://andretaker.org/babayaga.html</div>
                 <p class="card-desc" id="cardBabaDesc">
                   Especificación técnica de nuestro bisturí forense local: descompilación binaria ISO 32000-1, optimización masiva de cómputo y principio fail-closed.
                 </p>
               </div>
-              <a href="babayaga.html" class="card-btn bevel-outset" id="cardBabaBtn">
-                Conocer el Motor <span>→</span>
-              </a>
+              <div class="card-actions-row">
+                <button class="card-btn primary bevel-outset" onclick="openModuleModal(3)">
+                  <span>📖</span> <span id="cardBabaInfoBtn">Abrir Ventana / Info</span>
+                </button>
+              </div>
             </div>
           </div>
 
           <!-- Módulo 4: Ciberdefensa Perimetral -->
-          <div class="card-win bevel-outset">
+          <div class="card-win bevel-outset" onclick="openModuleModal(4)">
             <div class="card-titlebar">
               <span>🛡️ Sec: Perimeter_Armor.sys</span>
               <span>[SEC]</span>
@@ -632,18 +678,21 @@
               <div>
                 <span class="card-header-icon">🛡️</span>
                 <h2 class="card-name" id="cardSecTitle">Ciberdefensa Perimetral</h2>
+                <div class="card-domain-tag">https://andretaker.org/ciberdefensa.html</div>
                 <p class="card-desc" id="cardSecDesc">
                   Protocolos de autodefensa forjados bajo asedio: aislamiento de rootkits BIOS, detección de intrusión Pegasus/SS7 y contramedidas de hardware.
                 </p>
               </div>
-              <a href="ciberdefensa.html" class="card-btn bevel-outset" id="cardSecBtn">
-                Ver Protocolos <span>→</span>
-              </a>
+              <div class="card-actions-row">
+                <button class="card-btn primary bevel-outset" onclick="openModuleModal(4)">
+                  <span>📖</span> <span id="cardSecInfoBtn">Abrir Ventana / Info</span>
+                </button>
+              </div>
             </div>
           </div>
 
           <!-- Módulo 5: Guardianes Digitales (Educativo) -->
-          <div class="card-win bevel-outset">
+          <div class="card-win bevel-outset" onclick="openModuleModal(5)">
             <div class="card-titlebar">
               <span>🎮 Game: Guardianes_Digitales.exe</span>
               <span>[PLAY]</span>
@@ -651,14 +700,17 @@
             <div class="card-body bevel-inset">
               <div>
                 <span class="card-header-icon">🎓</span>
-                <h2 class="card-name" id="cardEduTitle">Guardianes Digitales</h2>
+                <h2 class="card-name" id="cardEduTitle">Guardianes Digitales (Educativo)</h2>
+                <div class="card-domain-tag">https://educational.andretaker.org</div>
                 <p class="card-desc" id="cardEduDesc">
                   Plataforma educativa con el Chibi Trio (Tycho, AndreTaker y Arturius), simulador didáctico de enrutamiento y guías ciudadanas interactivas.
                 </p>
               </div>
-              <a href="https://educational.andretaker.org" class="card-btn bevel-outset" id="cardEduBtn">
-                Ir a Educación <span>→</span>
-              </a>
+              <div class="card-actions-row">
+                <button class="card-btn primary bevel-outset" onclick="openModuleModal(5)">
+                  <span>📖</span> <span id="cardEduInfoBtn">Abrir Ventana / Info</span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -686,24 +738,249 @@
   <div class="taskbar">
     <div class="start-btn bevel-outset">
       <span style="font-size: 1.1rem;">🪟</span>
-      <span>Inicio</span>
-        <a href="https://anzaca0330-pixel.github.io/AndreTaker-Forensic-Suite/" target="_blank" class="task-item bevel-outset">
+      <span id="startBtnLabel">Inicio</span>
+    </div>
+    
+    <div style="display: flex; gap: 4px; overflow-x: auto;">
+      <a href="https://anzaca0330-pixel.github.io/AndreTaker-Forensic-Suite/" target="_blank" class="task-item bevel-outset">
         <span>🔬</span> Forensic Suite
+      </a>
+      <a href="https://www.andretaker.org/fraude_electoral_colombia.html" target="_blank" class="task-item bevel-outset">
+        <span>🏛️</span> Peritaje E-14 (Colombia)
       </a>
       <a href="https://educational.andretaker.org" target="_blank" class="task-item bevel-outset">
         <span>🎓</span> Guardianes Digitales
       </a>
       <a href="https://doi.org/10.5281/zenodo.23188146" target="_blank" class="task-item bevel-outset">
-        <span>🏛️</span> Zenodo DOI
+        <span>📜</span> Zenodo DOI
       </a>
       <div onclick="openAboutModal()" class="task-item bevel-outset" style="cursor: pointer;">
-        <span>📖</span> Acerca de nosotros
+        <span>📖</span> <span id="taskbarAboutLabel">Acerca de nosotros</span>
       </div>
     </div>
 
     <div class="tray bevel-inset">
       <span>🛡️ SHA-256</span>
       <span id="clockTime">12:00</span>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- MODALES DE LOS 5 MÓDULOS (VENTANAS DE EXPLICACIÓN WIN95)  -->
+  <!-- ======================================================== -->
+
+  <!-- Modal Módulo 1: Forensic Suite Web v2.1 -->
+  <div class="modal-overlay" id="moduleModal1" onclick="if(event.target===this) closeModuleModal(1)">
+    <div class="modal-win bevel-outset">
+      <div class="title-bar">
+        <div class="title-bar-left">
+          <img src="assets/images/logo.png" alt="Logo" class="title-logo-img">
+          <span id="mod1TitleBar">🔬 App: ForensicSuite.exe — [Forensic Suite Web v2.1 + IA]</span>
+        </div>
+        <div class="title-bar-controls">
+          <div class="win-btn-sm" onclick="closeModuleModal(1)">✕</div>
+        </div>
+      </div>
+      <div class="modal-body bevel-inset">
+        <h2 id="mod1Title">🔬 Forensic Suite v2.1 (Web + Oráculo IA)</h2>
+        <div class="modal-domain-banner">
+          🌐 <strong>URL del Sistema:</strong> https://anzaca0330-pixel.github.io/AndreTaker-Forensic-Suite/
+        </div>
+        <p id="mod1Desc">
+          La <strong>Forensic Suite v2.1</strong> es el entorno interactivo web desacoplado de peritaje documental. Permite cargar actas o archivos PDF y ejecutar análisis estructurales completos directamente en el navegador del usuario en milisegundos.
+        </p>
+        
+        <h3 id="mod1FeatTitle">⚙️ Capacidades y Módulos de la Suite:</h3>
+        <ul class="modal-bullet-list" id="mod1Bullets">
+          <li><strong>Inspector XREF:</strong> Decompilación visual de la tabla de objetos y detección de deltas fantasma (+2).</li>
+          <li><strong>Ley de Benford (2BL):</strong> Motor estadístico del segundo dígito sobre distribuciones numéricas masivas.</li>
+          <li><strong>Filtro ELA / 1bpc:</strong> Aislamiento de máscaras de 1-bit por canal y ruido residual en imágenes.</li>
+          <li><strong>Oráculo IA de 3 Audiencias:</strong> Generador de veredictos adaptados para la Ciudadanía, Peritos Legales y Auditores Técnicos (impulsado por Gemini API).</li>
+          <li><strong>Terminal Pericial en Vivo:</strong> Consola de comandos con exportación de evidencia sellada bajo SHA-256.</li>
+        </ul>
+
+        <div class="modal-actions-bar" style="flex-wrap: wrap; gap: 8px;">
+          <button class="card-btn bevel-outset" onclick="closeModuleModal(1)">
+            [✕] <span class="closeBtnLabel">Cerrar Ventana</span>
+          </button>
+          <a href="https://anzaca0330-pixel.github.io/AndreTaker-Forensic-Suite/" target="_blank" class="card-btn primary bevel-outset" id="mod1ActionBtn">
+            🔬 Abrir Forensic Suite Web →
+          </a>
+          <a href="https://www.andretaker.org/fraude_electoral_colombia.html" target="_blank" class="card-btn bevel-outset" style="background: #0284c7; color: #ffffff; border: 2px solid; border-color: #38bdf8 #0369a1 #0369a1 #38bdf8;">
+            🇨🇴 Investigación Colombia →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Módulo 2: Acervo Probatorio E-14 (Colombia 2026) -->
+  <div class="modal-overlay" id="moduleModal2" onclick="if(event.target===this) closeModuleModal(2)">
+    <div class="modal-win bevel-outset">
+      <div class="title-bar">
+        <div class="title-bar-left">
+          <img src="assets/images/logo.png" alt="Logo" class="title-logo-img">
+          <span id="mod2TitleBar">🏛️ Doc: Acervo_E14_Colombia.pdf — [Investigación Pericial Colombia]</span>
+        </div>
+        <div class="title-bar-controls">
+          <div class="win-btn-sm" onclick="closeModuleModal(2)">✕</div>
+        </div>
+      </div>
+      <div class="modal-body bevel-inset">
+        <h2 id="mod2Title">🏛️ Acervo Probatorio E-14 (Investigación Colombia 2026)</h2>
+        <div class="modal-domain-banner">
+          🌐 <strong>Dominio Oficial del Peritaje:</strong> https://www.andretaker.org/fraude_electoral_colombia.html
+        </div>
+        <p id="mod2Desc">
+          Este expediente pericial contiene la investigación metrológica exhaustiva sobre la alteración algorítmica y gráfica de las actas de escrutinio E-14 en las elecciones de Colombia (2026). Resguarda el análisis comprobatorio sobre más de 147.000 actas y >677 GB de evidencia.
+        </p>
+        
+        <h3 id="mod2FeatTitle">📜 Hallazgos Clave y Evidencia Criptográfica:</h3>
+        <ul class="modal-bullet-list" id="mod2Bullets">
+          <li><strong>Trazabilidad Inmutable:</strong> >677 GB de actas originales selladas bajo 777.869 hashes SHA-256 y salvadas por 75.000 Testigos Digitales.</li>
+          <li><strong>Blind Masking (1bpc):</strong> Inyección de parches opacos gráficos de 1-bit para sobrescribir la votación real antes de la transmisión.</li>
+          <li><strong>Ley de Benford 2BL:</strong> Desviación estadística anómala ($p < 10^{-10}$) en las curvas de transmisión de datos.</li>
+          <li><strong>Sello Institucional & CIDH:</strong> Documentado con DOI del CERN Zenodo (10.5281/zenodo.23188146) y radicado ante la CIDH (IACHR-0000113728).</li>
+        </ul>
+
+        <div class="modal-actions-bar" style="flex-wrap: wrap; gap: 8px;">
+          <button class="card-btn bevel-outset" onclick="closeModuleModal(2)">
+            [✕] <span class="closeBtnLabel">Cerrar Ventana</span>
+          </button>
+          <a href="https://www.andretaker.org/fraude_electoral_colombia.html" target="_blank" class="card-btn primary bevel-outset">
+            🇨🇴 Investigación Elecciones Colombia →
+          </a>
+          <button class="card-btn bevel-outset" onclick="alert('Módulo de Auditoría Electoral Brasil en preparación metrológica.')" style="opacity: 0.85;">
+            🇧🇷 Investigación Brasil (Próximamente) 🔒
+          </button>
+          <a href="https://doi.org/10.5281/zenodo.23188146" target="_blank" class="card-btn bevel-outset" style="color: #0369a1;">
+            📜 DOI CERN Zenodo →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Módulo 3: BaBaYaga Core -->
+  <div class="modal-overlay" id="moduleModal3" onclick="if(event.target===this) closeModuleModal(3)">
+    <div class="modal-win bevel-outset">
+      <div class="title-bar">
+        <div class="title-bar-left">
+          <img src="assets/images/logo.png" alt="Logo" class="title-logo-img">
+          <span id="mod3TitleBar">🪓 Bin: babayaga_core.bin — [Especificación BaBaYaga Core]</span>
+        </div>
+        <div class="title-bar-controls">
+          <div class="win-btn-sm" onclick="closeModuleModal(3)">✕</div>
+        </div>
+      </div>
+      <div class="modal-body bevel-inset">
+        <h2 id="mod3Title">🪓 BaBaYaga Core (Bisturí Forense Local)</h2>
+        <div class="modal-domain-banner">
+          🌐 <strong>Especificación Técnica:</strong> https://andretaker.org/babayaga.html
+        </div>
+        <p id="mod3Desc">
+          <strong>BaBaYaga Core</strong> representa nuestro motor local de análisis binario sin dependencias externas. Diseñado bajo el estándar ISO 32000-1, opera directamente sobre la estructura física de archivos PDF comprimidos en flujos <code>/FlateDecode</code>.
+        </p>
+        
+        <h3 id="mod3FeatTitle">⚡ Arquitectura y Principios de Ciberdefensa:</h3>
+        <ul class="modal-bullet-list" id="mod3Bullets">
+          <li><strong>Descompilación Binaria Pura:</strong> Extracción directa de diccionarios PDF evitando librerías comerciales vulnerables.</li>
+          <li><strong>Principio Fail-Closed:</strong> Si la estructura XREF presenta inconsistencias no declaradas, el motor aísla el archivo y genera alerta forense.</li>
+          <li><strong>Procesamiento Paralelo:</strong> Optimización multi-hilo para calcular hashes SHA-256 y deltas XREF en miles de documentos por segundo.</li>
+          <li><strong>OpSec Estricto:</strong> Ejecución 100% en el entorno local bajo secreto de empresa y aislamiento de red.</li>
+        </ul>
+
+        <div class="modal-actions-bar">
+          <button class="card-btn bevel-outset" onclick="closeModuleModal(3)">
+            [✕] <span class="closeBtnLabel">Cerrar Ventana</span>
+          </button>
+          <a href="babayaga.html" class="card-btn primary bevel-outset" id="mod3ActionBtn">
+            🪓 Ver Especificación BaBaYaga Core →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Módulo 4: Ciberdefensa Perimetral -->
+  <div class="modal-overlay" id="moduleModal4" onclick="if(event.target===this) closeModuleModal(4)">
+    <div class="modal-win bevel-outset">
+      <div class="title-bar">
+        <div class="title-bar-left">
+          <img src="assets/images/logo.png" alt="Logo" class="title-logo-img">
+          <span id="mod4TitleBar">🛡️ Sec: Perimeter_Armor.sys — [Blindaje Ciberdefensa]</span>
+        </div>
+        <div class="title-bar-controls">
+          <div class="win-btn-sm" onclick="closeModuleModal(4)">✕</div>
+        </div>
+      </div>
+      <div class="modal-body bevel-inset">
+        <h2 id="mod4Title">🛡️ Ciberdefensa Perimetral & Protocolos DFIR</h2>
+        <div class="modal-domain-banner">
+          🌐 <strong>Protocolos Oficiales:</strong> https://andretaker.org/ciberdefensa.html
+        </div>
+        <p id="mod4Desc">
+          Protocolos de contención e inmunización perimetral desarrollados durante 20 días de aislamiento cibernético extremo tras ataques coordinados a nuestra infraestructura de investigación.
+        </p>
+        
+        <h3 id="mod4FeatTitle">🛡️ Capas de Blindaje:</h3>
+        <ul class="modal-bullet-list" id="mod4Bullets">
+          <li><strong>Aislamiento de Rootkits BIOS/UEFI:</strong> Técnicas de sanitización de firmware y verificación de vectores SPI Flash.</li>
+          <li><strong>Detección Pegasus/SS7:</strong> Protocolos de inspección de tráfico perimetral y contención de intromisiones móviles.</li>
+          <li><strong>Descontaminación de Hardware:</strong> Procedimientos de purga para dispositivos de almacenamiento y bus USB.</li>
+          <li><strong>OpSec & Anonimato Soberano:</strong> Integración de túneles aislados y estándares estrictos de navegación segura.</li>
+        </ul>
+
+        <div class="modal-actions-bar">
+          <button class="card-btn bevel-outset" onclick="closeModuleModal(4)">
+            [✕] <span class="closeBtnLabel">Cerrar Ventana</span>
+          </button>
+          <a href="ciberdefensa.html" class="card-btn primary bevel-outset" id="mod4ActionBtn">
+            🛡️ Explorar Ciberdefensa Perimetral →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Módulo 5: Guardianes Digitales (Educativo) -->
+  <div class="modal-overlay" id="moduleModal5" onclick="if(event.target===this) closeModuleModal(5)">
+    <div class="modal-win bevel-outset">
+      <div class="title-bar">
+        <div class="title-bar-left">
+          <img src="assets/images/logo.png" alt="Logo" class="title-logo-img">
+          <span id="mod5TitleBar">🎓 Game: Guardianes_Digitales.exe — [Ecosistema Educativo]</span>
+        </div>
+        <div class="title-bar-controls">
+          <div class="win-btn-sm" onclick="closeModuleModal(5)">✕</div>
+        </div>
+      </div>
+      <div class="modal-body bevel-inset">
+        <h2 id="mod5Title">🎓 Guardianes Digitales (Ecosistema Educativo)</h2>
+        <div class="modal-domain-banner">
+          🌐 <strong>Portal Educativo Oficial:</strong> https://educational.andretaker.org
+        </div>
+        <p id="mod5Desc">
+          El <strong>Ecosistema Educativo Guardianes Digitales</strong> transforma la ciberseguridad y la integridad de datos en guías didácticas, simuladores de enrutamiento y videojuegos pensados para niños, escuelas y la ciudadanía.
+        </p>
+        
+        <h3 id="mod5FeatTitle">🎮 Componentes Destacados:</h3>
+        <ul class="modal-bullet-list" id="mod5Bullets">
+          <li><strong>El Chibi Trio:</strong> AVATARS didácticos de Tycho (Silicio), AndreTaker (Estratega) y Arturius (El Escudo).</li>
+          <li><strong>Metáfora del Plomero:</strong> Explicación visual e intuitiva de cómo viajan los datos y la importancia de reparar las fugas de seguridad.</li>
+          <li><strong>Screening Gifted (Arturo):</strong> Herramientas adaptadas a perfiles de Altas Capacidades con rutinas de pausa activa ("Trampolín de 2 minutos").</li>
+          <li><strong>Navegación Móvil Rápida:</strong> Optimizado para teléfonos como el Motorola Moto 50 y conexiones de bajo ancho de banda.</li>
+        </ul>
+
+        <div class="modal-actions-bar">
+          <button class="card-btn bevel-outset" onclick="closeModuleModal(5)">
+            [✕] <span class="closeBtnLabel">Cerrar Ventana</span>
+          </button>
+          <a href="https://educational.andretaker.org" target="_blank" class="card-btn primary bevel-outset" id="mod5ActionBtn">
+            🎓 Ir al Portal Educativo Guardianes Digitales →
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -782,7 +1059,7 @@
           </p>
           <h4 style="color: #38bdf8; font-size: 1.05rem; margin: 14px 0 8px 0;">El Punto Azul Pálido de los Datos y la Gratitud de la Memoria</h4>
           <p>
-            En la ciencia y la estadística (nuestra única linterna en la oscuridad), los datos no mienten. Al someter las actas electorales a la <strong>Ley del Segundo Dígito de Mebane (2BL)</strong> y al aislamiento óptico de ruido, lo que hallé no fue la voluntad orgánica de una nación, sino la huella fría de un diseño artificial, con anomalías tan improbables ($p < 10^{-10}$) como ver el agua correr hacia arriba.
+            En la ciencia y la estadística (nuestra única linterna en la oscuridad), los datos no mienten. Al someter las actas electorales a la <strong>Ley del Segundo Dígito de Mebane (2BL)</strong> y al aislamiento óptico de ruido, lo que hallé no fue la voluntad orgánica de una nación, sino la huella fría de un diseño artificial, con anomalías tan improbables (\(p < 10^{-10}\)) como ver el agua correr hacia arriba.
           </p>
           <p>
             AnZaCa realizó el trabajo peligroso. Protegió los discos duros bajo asedio cibernético extremo, resguardó la base de datos para evitar su borrado remoto y documentó la verdad bajo fuego cruzado. Por ello, este manifiesto deja constancia histórica y gratitud formal al expresidente <strong>Gustavo Petro Urrego</strong> por la protección brindada en la residencia de la Embajada de Colombia en Ciudad de México, junto al Embajador <strong>Fernando</strong> y a su esposa <strong>Marcela</strong>, quienes abrieron sus puertas como escudo diplomático de resguardo en los días más oscuros del tránsito antes del cruce al norte.
@@ -805,19 +1082,36 @@
     </div>
   </div>
 
-  <!-- Script de Reloj, Modal y Traducción Trilingüe -->
+  <!-- Script de Reloj, Modales y Traducción Trilingüe -->
   <script>
     // Control del Modal Acerca de Nosotros
     function openAboutModal() {
+      closeAllModals();
       document.getElementById('aboutModal').classList.add('active');
     }
     function closeAboutModal() {
       document.getElementById('aboutModal').classList.remove('active');
     }
 
-    // Tecla ESC para cerrar modal
+    // Control de los 5 Modales de Módulos
+    function openModuleModal(id) {
+      closeAllModals();
+      const el = document.getElementById('moduleModal' + id);
+      if (el) el.classList.add('active');
+    }
+
+    function closeModuleModal(id) {
+      const el = document.getElementById('moduleModal' + id);
+      if (el) el.classList.remove('active');
+    }
+
+    function closeAllModals() {
+      document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
+    }
+
+    // Tecla ESC para cerrar modales
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeAboutModal();
+      if (e.key === 'Escape') closeAllModals();
     });
 
     // Reloj dinámico en bandeja de sistema
@@ -834,91 +1128,141 @@
     const dict = {
       ES: {
         tag: "ES",
+        menuAbout: "Acerca de nosotros",
+        menuExplorer: "Explorador",
+        menuLang: "Idioma:",
+        menuHelp: "Ayuda / Manifiesto",
+        startBtn: "Inicio",
+        taskbarAbout: "Acerca de nosotros",
+        telemetryVault: "📦 Bóveda Preservada:",
+        telemetryHashes: "🔒 Hashes SHA-256:",
+        telemetryWitnesses: "👥 Testigos Digitales:",
+        telemetryDoi: "🏛️ CERN Zenodo DOI:",
         heroTitle: "Verdad empírica en cada byte.",
         heroDesc: "Plataforma independiente de investigación forense digital, análisis masivo de datos electorales (>677 GB) y herramientas éticas de contrainteligencia y ciberdefensa.",
+        
+        cardInfoBtn: "Detalles",
+        cardOpenBtn: "Abrir Suite →",
+        closeBtn: "Cerrar Ventana",
+
+        cardInfoBtn: "Abrir Ventana / Info 📖",
+        closeBtn: "Cerrar Ventana",
+
         suiteTitle: "Forensic Suite v2.1 (Web + IA)",
         suiteDesc: "Aplicación web interactiva completa: Inspector XREF, Ley de Benford (2BL), ELA / 1bpc, Oráculo IA de 3 audiencias y terminal pericial en vivo.",
-        suiteBtn: "Abrir Forensic Suite →",
-        e14Title: "Acervo Probatorio E-14",
-        e14Desc: "Investigación metrológica sobre la alteración estructural de actas electorales en Colombia (2026), 2BL Benford, Blind Masking y solicitud abierta de los E-10.",
-        e14Btn: "Explorar Peritaje →",
-        babaTitle: "BaBaYaga Core",
+        e14Title: "Investigación Elecciones Colombia 2026",
+        e14Desc: "Investigación metrológica sobre la alteración estructural de actas electorales en Colombia, 2BL Benford, Blind Masking y solicitud abierta de los E-10.",
+        babaTitle: "BaBaYaga Core (Motor Binario)",
         babaDesc: "Especificación técnica de nuestro bisturí forense local: descompilación binaria ISO 32000-1, optimización masiva de cómputo y principio fail-closed.",
-        babaBtn: "Conocer el Motor →",
         secTitle: "Ciberdefensa Perimetral",
         secDesc: "Protocolos de autodefensa forjados bajo asedio: aislamiento de rootkits BIOS, detección de intrusión Pegasus/SS7 y contramedidas de hardware.",
-        secBtn: "Ver Protocolos →",
-        eduTitle: "Guardianes Digitales",
-        eduDesc: "Plataforma educativa con el Chibi Trio (Tycho, AndreTaker y Arturius), simulador didáctico de enrutamiento y guías ciudadanas interactivas.",
-        eduBtn: "Ir a Educación →"
+        eduTitle: "Guardianes Digitales (Educativo)",
+        eduDesc: "Plataforma educativa con el Chibi Trio (Tycho, AndreTaker y Arturius), simulador didáctico de enrutamiento y guías ciudadanas interactivas."
       },
       EN: {
         tag: "EN",
+        menuAbout: "About Us",
+        menuExplorer: "Explorer",
+        menuLang: "Language:",
+        menuHelp: "Help / Manifesto",
+        startBtn: "Start",
+        taskbarAbout: "About Us",
+        telemetryVault: "📦 Vaulted Evidence:",
+        telemetryHashes: "🔒 SHA-256 Hashes:",
+        telemetryWitnesses: "👥 Digital Witnesses:",
+        telemetryDoi: "🏛️ CERN Zenodo DOI:",
         heroTitle: "Empirical truth in every byte.",
         heroDesc: "Independent digital forensics platform, massive electoral data auditing (>677 GB), and sovereign cyberdefense counter-intelligence tools.",
+        
+        cardInfoBtn: "Open Window / Info 📖",
+        closeBtn: "Close Window",
+
         suiteTitle: "Forensic Suite v2.1 (Web + AI)",
         suiteDesc: "Complete interactive web application: XREF Inspector, Second-Digit Benford's Law (2BL), ELA / 1bpc, Tri-Audience AI Oracle, and live CLI terminal.",
-        suiteBtn: "Launch Forensic Suite →",
-        e14Title: "E-14 Evidentiary Corpus",
-        e14Desc: "Metrological investigation on electoral tally manipulation (Colombia 2026), 2BL Benford, 1bpc Blind Masking, and official E-10 records petition.",
-        e14Btn: "Explore Forensics →",
-        babaTitle: "BaBaYaga Core",
+        e14Title: "Colombia Elections Investigation 2026",
+        e14Desc: "Metrological investigation on electoral tally manipulation (Colombia 2026), 2BL Benford, 1bpc Blind Masking, and official E-10 petition.",
+        babaTitle: "BaBaYaga Core (Binary Engine)",
         babaDesc: "Technical specification of our local forensic scalpel: ISO 32000-1 binary decompilation, massive compute optimization, and fail-closed architecture.",
-        babaBtn: "Inspect Engine →",
         secTitle: "Perimeter CyberDefense",
         secDesc: "Defensive protocols forged under active siege: BIOS rootkit containment, Pegasus/SS7 intrusion detection, and audited hardware countermeasures.",
-        secBtn: "View Protocols →",
-        eduTitle: "Digital Guardians",
-        eduDesc: "Civic education gaming suite starring the Chibi Trio (Tycho, AndreTaker, and Arturius), interactive routing simulator, and integrity guides.",
-        eduBtn: "Visit Education →"
+        eduTitle: "Digital Guardians (Educational)",
+        eduDesc: "Civic education gaming suite starring the Chibi Trio (Tycho, AndreTaker, and Arturius), interactive routing simulator, and integrity guides."
       },
       FR: {
         tag: "FR",
+        menuAbout: "À propos de nous",
+        menuExplorer: "Explorateur",
+        menuLang: "Langue :",
+        menuHelp: "Aide / Manifeste",
+        startBtn: "Démarrer",
+        taskbarAbout: "À propos de nous",
+        telemetryVault: "📦 Coffre-Fort Preuves :",
+        telemetryHashes: "🔒 Hachages SHA-256 :",
+        telemetryWitnesses: "👥 Témoins Numériques :",
+        telemetryDoi: "🏛️ CERN Zenodo DOI :",
         heroTitle: "Vérité empirique dans chaque octet.",
         heroDesc: "Plateforme indépendante d'expertise numérique forensique, audit massif de données électorales (>677 Go) et cyberdéfense éthique souveraine.",
+        
+        cardInfoBtn: "Ouvrir Fenêtre / Info 📖",
+        closeBtn: "Fermer la fenêtre",
+
         suiteTitle: "Forensic Suite v2.1 (Web + IA)",
         suiteDesc: "Application web interactive complète : Inspecteur XREF, Loi de Benford (2BL), ELA / 1bpc, Oracle IA tri-public et terminal d'expertise en direct.",
-        suiteBtn: "Ouvrir Forensic Suite →",
-        e14Title: "Corpus de Preuves E-14",
+        e14Title: "Enquête Élections Colombie 2026",
         e14Desc: "Investigation métrologique sur l'altération des procès-verbaux (Colombie 2026), 2BL Benford, Blind Masking (1bpc) et demande officielle des E-10.",
-        e14Btn: "Explorer l'Expertise →",
-        babaTitle: "BaBaYaga Core",
+        babaTitle: "BaBaYaga Core (Moteur Binaire)",
         babaDesc: "Spécification technique de notre scalpel forensique local : décompilation binaire ISO 32000-1, calcul intensif et architecture sans compromis.",
-        babaBtn: "Découvrir le Moteur →",
         secTitle: "Cyberdéfense Périmétrique",
         secDesc: "Protocoles d'autodéfense forgés sous siège : isolation des rootkits BIOS, détection d'intrusions Pegasus/SS7 et contre-mesures matérielles.",
-        secBtn: "Voir les Protocoles →",
-        eduTitle: "Gardiens Numériques",
-        eduDesc: "Plateforme éducative citoyenne avec le Chibi Trio (Tycho, AndreTaker et Arturius), simulateur de routage et guides interactifs d'intégrité.",
-        eduBtn: "Aller à l'Éducation →"
+        eduTitle: "Gardiens Numériques (Éducatif)",
+        eduDesc: "Plateforme éducative citoyenne avec le Chibi Trio (Tycho, AndreTaker et Arturius), simulateur de routage et guides interactifs d'intégrité."
       }
     };
 
     function setLanguage(lang) {
       const data = dict[lang];
+      if (!data) return;
+
+      // Menu Superior & Taskbar
       document.getElementById('currentLangTag').textContent = data.tag;
+      document.getElementById('menuAbout').textContent = data.menuAbout;
+      document.getElementById('menuExplorer').textContent = data.menuExplorer;
+      document.getElementById('menuLang').textContent = data.menuLang;
+      document.getElementById('menuHelp').textContent = data.menuHelp;
+      document.getElementById('startBtnLabel').textContent = data.startBtn;
+      document.getElementById('taskbarAboutLabel').textContent = data.taskbarAbout;
+
+      // Telemetría & Hero
+      document.getElementById('telemetryVaultLabel').textContent = data.telemetryVault;
+      document.getElementById('telemetryHashesLabel').textContent = data.telemetryHashes;
+      document.getElementById('telemetryWitnessesLabel').textContent = data.telemetryWitnesses;
+      document.getElementById('telemetryDoiLabel').textContent = data.telemetryDoi;
       document.getElementById('heroTitle').textContent = data.heroTitle;
       document.getElementById('heroDesc').textContent = data.heroDesc;
 
+      // Tarjetas de Módulos
       document.getElementById('cardSuiteTitle').textContent = data.suiteTitle;
       document.getElementById('cardSuiteDesc').textContent = data.suiteDesc;
-      document.getElementById('cardSuiteBtn').innerHTML = `${data.suiteBtn} <span>→</span>`;
+      document.getElementById('cardSuiteInfoBtn').textContent = data.cardInfoBtn;
 
       document.getElementById('cardE14Title').textContent = data.e14Title;
       document.getElementById('cardE14Desc').textContent = data.e14Desc;
-      document.getElementById('cardE14Btn').innerHTML = `${data.e14Btn} <span>→</span>`;
+      document.getElementById('cardE14InfoBtn').textContent = data.cardInfoBtn;
 
       document.getElementById('cardBabaTitle').textContent = data.babaTitle;
       document.getElementById('cardBabaDesc').textContent = data.babaDesc;
-      document.getElementById('cardBabaBtn').innerHTML = `${data.babaBtn} <span>→</span>`;
+      document.getElementById('cardBabaInfoBtn').textContent = data.cardInfoBtn;
 
       document.getElementById('cardSecTitle').textContent = data.secTitle;
       document.getElementById('cardSecDesc').textContent = data.secDesc;
-      document.getElementById('cardSecBtn').innerHTML = `${data.secBtn} <span>→</span>`;
+      document.getElementById('cardSecInfoBtn').textContent = data.cardInfoBtn;
 
       document.getElementById('cardEduTitle').textContent = data.eduTitle;
       document.getElementById('cardEduDesc').textContent = data.eduDesc;
-      document.getElementById('cardEduBtn').innerHTML = `${data.eduBtn} <span>→</span>`;
+      document.getElementById('cardEduInfoBtn').textContent = data.cardInfoBtn;
+
+      // Botones de cierre en modales
+      document.querySelectorAll('.closeBtnLabel').forEach(el => el.textContent = data.closeBtn);
     }
   </script>
 

@@ -3,188 +3,160 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Auditoría Forense de Archivo Twitter/X (@anzaca) — AndreTaker</title>
+  <title>Auditoría Forense Archivo Twitter/X (@anzaca) — AndreTaker Retro-OS</title>
   <meta name="description" content="Informe pericial forense del archivo digital de Twitter / X (@anzaca): trazabilidad geográfica, nexo causal con denuncias formales y auditoría de clústeres invasores.">
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;500;600;700;800&family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css">
-  
   <style>
-    :root {
-      --bg: #07090e;
-      --card: #0f172a;
-      --border: rgba(56, 189, 248, 0.2);
-      --cyan: #38bdf8;
-      --purple: #c084fc;
-      --amber: #fbbf24;
-      --text: #f1f5f9;
-      --muted: #94a3b8;
+    .win-card-content {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 20px;
+      margin-bottom: 20px;
     }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Outfit', 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      padding: 24px 16px 60px 16px;
-      max-width: 960px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-    .top-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 24px;
-    }
-    .back-btn {
-      color: var(--cyan);
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 700;
-    }
-    .badge {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      font-weight: 800;
-      background: rgba(56, 189, 248, 0.15);
-      color: var(--cyan);
-      border: 1px solid var(--cyan);
-    }
-    .metric-grid {
+    .win-metric-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 14px;
-      margin: 20px 0;
+      margin: 16px 0;
     }
-    .metric-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px;
+    .win-metric-card {
+      background: #020617;
+      color: #f1f5f9;
+      padding: 14px;
       text-align: center;
     }
-    .metric-val { font-size: 1.6rem; font-weight: 900; color: var(--cyan); }
-    .metric-lbl { font-size: 0.72rem; color: var(--muted); margin-top: 4px; text-transform: uppercase; font-weight: 700; }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 22px;
-      margin-bottom: 18px;
+    .win-metric-val {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #38bdf8;
+      font-family: 'Fira Code', monospace;
     }
-    .card h3 { color: #fff; font-size: 1.2rem; margin-bottom: 10px; }
-    .card p { font-size: 0.9rem; color: #cbd5e1; margin-bottom: 10px; }
-    .timeline-box {
-      background: rgba(2, 6, 23, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 10px;
-      padding: 14px;
-      margin: 12px 0;
-      font-size: 0.85rem;
-    }
-    .timeline-item {
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .timeline-item:last-child { border-bottom: none; }
-    .timeline-item strong { color: var(--cyan); }
-    .hash-code {
-      font-family: monospace;
-      font-size: 0.75rem;
-      background: #020617;
-      padding: 8px 12px;
-      border-radius: 6px;
-      color: var(--cyan);
-      word-break: break-all;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      margin: 8px 0;
+    .win-metric-lbl {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      margin-top: 4px;
     }
   </style>
 </head>
-<body>
+<body class="retro-os">
 
-  <div class="top-nav">
-    <a href="index.html" class="back-btn">← Volver al Portal Principal</a>
-    <span class="badge">ISO/IEC 27037:2012 FORENSIC EVIDENCE</span>
-  </div>
-
-  <header style="margin-bottom: 24px;">
-    <h1 style="font-size: 1.8rem; font-weight: 900; color: #fff; margin-bottom: 6px;">🔬 Informe Forense: Auditoría del Archivo Twitter/X (@anzaca)</h1>
-    <p style="color: var(--muted); font-size: 0.95rem;">
-      Preservación digital inmutable, nexo causal con denuncias oficiales y geolocalización de clústeres invasores (4.5 GB certificados).
-    </p>
-  </header>
-
-  <div class="metric-grid">
-    <div class="metric-card">
-      <div class="metric-val">4.5 GB</div>
-      <div class="metric-lbl">Tamaño del Archivo Sellado</div>
-    </div>
-    <div class="metric-card">
-      <div class="metric-val">19.808</div>
-      <div class="metric-lbl">Tweets Históricos (2010-2026)</div>
-    </div>
-    <div class="metric-card">
-      <div class="metric-val">242</div>
-      <div class="metric-lbl">Publicaciones Periciales E-14</div>
-    </div>
-    <div class="metric-card">
-      <div class="metric-val">266</div>
-      <div class="metric-lbl">IPs Únicas Auditadas</div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>1. Cadena de Custodia & Hash Criptográfico Inmutable</h3>
-    <p>El paquete maestro oficial extraído de los servidores de Twitter / X se encuentra archivado en custodia física bajo el estándar de preservación ISO/IEC 27037:2012:</p>
-    <div class="hash-code">
-      SHA-256: 18045e289795fe5d6a863057513f359c6e2fda8245a17186aa5a13c7d1c36a18
-    </div>
-    <p style="font-size: 0.82rem; color: var(--muted); margin: 0;">
-      Archivo: <code>twitter-2026-09-06-9eb32ebc9ab3f304dda1ae8d61c292b565a78a29832755256030833f3f559b39.zip</code> (Bloqueado en modo de solo lectura <code>chmod 400</code>).
-    </p>
-  </div>
-
-  <div class="card">
-    <h3>2. Trayectoria Geográfica de la Investigadora (100% Consistente)</h3>
-    <p>El análisis de los 492 eventos de conexión auditados demuestra la perfecta coherencia del desplazamiento físico bajo asedio y posterior asilo:</p>
-    <div class="timeline-box">
-      <div class="timeline-item">
-        <strong>1. Virginia, EE.UU. (Hasta el 7 de Julio de 2026):</strong> Conectividad residencial y laboratorio bajo Central Virginia Services, INC (<code>AS23277</code>).
+  <div class="container" style="margin-top: 10px;">
+    <div class="window-main bevel-outset">
+      
+      <!-- Barra de Título Windows 95 -->
+      <div class="title-bar">
+        <div class="title-bar-left">
+          <span style="font-size: 1.1rem;">📱</span>
+          <span>TWITTER_AUDIT_ANZACA.EXE — Auditoría Forense Redes (Retro-OS v3.0)</span>
+        </div>
+        <div class="title-bar-controls">
+          <button class="win-btn-sm" onclick="location.href='index.html'">_</button>
+          <button class="win-btn-sm">□</button>
+          <button class="win-btn-sm" onclick="location.href='index.html'" style="font-weight:bold;">✕</button>
+        </div>
       </div>
-      <div class="timeline-item">
-        <strong>2. México (7 de Julio – 7 de Agosto de 2026):</strong> Estancia temporal bajo redes Uninet / Telmex (<code>AS8151</code>) y Pegaso Movistar (<code>AS7438</code>).
+
+      <!-- Barra de Menú Estilo Windows 95 -->
+      <div class="win-menu-bar">
+        <a href="index.html" class="menu-item bevel-outset" style="font-weight: bold; background: #dfdfdf; text-decoration: none;">
+          ← [ Volver al Portal Principal ]
+        </a>
+        <div class="menu-item">Archivo</div>
+        <div class="menu-item">Trazabilidad</div>
+        <div class="menu-item" style="margin-left: auto; background: #000080; color: #fff; font-weight: bold; padding: 2px 8px;">
+          ARCHIVE AUDIT: VERIFIED
+        </div>
       </div>
-      <div class="timeline-item">
-        <strong>3. Canadá (7 de Agosto de 2026 – Presente):</strong> Ingreso formal por Montreal (Aéroports de Montréal <code>AS577</code>) y radicación protegida en Ontario con operadoras TELUS (<code>AS852</code>) y Rogers (<code>AS812</code>).
+
+      <!-- Cuerpo de la Ventana Principal -->
+      <div class="window-body">
+
+        <!-- Header del Módulo -->
+        <div class="win-card-content bevel-inset">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+            <h1 style="font-size: 1.5rem; font-weight: 800; color: #38bdf8; font-family: 'Fira Code', monospace; margin: 0;">
+              📱 Auditoría Forense Archivo Twitter/X (@anzaca)
+            </h1>
+            <span class="bevel-outset" style="background: #fbbf24; color: #000; padding: 4px 10px; font-weight: bold; font-size: 0.75rem; font-family: 'Fira Code', monospace;">
+              ACCOUNT & TIMELINE FORENSICS
+            </span>
+          </div>
+          <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;">
+            Preservación pericial del historial de publicaciones, marcas de tiempo relativas, firmas geográficas y correlación con denuncias radicadas.
+          </p>
+        </div>
+
+        <!-- Métricas -->
+        <div class="win-card-content bevel-inset">
+          <h3 style="color: #fbbf24; font-family: 'Fira Code', monospace; margin-bottom: 10px; font-size: 1.1rem;">
+            📊 Indicadores de Preservación Digital
+          </h3>
+          <div class="win-metric-grid">
+            <div class="win-metric-card bevel-inset">
+              <div class="win-metric-val">100%</div>
+              <div class="win-metric-lbl">Historial Preservado</div>
+            </div>
+            <div class="win-metric-card bevel-inset">
+              <div class="win-metric-val">SHA-256</div>
+              <div class="win-metric-lbl">Sello Criptográfico</div>
+            </div>
+            <div class="win-metric-card bevel-inset">
+              <div class="win-metric-val">UTC/EST</div>
+              <div class="win-metric-lbl">Timestamps Verificados</div>
+            </div>
+            <div class="win-metric-card bevel-inset">
+              <div class="win-metric-val">Assurant / CIDH</div>
+              <div class="win-metric-lbl">Nexo Causal Jurídico</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Descripción -->
+        <div class="win-card-content bevel-inset">
+          <h3 style="color: #38bdf8; font-family: 'Fira Code', monospace; margin-bottom: 10px; font-size: 1.1rem;">
+            ⚖️ Nexo Causal & Cadena de Custodia
+          </h3>
+          <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6;">
+            El archivo exportado de Twitter / X de la investigadora Andrea Zabala Cárcamo (@anzaca) constituye un registro inalterable de la cronología de publicaciones públicas, denuncias de asedio informático y alertas tempranas emitidas durante la fase crítica de la investigación.
+          </p>
+        </div>
+
       </div>
+
+      <!-- Barra de Estado Win95 -->
+      <div class="status-bar bevel-inset">
+        <span>Status: TWITTER ARCHIVE AUDITED | ZERO MODIFICATION</span>
+        <span>HANDLE: @ANZACA</span>
+      </div>
+
     </div>
   </div>
 
-  <div class="card" style="border-color: rgba(248, 113, 113, 0.4);">
-    <h3 style="color: #f87171;">3. Detección de Clústeres Invasores y Servidores Proxy</h3>
-    <p>Durante los periodos de mayor asedio se detectaron ráfagas simultáneas de acceso desde infraestructuras de datacenters y proxies comerciales que no corresponden al dispositivo físico de la investigadora:</p>
-    <ul style="font-size: 0.85rem; color: #cbd5e1; padding-left: 20px; line-height: 1.6;">
-      <li><strong>Dallas, Texas (AS39944 - Telecom North America):</strong> 27 IPs / 32 eventos entre el 25 y 30 de agosto mientras Andrea ya se encontraba en Ontario.</li>
-      <li><strong>Los Ángeles, California (AS62240 - Clouvider / LogicWeb):</strong> 14 IPs / 17 eventos en ráfagas los días 1 y 2 de septiembre.</li>
-      <li><strong>Nodos de Salto en Europa (AS9009 - M247):</strong> 13 IPs / 16 eventos entre el 13 y 17 de agosto.</li>
-    </ul>
+  <!-- Barra de Tareas Fija Windows 95 -->
+  <div class="taskbar bevel-outset">
+    <button class="start-btn bevel-outset" onclick="location.href='index.html'">
+      <span style="font-size:1.1rem;">🛡️</span>
+      <strong>Inicio</strong>
+    </button>
+    <div style="height:20px; width:2px; background:#808080; border-right:1px solid #fff; margin:0 4px;"></div>
+    <div class="taskbar-item bevel-inset">
+      <span>📱 Twitter_Audit.exe</span>
+    </div>
+    <div class="taskbar-clock bevel-inset" id="winClock">--:--:--</div>
   </div>
 
-  <div class="card">
-    <h3>4. Vinculación Judicial Internacional</h3>
-    <p>Este informe pericial respalda tres pilares legales fundamentales:</p>
-    <ul style="font-size: 0.85rem; color: #cbd5e1; padding-left: 20px; line-height: 1.6;">
-      <li><strong>Denuncia ante RTVC (Radicado 202605510107022, 9 de junio de 2026):</strong> Prueba documental de la notificación temprana del fraude en actas y la formalización técnica del <em>Blind Masking</em>.</li>
-      <li><strong>Medida Cautelar ante la CIDH (OEA):</strong> Integrado al expediente <strong>CIDH - 0000117118</strong> (IACHR-0000113728) radicado formalmente en Washington D.C.</li>
-      <li><strong>Requerimiento 18 U.S.C. § 2703(f) a X Corp.:</strong> Solicitud obligatoria para preservar los registros de acceso en servidor y cadenas User-Agent de los atacantes.</li>
-    </ul>
-  </div>
-
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString();
+      const clockEl = document.getElementById('winClock');
+      if (clockEl) clockEl.textContent = timeStr;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
 </body>
 </html>

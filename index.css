@@ -701,3 +701,185 @@ footer a:hover {
 
 /* OpSec Clean View Rule */
 .hide-floating-img img, img.floating-img { display: none !important; }
+
+/* ======================================================== */
+/* PALETA RETRO-OS WINDOWS 95 + HIGH-TECH CYBERFORENSICS    */
+/* ======================================================== */
+:root {
+  --win-teal: #008080;
+  --win-gray: #c0c0c0;
+  --win-dark-gray: #808080;
+  --win-light-gray: #dfdfdf;
+  --win-white: #ffffff;
+  --win-black: #000000;
+  --win-blue: #000080;
+  --win-blue-light: #1084d0;
+  --win-yellow: #ffff00;
+}
+
+body.win95-theme, body.retro-os {
+  background-color: var(--win-teal) !important;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.15) 0%, transparent 80%),
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0px, rgba(0,0,0,0.02) 2px, transparent 2px, transparent 4px) !important;
+  font-family: -apple-system, "Segoe UI", Tahoma, sans-serif;
+  min-height: 100vh;
+  color: var(--win-black);
+  padding: 6px 6px 54px 6px !important;
+  overflow-x: hidden;
+}
+
+.bevel-outset {
+  border: 2px solid !important;
+  border-color: var(--win-white) var(--win-black) var(--win-black) var(--win-white) !important;
+  box-shadow: 1px 1px 0px var(--win-dark-gray) inset, -1px -1px 0px var(--win-light-gray) inset !important;
+}
+
+.bevel-inset {
+  border: 2px solid !important;
+  border-color: var(--win-black) var(--win-white) var(--win-white) var(--win-black) !important;
+  box-shadow: 1px 1px 0px var(--win-dark-gray) inset, -1px -1px 0px var(--win-light-gray) inset !important;
+}
+
+.window-main {
+  background: var(--win-gray);
+  margin-bottom: 24px;
+}
+
+.title-bar {
+  background: linear-gradient(90deg, var(--win-blue) 0%, var(--win-blue-light) 100%);
+  color: var(--win-white);
+  padding: 4px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.title-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.title-bar-controls {
+  display: flex;
+  gap: 3px;
+}
+
+.win-btn-sm {
+  width: 16px;
+  height: 14px;
+  background: var(--win-gray);
+  border: 1px solid;
+  border-color: var(--win-white) var(--win-black) var(--win-black) var(--win-white);
+  font-size: 9px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  line-height: 1;
+  color: var(--win-black);
+}
+
+.win-btn-sm:active {
+  border-color: var(--win-black) var(--win-white) var(--win-white) var(--win-black);
+}
+
+.menu-bar, .win-menu-bar {
+  background: var(--win-gray);
+  display: flex;
+  gap: 14px;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--win-dark-gray);
+  font-size: 0.82rem;
+  align-items: center;
+}
+
+.menu-item {
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 2px;
+  position: relative;
+  user-select: none;
+  color: var(--win-black);
+  text-decoration: none;
+}
+
+.menu-item:hover {
+  background: var(--win-blue);
+  color: var(--win-white);
+}
+
+.window-body {
+  padding: 20px;
+}
+
+.status-bar {
+  background: var(--win-gray);
+  padding: 4px 8px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  color: #334155;
+  margin-top: 20px;
+}
+
+/* Fixed Bottom Taskbar */
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 38px;
+  background: var(--win-gray);
+  display: flex;
+  align-items: center;
+  padding: 2px 4px;
+  z-index: 9999;
+}
+
+.start-btn {
+  height: 28px;
+  padding: 0 10px;
+  background: var(--win-gray);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border: 2px solid;
+  border-color: var(--win-white) var(--win-black) var(--win-black) var(--win-white);
+}
+
+.taskbar-item {
+  height: 28px;
+  padding: 0 12px;
+  background: var(--win-gray);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 2px solid;
+  border-color: var(--win-black) var(--win-white) var(--win-white) var(--win-black);
+}
+
+.taskbar-clock {
+  margin-left: auto;
+  height: 28px;
+  padding: 0 10px;
+  background: var(--win-gray);
+  display: flex;
+  align-items: center;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  border: 2px solid;
+  border-color: var(--win-black) var(--win-white) var(--win-white) var(--win-black);
+}
+
