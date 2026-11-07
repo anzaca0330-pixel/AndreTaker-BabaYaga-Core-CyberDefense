@@ -556,14 +556,12 @@
         <div class="menu-item" onclick="openAboutModal()" id="menuAbout">Acerca de nosotros</div>
         <div class="menu-item" onclick="location.href='#modulos'" id="menuExplorer">Explorador</div>
         
-        <!-- Menú de Idiomas Trilingüe -->
-        <div class="lang-dropdown menu-item">
-          <span id="menuLang">Idioma:</span> <strong id="currentLangTag">ES</strong> ▼
-          <div class="lang-menu-content bevel-outset">
-            <div class="lang-opt" onclick="setLanguage('ES')">🇨🇴 Español (ES)</div>
-            <div class="lang-opt" onclick="setLanguage('EN')">🇨🇦 English (EN)</div>
-            <div class="lang-opt" onclick="setLanguage('FR')">🇨🇦 Français (FR)</div>
-          </div>
+        <!-- Selector de Idiomas de Acceso Directo Inmediato (Desktop y Móvil) -->
+        <div style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 6px; background: #c0c0c0; border: 1px inset #808080;">
+          <span id="menuLang" style="font-size: 0.8rem; font-weight: bold; margin-right: 4px;">🌐 Idioma:</span>
+          <button type="button" onclick="setLanguage('ES')" id="btnLangES" class="win-btn-sm" style="min-width: 42px; height: 22px; font-weight: bold; cursor: pointer; background: #000080; color: #fff;">🇨🇴 ES</button>
+          <button type="button" onclick="setLanguage('EN')" id="btnLangEN" class="win-btn-sm" style="min-width: 42px; height: 22px; font-weight: bold; cursor: pointer; background: #dfdfdf; color: #000;">🇨🇦 EN</button>
+          <button type="button" onclick="setLanguage('FR')" id="btnLangFR" class="win-btn-sm" style="min-width: 42px; height: 22px; font-weight: bold; cursor: pointer; background: #dfdfdf; color: #000;">🇨🇦 FR</button>
         </div>
 
         <div class="menu-item" onclick="openAboutModal()" id="menuHelp">Ayuda / Manifiesto</div>
@@ -1481,8 +1479,26 @@
       const data = dict[lang];
       if (!data) return;
 
+      // Guardar preferencia
+      localStorage.setItem('andretaker_lang', lang);
+
+      // Actualizar estilo visual de botones directos
+      ['ES', 'EN', 'FR'].forEach(l => {
+        const btn = document.getElementById('btnLang' + l);
+        if (btn) {
+          if (l === lang) {
+            btn.style.background = '#000080';
+            btn.style.color = '#ffffff';
+          } else {
+            btn.style.background = '#dfdfdf';
+            btn.style.color = '#000000';
+          }
+        }
+      });
+
       // Menu Superior & Taskbar
-      document.getElementById('currentLangTag').textContent = data.tag;
+      const tagEl = document.getElementById('currentLangTag');
+      if (tagEl) tagEl.textContent = data.tag;
       document.getElementById('menuAbout').textContent = data.menuAbout;
       document.getElementById('menuExplorer').textContent = data.menuExplorer;
       document.getElementById('menuLang').textContent = data.menuLang;
