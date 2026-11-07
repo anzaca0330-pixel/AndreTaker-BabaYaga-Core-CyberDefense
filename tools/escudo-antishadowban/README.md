@@ -1,4 +1,4 @@
-# 🛡️ Escudo Antishadowban (Android & Web)
+# 🛡️ ANDRETAKER Shield AntiShadowban (v1.0.0)
 **Motor Cripto-Lingüístico de Soberanía Digital y Bypass de Filtros Algorítmicos**  
 *Desarrollado por Andrea Zabala Cárcamo (AndreTaker / BaBaYaga Core)*
 
