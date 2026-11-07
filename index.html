@@ -596,10 +596,56 @@
           </div>
         </div>
 
+        <!-- Banner Destacado Dossier Red Transnacional -->
+        <div class="bevel-outset" style="background: #0f172a; border: 2px solid #38bdf8; padding: 12px 18px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 1.2rem;">🛰️</span>
+              <strong id="bannerDossierTitle" style="color: #38bdf8; font-family: 'Fira Code', monospace; font-size: 0.95rem;">DOSSIER TÉCNICO: LA RED TRANSNACIONAL & MONOPOLIO ELECTORAL</strong>
+              <span id="bannerDossierBadge" class="bevel-outset" style="background: #ef4444; color: #fff; font-size: 0.68rem; font-weight: bold; padding: 1px 6px;">NUEVO</span>
+            </div>
+            <p id="bannerDossierDesc" style="color: #cbd5e1; font-size: 0.84rem; margin: 4px 0 0 0; line-height: 1.4;">
+              Auditoría sobre Thomas Greg & Sons y la Registraduría, Pegasus ($11M), Palantir, redes de desinformación (Cerimedo) y el enclave Miami/Assurant.
+            </p>
+          </div>
+          <a href="convergencia_transnacional.html" id="bannerDossierBtn" class="card-btn primary bevel-outset" style="text-decoration: none; font-weight: bold; padding: 6px 14px; background: #0284c7; color: #fff; white-space: nowrap;">
+            <span>📖</span> Ver Dossier Completo →
+          </a>
+        </div>
+
         <!-- Cuadrícula de Módulos (Los 5 Pilares) -->
         <div class="modules-grid" id="modulos">
 
-          <!-- Módulo 1: Forensic Suite Web (Nueva) -->
+                    <!-- Módulo Destacado: ANDRETAKER Shield AntiShadowban -->
+          <div class="card-win bevel-outset highlight" style="border-color: #0284c7;" onclick="window.open('tools/escudo-antishadowban/index.html', '_blank')">
+            <div class="card-titlebar" style="background: linear-gradient(90deg, #0369a1, #0284c7);">
+              <span>🛡️ App: ShieldAntiShadowban.apk</span>
+              <span>[NUEVO]</span>
+            </div>
+            <div class="card-body bevel-inset">
+              <div>
+                <span class="card-header-icon">🛡️</span>
+                <h2 class="card-name">ANDRETAKER Shield AntiShadowban (v1.0.0)</h2>
+                <div class="card-domain-tag">DOI: 10.5281/zenodo.24043436 (CERN)</div>
+                <p class="card-desc">
+                  Motor cripto-lingüístico para libre expresión y bypass de moderación algorítmica previa (ZWSP + Homóglifos). 100% offline y privado.
+                </p>
+              </div>
+              <div class="card-actions-row" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <a href="tools/escudo-antishadowban/index.html" target="_blank" class="card-btn primary bevel-outset" style="text-decoration: none; padding: 4px 10px; font-size: 0.8rem; background: #0284c7; color: #fff;">
+                  <span>🌐</span> Probar Web
+                </a>
+                <a href="https://github.com/anzaca0330-pixel/AndreTaker-BabaYaga-Core-CyberDefense/raw/main/tools/escudo-antishadowban/android/app/build/outputs/apk/debug/app-debug.apk" class="card-btn bevel-outset" style="text-decoration: none; padding: 4px 10px; font-size: 0.8rem; background: #15803d; color: #fff; font-weight: bold;">
+                  <span>📱</span> Descargar APK
+                </a>
+                <a href="https://doi.org/10.5281/zenodo.24043436" target="_blank" class="card-btn bevel-outset" style="text-decoration: none; padding: 4px 8px; font-size: 0.78rem; background: #e2e8f0; color: #0f172a;">
+                  <span>🏛️</span> Zenodo
+                </a>
+              </div>
+            </div>
+          </div>
+
+<!-- Módulo 1: Forensic Suite Web (Nueva) -->
           <div class="card-win bevel-outset highlight" onclick="openModuleModal(1)">
             <div class="card-titlebar">
               <span>🔬 App: ForensicSuite.exe</span>
@@ -753,6 +799,9 @@
       </a>
       <a href="https://doi.org/10.5281/zenodo.23188146" target="_blank" class="task-item bevel-outset">
         <span>📜</span> Zenodo DOI
+      </a>
+      <a href="convergencia_transnacional.html" class="task-item bevel-outset" style="background: #0284c7; color: #fff; font-weight: bold;">
+        <span>🛰️</span> <span id="taskbarDossierLabel">Red Transnacional</span>
       </a>
       <div onclick="openAboutModal()" class="task-item bevel-outset" style="cursor: pointer;">
         <span>📖</span> <span id="taskbarAboutLabel">Acerca de nosotros</span>
@@ -1148,10 +1197,6 @@
         heroTitle: "Verdad empírica en cada byte.",
         heroDesc: "Plataforma independiente de investigación forense digital, análisis masivo de datos electorales (>677 GB) y herramientas éticas de contrainteligencia y ciberdefensa.",
         
-        cardInfoBtn: "Detalles",
-        cardOpenBtn: "Abrir Suite →",
-        closeBtn: "Cerrar Ventana",
-
         cardInfoBtn: "Abrir Ventana / Info 📖",
         closeBtn: "Cerrar Ventana",
 
@@ -1164,7 +1209,66 @@
         secTitle: "Ciberdefensa Perimetral",
         secDesc: "Protocolos de autodefensa forjados bajo asedio: aislamiento de rootkits BIOS, detección de intrusión Pegasus/SS7 y contramedidas de hardware.",
         eduTitle: "Guardianes Digitales (Educativo)",
-        eduDesc: "Plataforma educativa con el Chibi Trio (Tycho, AndreTaker y Arturius), simulador didáctico de enrutamiento y guías ciudadanas interactivas."
+        eduDesc: "Plataforma educativa con el Chibi Trio (Tycho, AndreTaker y Arturius), simulador didáctico de enrutamiento y guías ciudadanas interactivas.",
+
+        // Modales de Módulos (Ventanas Nodales)
+        mod1TitleBar: "🔬 App: ForensicSuite.exe — [Forensic Suite Web v2.1 + IA]",
+        mod1Title: "🔬 Forensic Suite v2.1 (Web + Oráculo IA)",
+        mod1Desc: "La <strong>Forensic Suite v2.1</strong> es el entorno interactivo web desacoplado de peritaje documental. Permite cargar actas o archivos PDF y ejecutar análisis estructurales completos directamente en el navegador del usuario en milisegundos.",
+        mod1FeatTitle: "⚙️ Capacidades y Módulos de la Suite:",
+        mod1Bullets: `
+          <li><strong>Inspector XREF:</strong> Decompilación visual de la tabla de objetos y detección de deltas fantasma (+2).</li>
+          <li><strong>Ley de Benford (2BL):</strong> Motor estadístico del segundo dígito sobre distribuciones numéricas masivas.</li>
+          <li><strong>Filtro ELA / 1bpc:</strong> Aislamiento de máscaras de 1-bit por canal y ruido residual en imágenes.</li>
+          <li><strong>Oráculo IA de 3 Audiencias:</strong> Generador de veredictos adaptados para la Ciudadanía, Peritos Legales y Auditores Técnicos (impulsado por Gemini API).</li>
+          <li><strong>Terminal Pericial en Vivo:</strong> Consola de comandos con exportación de evidencia sellada bajo SHA-256.</li>
+        `,
+        mod1ActionBtn: "🔬 Abrir Forensic Suite Web →",
+
+        mod2TitleBar: "🏛️ Doc: Acervo_E14_Colombia.pdf — [Investigación Pericial Colombia]",
+        mod2Title: "🏛️ Acervo Probatorio E-14 (Investigación Colombia 2026)",
+        mod2Desc: "Este expediente pericial contiene la investigación metrológica exhaustiva sobre la alteración algorítmica y gráfica de las actas de escrutinio E-14 en las elecciones de Colombia (2026). Resguarda el análisis comprobatorio sobre más de 147.000 actas y >677 GB de evidencia.",
+        mod2FeatTitle: "📜 Hallazgos Clave y Evidencia Criptográfica:",
+        mod2Bullets: `
+          <li><strong>Trazabilidad Inmutable:</strong> >677 GB de actas originales selladas bajo 777.869 hashes SHA-256 y salvadas por 75.000 Testigos Digitales.</li>
+          <li><strong>Blind Masking (1bpc):</strong> Inyección de parches opacos gráficos de 1-bit para sobrescribir la votación real antes de la transmisión.</li>
+          <li><strong>Ley de Benford 2BL:</strong> Desviación estadística anómala (p < 10⁻¹⁰) en las curvas de transmisión de datos.</li>
+          <li><strong>Sello Institucional & CIDH:</strong> Documentado con DOI del CERN Zenodo (10.5281/zenodo.23188146) y radicado ante la CIDH (IACHR-0000113728).</li>
+        `,
+
+        mod3TitleBar: "🪓 Bin: babayaga_core.bin — [Especificación BaBaYaga Core]",
+        mod3Title: "🪓 BaBaYaga Core (Bisturí Forense Local)",
+        mod3Desc: "<strong>BaBaYaga Core</strong> representa nuestro motor local de análisis binario sin dependencias externas. Diseñado bajo el estándar ISO 32000-1, opera directamente sobre la estructura física de archivos PDF comprimidos en flujos <code>/FlateDecode</code>.",
+        mod3FeatTitle: "⚡ Arquitectura y Principios de Ciberdefensa:",
+        mod3Bullets: `
+          <li><strong>Descompilación Binaria Pura:</strong> Extracción directa de diccionarios PDF evitando librerías comerciales vulnerables.</li>
+          <li><strong>Principio Fail-Closed:</strong> Si la estructura XREF presenta inconsistencias no declaradas, el motor aísla el archivo y genera alerta forense.</li>
+          <li><strong>Procesamiento Paralelo:</strong> Optimización multi-hilo para calcular hashes SHA-256 y deltas XREF en miles de documentos por segundo.</li>
+          <li><strong>OpSec Estricto:</strong> Ejecución 100% en el entorno local bajo secreto de empresa y aislamiento de red.</li>
+        `,
+        mod3ActionBtn: "🪓 Ver Especificación BaBaYaga Core →",
+
+        mod4TitleBar: "🛡️ Sec: Perimeter_Armor.sys — [Blindaje Ciberdefensa]",
+        mod4Title: "🛡️ Ciberdefensa Perimetral & Protocolos DFIR",
+        mod4Desc: "Protocolos de contención e inmunización perimetral desarrollados durante 20 días de aislamiento cibernético extremo tras ataques coordinados a nuestra infraestructura de investigación.",
+        mod4FeatTitle: "🛡️ Capas de Blindaje:",
+        mod4Bullets: `
+          <li><strong>Aislamiento de Rootkits BIOS/UEFI:</strong> Técnicas de sanitización de firmware y verificación de vectores SPI Flash.</li>
+          <li><strong>Detección Pegasus/SS7:</strong> Protocolos de inspección de tráfico perimetral y contención de intromisiones móviles.</li>
+          <li><strong>Descontaminación de Hardware:</strong> Procedimientos de purga para dispositivos de almacenamiento y bus USB.</li>
+          <li><strong>OpSec & Anonimato Soberano:</strong> Integración de túneles aislados y estándares strictly de navegación segura.</li>
+        `,
+
+        mod5TitleBar: "🎓 Game: Guardianes_Digitales.exe — [Ecosistema Educativo]",
+        mod5Title: "🎓 Guardianes Digitales (Ecosistema Educativo)",
+        mod5Desc: "El <strong>Ecosistema Educativo Guardianes Digitales</strong> transforma la ciberseguridad y la integridad de datos en guías didácticas, simuladores de enrutamiento y videojuegos pensados para niños, escuelas y la ciudadanía.",
+        mod5FeatTitle: "🎮 Componentes Destacados:",
+        mod5Bullets: `
+          <li><strong>El Chibi Trio:</strong> AVATARS didácticos de Tycho (Silicio), AndreTaker (Estratega) y Arturius (El Escudo).</li>
+          <li><strong>Metáfora del Plomero:</strong> Explicación visual e intuitiva de cómo viajan los datos y la importancia de reparar las fugas de seguridad.</li>
+          <li><strong>Screening Gifted (Arturo):</strong> Herramientas adaptadas a perfiles de Altas Capacidades con rutinas de pausa activa (\"Trampolín de 2 minutos\").</li>
+          <li><strong>Navegación Móvil Rápida:</strong> Optimizado para teléfonos como el Motorola Moto 50 y conexiones de bajo ancho de banda.</li>
+        `
       },
       EN: {
         tag: "EN",
@@ -1193,7 +1297,66 @@
         secTitle: "Perimeter CyberDefense",
         secDesc: "Defensive protocols forged under active siege: BIOS rootkit containment, Pegasus/SS7 intrusion detection, and audited hardware countermeasures.",
         eduTitle: "Digital Guardians (Educational)",
-        eduDesc: "Civic education gaming suite starring the Chibi Trio (Tycho, AndreTaker, and Arturius), interactive routing simulator, and integrity guides."
+        eduDesc: "Civic education gaming suite starring the Chibi Trio (Tycho, AndreTaker, and Arturius), interactive routing simulator, and integrity guides.",
+
+        // Nodal Window Modals
+        mod1TitleBar: "🔬 App: ForensicSuite.exe — [Forensic Suite Web v2.1 + AI]",
+        mod1Title: "🔬 Forensic Suite v2.1 (Web + AI Oracle)",
+        mod1Desc: "<strong>Forensic Suite v2.1</strong> is a standalone interactive web environment for document forensics. It allows users to load election tallies or PDF files and perform comprehensive structural audits directly inside their browser in milliseconds.",
+        mod1FeatTitle: "⚙️ Suite Capabilities & Modules:",
+        mod1Bullets: `
+          <li><strong>XREF Inspector:</strong> Visual decompilation of the object cross-reference table and ghost delta (+2) detection.</li>
+          <li><strong>Benford's Law (2BL):</strong> Second-Digit statistical engine for large-scale numerical distributions.</li>
+          <li><strong>ELA / 1bpc Filter:</strong> Channel-level 1-bit mask isolation and residual noise extraction.</li>
+          <li><strong>Tri-Audience AI Oracle:</strong> Verdict generator tailored for Citizens, Legal Experts, and Technical Auditors (powered by Gemini API).</li>
+          <li><strong>Live Forensic CLI:</strong> Interactive command console with evidence export sealed under SHA-256 hashes.</li>
+        `,
+        mod1ActionBtn: "🔬 Open Forensic Suite Web →",
+
+        mod2TitleBar: "🏛️ Doc: E14_Evidence_Colombia.pdf — [Colombia Forensic Investigation]",
+        mod2Title: "🏛️ E-14 Evidence Vault (Colombia 2026 Investigation)",
+        mod2Desc: "This forensic dossier contains an exhaustive metrological investigation into the algorithmic and graphic manipulation of E-14 election tallies in Colombia (2026). It preserves evidentiary audits over more than 147,000 files and >677 GB of data.",
+        mod2FeatTitle: "📜 Key Findings & Cryptographic Evidence:",
+        mod2Bullets: `
+          <li><strong>Immutable Traceability:</strong> >677 GB of raw tallies sealed under 777,869 SHA-256 hashes and saved by 75,000 Digital Witnesses.</li>
+          <li><strong>1bpc Blind Masking:</strong> Injection of 1-bit opaque graphic patches overwriting true vote totals prior to transmission.</li>
+          <li><strong>2BL Benford's Law:</strong> Anomalous statistical deviation (p < 10⁻¹⁰) in data transmission curves.</li>
+          <li><strong>Institutional Seal & IACHR:</strong> Documented with CERN Zenodo DOI (10.5281/zenodo.23188146) and filed before the IACHR (IACHR-0000113728).</li>
+        `,
+
+        mod3TitleBar: "🪓 Bin: babayaga_core.bin — [BaBaYaga Core Spec]",
+        mod3Title: "🪓 BaBaYaga Core (Local Forensic Scalpel)",
+        mod3Desc: "<strong>BaBaYaga Core</strong> represents our dependency-free local binary analysis engine. Built under ISO 32000-1 specifications, it operates directly on the physical structure of PDF streams compressed via <code>/FlateDecode</code>.",
+        mod3FeatTitle: "⚡ Architecture & Cyberdefense Principles:",
+        mod3Bullets: `
+          <li><strong>Pure Binary Decompilation:</strong> Direct extraction of PDF dictionaries bypassing vulnerable third-party parsers.</li>
+          <li><strong>Fail-Closed Design:</strong> Isolates corrupted or manipulated files immediately upon detecting undeclared XREF table deltas.</li>
+          <li><strong>Parallel Compute:</strong> Multi-threaded throughput calculating SHA-256 hashes and XREF checks for thousands of files per second.</li>
+          <li><strong>Strict OpSec:</strong> 100% local execution under trade secret protections and air-gapped network isolation.</li>
+        `,
+        mod3ActionBtn: "🪓 View BaBaYaga Core Spec →",
+
+        mod4TitleBar: "🛡️ Sec: Perimeter_Armor.sys — [CyberDefense Shield]",
+        mod4Title: "🛡️ Perimeter CyberDefense & DFIR Protocols",
+        mod4Desc: "Perimeter containment and immunization protocols forged during 20 days of total isolation under cyber siege targeting our research infrastructure.",
+        mod4FeatTitle: "🛡️ Defense Layers:",
+        mod4Bullets: `
+          <li><strong>BIOS/UEFI Rootkit Containment:</strong> Firmware sanitization procedures and SPI Flash vector verification.</li>
+          <li><strong>Pegasus/SS7 Intrusion Detection:</strong> Perimeter traffic inspection and mobile intrusion containment protocols.</li>
+          <li><strong>Hardware Decontamination:</strong> Sanitization procedures for external storage media and USB bus controllers.</li>
+          <li><strong>Sovereign OpSec & Anonymity:</strong> Isolated VPN tunnel configurations and strict digital fingerprint reduction.</li>
+        `,
+
+        mod5TitleBar: "🎓 Game: Guardianes_Digitales.exe — [Educational Suite]",
+        mod5Title: "🎓 Digital Guardians (Educational Ecosystem)",
+        mod5Desc: "The <strong>Digital Guardians Educational Ecosystem</strong> transforms cybersecurity and data integrity into gamified guides, routing simulators, and games designed for children, schools, and civic engagement.",
+        mod5FeatTitle: "🎮 Highlighted Components:",
+        mod5Bullets: `
+          <li><strong>The Chibi Trio:</strong> Educational avatars starring Tycho (Silicon), AndreTaker (Strategist), and Arturius (The Shield).</li>
+          <li><strong>The Plumber Metaphor:</strong> Intuitive visual explanations of data routing and security leak mitigation.</li>
+          <li><strong>Gifted Screening (Arturo):</strong> Tailored tools for neurodivergent & high-ability profiles featuring active break routines (\"2-minute trampoline\").</li>
+          <li><strong>Fast Mobile UX:</strong> Optimized for smartphones like the Motorola Moto 50 and low-bandwidth environments.</li>
+        `
       },
       FR: {
         tag: "FR",
@@ -1222,7 +1385,66 @@
         secTitle: "Cyberdéfense Périmétrique",
         secDesc: "Protocoles d'autodéfense forgés sous siège : isolation des rootkits BIOS, détection d'intrusions Pegasus/SS7 et contre-mesures matérielles.",
         eduTitle: "Gardiens Numériques (Éducatif)",
-        eduDesc: "Plateforme éducative citoyenne avec le Chibi Trio (Tycho, AndreTaker et Arturius), simulateur de routage et guides interactifs d'intégrité."
+        eduDesc: "Plateforme éducative citoyenne avec le Chibi Trio (Tycho, AndreTaker et Arturius), simulateur de routage et guides interactifs d'intégrité.",
+
+        // Modales de Módulos (Ventanas Nodales)
+        mod1TitleBar: "🔬 App: ForensicSuite.exe — [Forensic Suite Web v2.1 + IA]",
+        mod1Title: "🔬 Forensic Suite v2.1 (Web + Oracle IA)",
+        mod1Desc: "<strong>Forensic Suite v2.1</strong> est un environnement web interactif autonome d'expertise documentaire. Il permet de charger des procès-verbaux ou des PDF et de réaliser des audits structurels directement dans le navigateur en quelques millisecondes.",
+        mod1FeatTitle: "⚙️ Modules et Capacités de la Suite :",
+        mod1Bullets: `
+          <li><strong>Inspecteur XREF :</strong> Décompilation visuelle de la table d'objets et détection des deltas fantômes (+2).</li>
+          <li><strong>Loi de Benford (2BL) :</strong> Moteur statistique du second chiffre sur de grands volumes numériques.</li>
+          <li><strong>Filtre ELA / 1bpc :</strong> Isolation des masques 1-bit par canal et extraction du bruit résiduel.</li>
+          <li><strong>Oracle IA Tri-Public :</strong> Générateur de verdicts adaptés pour Citoyens, Experts Juridiques et Auditeurs Techniques (propulsé par Gemini API).</li>
+          <li><strong>Terminal Forensique Direct :</strong> Console de commandes interactives avec exportation des preuves scellées sous SHA-256.</li>
+        `,
+        mod1ActionBtn: "🔬 Ouvrir Forensic Suite Web →",
+
+        mod2TitleBar: "🏛️ Doc: Preuves_E14_Colombie.pdf — [Investigation Électorale]",
+        mod2Title: "🏛️ Coffre de Preuves E-14 (Enquête Colombie 2026)",
+        mod2Desc: "Ce dossier d'expertise contient l'investigation métrologique complète sur l'altération algorithmique et graphique des procès-verbaux E-14 en Colombie (2026). Il préserve l'audit sur plus de 147 000 actes et >677 Go de données.",
+        mod2FeatTitle: "📜 Constats Clés et Preuves Cryptographiques :",
+        mod2Bullets: `
+          <li><strong>Traçabilité Immuable :</strong> >677 Go d'actes originaux scellés sous 777 869 hachages SHA-256 et sauvegardés par 75 000 Témoins Numériques.</li>
+          <li><strong>Blind Masking (1bpc) :</strong> Injection de masques graphiques opacifiants 1-bit modifiant les totaux réels avant transmission.</li>
+          <li><strong>Loi de Benford 2BL :</strong> Déviation statistique anormale (p < 10⁻¹⁰) dans les courbes de transmission.</li>
+          <li><strong>Sceau Institutionnel & CIDH :</strong> Documenté avec le DOI CERN Zenodo (10.5281/zenodo.23188146) et déposé auprès de la CIDH (IACHR-0000113728).</li>
+        `,
+
+        mod3TitleBar: "🪓 Bin: babayaga_core.bin — [Spécification BaBaYaga Core]",
+        mod3Title: "🪓 BaBaYaga Core (Scalpel Forensique Local)",
+        mod3Desc: "<strong>BaBaYaga Core</strong> représente notre moteur d'analyse binaire locale sans dépendance externe. Conçu selon la norme ISO 32000-1, il agit directement sur les flux PDF compressés <code>/FlateDecode</code>.",
+        mod3FeatTitle: "⚡ Architecture et Principes de Cyberdéfense :",
+        mod3Bullets: `
+          <li><strong>Décompilation Binaire Pure :</strong> Extraction directe des dictionnaires PDF évitant les bibliothèques tierces vulnérables.</li>
+          <li><strong>Principe Fail-Closed :</strong> Isolation immédiate des fichiers modifiés lors de la détection de deltas XREF non déclarés.</li>
+          <li><strong>Calcul Parallèle :</strong> Traitement multi-thread calculant les hachages SHA-256 et vérifications XREF sur des milliers de fichiers par seconde.</li>
+          <li><strong>OpSec Stricte :</strong> Exécution 100% locale sous secret industriel et isolation du réseau.</li>
+        `,
+        mod3ActionBtn: "🪓 Spécification BaBaYaga Core →",
+
+        mod4TitleBar: "🛡️ Sec: Perimeter_Armor.sys — [Bouclier CyberDéfense]",
+        mod4Title: "🛡️ Cyberdéfense Périmétrique & Protocoles DFIR",
+        mod4Desc: "Protocoles de confinement et d'immunisation forgés pendant 20 jours d'isolement cibercinétique sous attaque contre notre infrastructure de recherche.",
+        mod4FeatTitle: "🛡️ Couches de Protection :",
+        mod4Bullets: `
+          <li><strong>Confinement Rootkit BIOS/UEFI :</strong> Procédures de sanitisation du firmware et vérification SPI Flash.</li>
+          <li><strong>Détection Pegasus/SS7 :</strong> Inspection du trafic périmétrique et confinement d'intrusions mobiles.</li>
+          <li><strong>Décontamination Matérielle :</strong> Purge sécurisée des supports de stockage et du bus USB.</li>
+          <li><strong>OpSec Souverain :</strong> Intégration de tunnels VPN isolés et réduction stricte de l'empreinte numérique.</li>
+        `,
+
+        mod5TitleBar: "🎓 Game: Guardianes_Digitales.exe — [Écosystème Éducatif]",
+        mod5Title: "🎓 Gardiens Numériques (Écosystème Éducatif)",
+        mod5Desc: "L'<strong>Écosystème Éducatif Gardiens Numériques</strong> transforme la cybersécurité et l'intégrité des données en guides ludiques, simulateurs de routage et jeux vidéo pour enfants, écoles et citoyens.",
+        mod5FeatTitle: "🎮 Éléments Principaux :",
+        mod5Bullets: `
+          <li><strong>Le Chibi Trio :</strong> Avatars éducatifs avec Tycho (Silicium), AndreTaker (Stratège) et Arturius (Le Bouclier).</li>
+          <li><strong>La Métaphore du Plombier :</strong> Explication visuelle et intuitive du routage des données et de la colmatation des fuites de sécurité.</li>
+          <li><strong>Screening Surdoués (Arturo) :</strong> Outils adaptés aux profils Haut Potentiel avec routines de pauses actives (\"Trampoline 2 min\").</li>
+          <li><strong>UX Mobile Rapide :</strong> Optimisé pour smartphones (ex. Motorola Moto 50) et connexions à faible débit.</li>
+        `
       }
     };
 
@@ -1267,6 +1489,39 @@
       document.getElementById('cardEduTitle').textContent = data.eduTitle;
       document.getElementById('cardEduDesc').textContent = data.eduDesc;
       document.getElementById('cardEduInfoBtn').textContent = data.cardInfoBtn;
+
+      // Modales de Módulos (Ventanas Nodales)
+      if (document.getElementById('mod1TitleBar')) document.getElementById('mod1TitleBar').textContent = data.mod1TitleBar;
+      if (document.getElementById('mod1Title')) document.getElementById('mod1Title').textContent = data.mod1Title;
+      if (document.getElementById('mod1Desc')) document.getElementById('mod1Desc').innerHTML = data.mod1Desc;
+      if (document.getElementById('mod1FeatTitle')) document.getElementById('mod1FeatTitle').textContent = data.mod1FeatTitle;
+      if (document.getElementById('mod1Bullets')) document.getElementById('mod1Bullets').innerHTML = data.mod1Bullets;
+      if (document.getElementById('mod1ActionBtn')) document.getElementById('mod1ActionBtn').textContent = data.mod1ActionBtn;
+
+      if (document.getElementById('mod2TitleBar')) document.getElementById('mod2TitleBar').textContent = data.mod2TitleBar;
+      if (document.getElementById('mod2Title')) document.getElementById('mod2Title').textContent = data.mod2Title;
+      if (document.getElementById('mod2Desc')) document.getElementById('mod2Desc').innerHTML = data.mod2Desc;
+      if (document.getElementById('mod2FeatTitle')) document.getElementById('mod2FeatTitle').textContent = data.mod2FeatTitle;
+      if (document.getElementById('mod2Bullets')) document.getElementById('mod2Bullets').innerHTML = data.mod2Bullets;
+
+      if (document.getElementById('mod3TitleBar')) document.getElementById('mod3TitleBar').textContent = data.mod3TitleBar;
+      if (document.getElementById('mod3Title')) document.getElementById('mod3Title').textContent = data.mod3Title;
+      if (document.getElementById('mod3Desc')) document.getElementById('mod3Desc').innerHTML = data.mod3Desc;
+      if (document.getElementById('mod3FeatTitle')) document.getElementById('mod3FeatTitle').textContent = data.mod3FeatTitle;
+      if (document.getElementById('mod3Bullets')) document.getElementById('mod3Bullets').innerHTML = data.mod3Bullets;
+      if (document.getElementById('mod3ActionBtn')) document.getElementById('mod3ActionBtn').textContent = data.mod3ActionBtn;
+
+      if (document.getElementById('mod4TitleBar')) document.getElementById('mod4TitleBar').textContent = data.mod4TitleBar;
+      if (document.getElementById('mod4Title')) document.getElementById('mod4Title').textContent = data.mod4Title;
+      if (document.getElementById('mod4Desc')) document.getElementById('mod4Desc').innerHTML = data.mod4Desc;
+      if (document.getElementById('mod4FeatTitle')) document.getElementById('mod4FeatTitle').textContent = data.mod4FeatTitle;
+      if (document.getElementById('mod4Bullets')) document.getElementById('mod4Bullets').innerHTML = data.mod4Bullets;
+
+      if (document.getElementById('mod5TitleBar')) document.getElementById('mod5TitleBar').textContent = data.mod5TitleBar;
+      if (document.getElementById('mod5Title')) document.getElementById('mod5Title').textContent = data.mod5Title;
+      if (document.getElementById('mod5Desc')) document.getElementById('mod5Desc').innerHTML = data.mod5Desc;
+      if (document.getElementById('mod5FeatTitle')) document.getElementById('mod5FeatTitle').textContent = data.mod5FeatTitle;
+      if (document.getElementById('mod5Bullets')) document.getElementById('mod5Bullets').innerHTML = data.mod5Bullets;
 
       // Botones de cierre en modales
       document.querySelectorAll('.closeBtnLabel').forEach(el => el.textContent = data.closeBtn);
