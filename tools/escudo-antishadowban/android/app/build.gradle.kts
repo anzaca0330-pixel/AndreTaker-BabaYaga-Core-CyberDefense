@@ -5,10 +5,10 @@ plugins {
 }
 
 android {
-  namespace = "com.example.escudoantishadowban"
+  namespace = "org.andretaker.shieldantishadowban"
   compileSdk = 36
   defaultConfig {
-    applicationId = "com.example.escudoantishadowban"
+    applicationId = "org.andretaker.shieldantishadowban"
     minSdk = 24
     targetSdk = 36
     versionCode = 1
