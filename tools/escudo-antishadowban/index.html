@@ -375,12 +375,24 @@
 
   <script>
     // Tablas de mutación y diccionarios de alta fricción algorítmica
+    // Diccionario Multilingüe de Alta Fricción Algorítmica (Español, Inglés, Portugués)
     const SENSITIVE_WORDS = [
+      // Español
       'denuncia', 'denunciar', 'penal', 'pericial', 'fiscalia', 'fiscalía', 'fiscal',
       'fraude', 'electoral', 'corrupcion', 'corrupción', 'delito', 'robo', 'ladron',
       'sabotaje', 'rootkit', 'hackeo', 'hacker', 'ataque', 'victima', 'víctima',
       'muerte', 'asesinato', 'amenaza', 'peligro', 'asilo', 'violencia', 'cne',
-      'registraduria', 'registraduría', 'protesta', 'censura', 'shadowban', 'odio'
+      'registraduria', 'registraduría', 'protesta', 'censura', 'shadowban', 'odio',
+      'silenciamiento', 'algoritmo', 'clasificacion', 'perfilamiento',
+      // English
+      'whistleblower', 'censorship', 'surveillance', 'shadowban', 'algorithm',
+      'suppression', 'classified', 'leak', 'leaks', 'corruption', 'fraud', 'election',
+      'elections', 'subpoena', 'persecution', 'extradition', 'protest', 'assault',
+      'threat', 'hacked', 'cyberattack', 'wiretap', 'spyware', 'pegasus', 'palantir',
+      // Português (Brasil / Angola)
+      'eleicoes', 'eleições', 'fraude', 'urna', 'urnas', 'apuracao', 'apuração',
+      'tse', 'stf', 'censura', 'bloqueio', 'ditadura', 'denuncia', 'denúncia',
+      'corrupcao', 'corrupção', 'perseguicao', 'perseguição', 'inquerito', 'inquérito'
     ];
 
     // Mapeo homoglífico estricto (Visualmente idéntico en fuentes estándar de móvil)
