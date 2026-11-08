@@ -6,6 +6,10 @@
 ![Peer Review Ready](https://img.shields.io/badge/Peer--Review-Ready-purple.svg)
 ![ISO 27037 Compliant](https://img.shields.io/badge/ISO%2FIEC-27037_Compliant-teal.svg)
 ![Unit Tests](https://img.shields.io/badge/Unit_Tests-12%2F12_Passed_OK-success.svg)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24043436.svg)](https://zenodo.org/records/24043436)
+
+> **🔎 Keywords / Topics (Indexación Técnica DFIR & Linux Security):**  
+> `linux-rootkit` `bootkit-removal` `uefi-security` `bios-reflash` `dfir` `incident-response` `anti-shadowban` `benford-law` `pdf-forensics` `iso-27037` `bare-metal-recovery` `heimdall` `nvme-sanitize`
 
 
 ---
@@ -50,8 +54,8 @@ Para evitar confusiones entre el rigor matemático pericial, las herramientas de
    👉 **[Ver Capítulo 03: Peritajes Forenses](ES_ESPANOL/Capitulo_03_Peritajes_Forenses/INDICE_MAESTRO_ACERVO_PROBATORIO.md)** | **[Scripts de Auditoría](ES_ESPANOL/Capitulo_05_Scripts_de_Auditoria/README.md)**
 
 2. **🛡️ Rama de Ciberdefensa y Contrainteligencia (Equipos de Seguridad y DFIR):**
-   Arquitectura del motor `BABAYAGA_CORE`, aislamiento de hardware, mitigación de minería de datos y vigilancia estatal (*Anti-Palantir Protocol*), e inferencia de silicio local (*Ollama: AndreTaker*).  
-   👉 **[Ver Motor Baba Yaga Core](BABAYAGA_CORE/mirror_defense_engine.py)** | **[Protocolo Anti-Palantir](BABAYAGA_CORE/babayaga/core/intelligence/mitigation.py)**
+   Arquitectura del motor `BABAYAGA_CORE`, aislamiento de hardware, descontaminación de **Bootkits/Rootkits UEFI y Kernel Linux** (forjado tras el ataque del **8 de junio de 2026**), mitigación de minería de datos (*Anti-Palantir Protocol*), e inferencia de silicio local (*Ollama: AndreTaker*).  
+   👉 **[Protocolo Emergencia Descontaminación Bootkit/Rootkit Linux & UEFI](PROTOCOLO_DESCONTAMINACION_BOOTKIT_ROOTKIT_LINUX.md)** | **[Ver Motor Baba Yaga Core](BABAYAGA_CORE/mirror_defense_engine.py)** | **[Protocolo Anti-Palantir](BABAYAGA_CORE/babayaga/core/intelligence/mitigation.py)**
 
 3. **👥 Rama Ciudadana y Divulgativa (Prensa, Veedores y Sociedad Civil):**
    Explicaciones desmitificadas, mapas interactivos, visualizadores didácticos y el reconocimiento a los 75.000 Testigos Digitales para democratizar la auditoría.  
