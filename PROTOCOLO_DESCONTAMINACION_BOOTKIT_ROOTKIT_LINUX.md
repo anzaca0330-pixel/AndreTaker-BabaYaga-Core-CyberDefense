@@ -7,9 +7,10 @@
 
 **Autora e Investigadora Principal:** Andrea Zabala Cárcamo (AnZaCa / AndreTaker)  
 **Ecosistema:** AndreTaker — BaBaYaga Core CyberDefense (`www.andretaker.org`)  
+**DOI Oficial CERN Zenodo:** [`10.5281/zenodo.24046579`](https://zenodo.org/records/24046579) (Concept DOI: `10.5281/zenodo.24046578`)  
 **Clasificación:** Procedimiento Pericial de Descontaminación Física en Frío (*Bare-Metal Sanitization*)  
 **Fecha del Incidente Original y Forja en Campo:** 8 al 29 de junio de 2026 (20 días de aislamiento bajo asedio cibernético)  
-**Fecha de Consolidación y Publicación Oficial:** 7 de noviembre de 2026  
+**Fecha de Consolidación y Publicación Oficial:** 7–8 de noviembre de 2026  
 
 ---
 
@@ -146,3 +147,4 @@ Los bootkits suelen alojarse en la partición del sistema EFI (`ESP`) o en los p
 
 ### 📚 Citación Académica y Pericial (CERN / Zenodo / GitHub)
 > **Zabala Cárcamo, A.** (2026). *Protocolo de Emergencia DFIR (Nivel 0): Descontaminación de Bootkit / Rootkit UEFI, Kernel Linux y Hardware Móvil*. AndreTaker — BaBaYaga Core CyberDefense. Disponible en: `https://www.andretaker.org` y `https://github.com/anzaca0330-pixel/AndreTaker-BabaYaga-Core-CyberDefense`
+
