@@ -271,8 +271,13 @@
 <body>
 
     <header>
-        <h1>Mapa Forense: E-14</h1>
-        <p class="subtitle">Haz clic en los puntos rojos parpadeantes para descubrir los vectores de ataque.</p>
+        <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 12px;">
+            <button onclick="setLang('es')" class="lang-btn active" id="btn-es" style="padding: 4px 12px; background: #38bdf8; color: #0f172a; border: none; border-radius: 12px; font-weight: bold; cursor: pointer;">🇪🇸 ES</button>
+            <button onclick="setLang('en')" class="lang-btn" id="btn-en" style="padding: 4px 12px; background: rgba(255,255,255,0.1); color: #94a3b8; border: none; border-radius: 12px; font-weight: bold; cursor: pointer;">🇺🇸 EN</button>
+            <button onclick="setLang('fr')" class="lang-btn" id="btn-fr" style="padding: 4px 12px; background: rgba(255,255,255,0.1); color: #94a3b8; border: none; border-radius: 12px; font-weight: bold; cursor: pointer;">🇫🇷 FR</button>
+        </div>
+        <h1 id="pageTitle">Mapa Forense: E-14</h1>
+        <p class="subtitle" id="pageSubtitle">Haz clic en los puntos rojos parpadeantes para descubrir los vectores de ataque.</p>
     </header>
 
     <div class="flow-container">
@@ -281,25 +286,25 @@
         <div class="row">
             <div class="actor">
                 <i class="fas fa-users"></i>
-                <small>Jurados</small>
+                <small id="actorJurados">Jurados</small>
             </div>
             <div class="row-title">E-14 Delegados</div>
             <div class="steps">
                 <div class="step" onclick="openModal('origen')">
                     <div class="step-icon"><i class="fas fa-file-signature"></i></div>
-                    <div class="step-label">Acta Física</div>
+                    <div class="step-label" id="lblActaFisica">Acta Física</div>
                     <div class="hotspot"></div>
                 </div>
                 <div class="arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
                 <div class="step" onclick="openModal('escaner')">
                     <div class="step-icon"><i class="fas fa-print"></i></div>
-                    <div class="step-label">Digitalización</div>
+                    <div class="step-label" id="lblDigitalizacion">Digitalización</div>
                     <div class="hotspot"></div>
                 </div>
                 <div class="arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
                 <div class="step" onclick="openModal('publicacion')">
                     <div class="step-icon"><i class="fas fa-globe"></i></div>
-                    <div class="step-label">Web / Repositorio</div>
+                    <div class="step-label" id="lblWebOficial">Web / Repositorio</div>
                     <div class="hotspot"></div>
                 </div>
             </div>
@@ -311,24 +316,24 @@
             <div class="steps">
                 <div class="step" onclick="openModal('preconteo_origen')">
                     <div class="step-icon"><i class="fas fa-phone-alt"></i></div>
-                    <div class="step-label">Dictado (Preconteo)</div>
+                    <div class="step-label" id="lblPreconteo">Dictado (Preconteo)</div>
                     <div class="hotspot"></div>
                 </div>
                 <div class="arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
                 <div class="step" onclick="openModal('rft')">
                     <div class="step-icon"><i class="fas fa-headset"></i></div>
-                    <div class="step-label">Recepción (RFT)</div>
+                    <div class="step-label" id="lblTransmision">Recepción (RFT)</div>
                 </div>
                 <div class="arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
                 <div class="step" onclick="openModal('qr_desvio')">
                     <div class="step-icon"><i class="fas fa-qrcode"></i></div>
-                    <div class="step-label">Escaneo y Transmisión</div>
+                    <div class="step-label" id="lblLecturaQR">Escaneo y Transmisión</div>
                     <div class="hotspot"></div>
                 </div>
                 <div class="arrow"><i class="fas fa-long-arrow-alt-right"></i></div>
                 <div class="step" onclick="openModal('db')">
                     <div class="step-icon"><i class="fas fa-database"></i></div>
-                    <div class="step-label">Consolidación DB</div>
+                    <div class="step-label" id="lblBaseDatos">Consolidación DB</div>
                     <div class="hotspot"></div>
                 </div>
             </div>
@@ -340,10 +345,10 @@
             <div class="steps" style="justify-content: flex-start;">
                 <div class="step">
                     <div class="step-icon"><i class="fas fa-box-open"></i></div>
-                    <div class="step-label">Bolsa de Seguridad</div>
+                    <div class="step-label" id="lblBolsaSeguridad">Bolsa de Seguridad</div>
                 </div>
                 <div style="margin-left: 2rem; color: #64748b; max-width: 400px; font-size: 0.9rem;">
-                    <em>* Documento legal final sometido a Escrutinio. Debería ser idéntico a las otras dos copias.</em>
+                    <em id="lblNotaClaveros">* Documento legal final sometido a Escrutinio. Debería ser idéntico a las otras dos copias.</em>
                 </div>
             </div>
         </div>
@@ -362,63 +367,254 @@
     </div>
 
     <script>
+        let currentLang = 'es';
+
+        const i18nText = {
+            es: {
+                title: "Mapa Forense: E-14",
+                subtitle: "Haz clic en los puntos rojos parpadeantes para descubrir los vectores de ataque.",
+                jurados: "Jurados",
+                actaFisica: "Acta Física",
+                digitalizacion: "Digitalización",
+                webOficial: "Web / Repositorio",
+                preconteo: "Dictado (Preconteo)",
+                transmision: "Recepción (RFT)",
+                lecturaQR: "Escaneo y Transmisión",
+                baseDatos: "Consolidación DB",
+                bolsaSeguridad: "Bolsa de Seguridad",
+                notaClaveros: "* Documento legal final sometido a Escrutinio. Debería ser idéntico a las otras dos copias."
+            },
+            en: {
+                title: "Forensic Map: E-14",
+                subtitle: "Click the flashing red hotspots to reveal the attack vectors.",
+                jurados: "Jury / Poll Workers",
+                actaFisica: "Physical Tally",
+                digitalizacion: "Digitization",
+                webOficial: "Web / Repository",
+                preconteo: "Pre-count Dictation",
+                transmision: "RFT Reception",
+                lecturaQR: "Scan & Transmission",
+                baseDatos: "DB Consolidation",
+                bolsaSeguridad: "Security Bag",
+                notaClaveros: "* Final legal document submitted to Scrutiny. Should be identical to the other two copies."
+            },
+            fr: {
+                title: "Carte Forensique : E-14",
+                subtitle: "Cliquez sur les points rouges clignotants pour révéler les vecteurs d'attaque.",
+                jurados: "Jurés",
+                actaFisica: "Procès-Verbal Physique",
+                digitalizacion: "Numérisation",
+                webOficial: "Web / Dépôt",
+                preconteo: "Dictée (Pré-décompte)",
+                transmision: "Réception (RFT)",
+                lecturaQR: "Scan et Transmission",
+                baseDatos: "Consolidation BD",
+                bolsaSeguridad: "Sac de Sécurité",
+                notaClaveros: "* Document légal final soumis au Scrutin. Devrait être identique aux deux autres copies."
+            }
+        };
+
         const fraudData = {
-            'origen': {
-                title: 'Punto Cero: Manipulación Física y Censal',
-                body: `
-                    <ul>
-                        <li><strong>Trampa 1 (Censo Inflado):</strong> Se alteró el potencial de votantes (ej. Estados Unidos reportó 159.999 inscritos, pero inflaron la base a 454.000 para abrir espacio a los votos inyectados).</li>
-                        <li><strong>Trampa 4 (Foliación Híbrida):</strong> En la mesa, los paquetes litográficos fueron manipulados físicamente, mezclando páginas a color originales con fotocopias en blanco y negro.</li>
-                    </ul>
-                `
+            es: {
+                'origen': {
+                    title: 'Punto Cero: Manipulación Física y Censal',
+                    body: `
+                        <ul>
+                            <li><strong>Trampa 1 (Censo Inflado):</strong> Se alteró el potencial de votantes (ej. Estados Unidos reportó 159.999 inscritos, pero inflaron la base a 454.000 para abrir espacio a los votos inyectados).</li>
+                            <li><strong>Trampa 4 (Foliación Híbrida):</strong> En la mesa, los paquetes litográficos fueron manipulados físicamente, mezclando páginas a color originales con fotocopias en blanco y negro.</li>
+                        </ul>
+                    `
+                },
+                'escaner': {
+                    title: 'Quirófano Digital: Alteración de PDFs',
+                    body: `
+                        <p>En el momento en que las actas fueron supuestamente "escaneadas", en realidad pasaron por un software de falsificación masiva:</p>
+                        <ul>
+                            <li><strong>Trampa 5 (Cicatriz XREF):</strong> El software dañó la tabla interna del archivo. Declara 15 objetos pero tiene 13. Un escáner real jamás hace esto.</li>
+                            <li><strong>Trampa 6 (Blind Masking):</strong> Inyectaron una capa transparente por encima de la imagen del acta y escribieron resultados sintéticos (1 bit por canal) tapando los verdaderos.</li>
+                            <li><strong>Trampa 7 (Generación Sintética):</strong> Los archivos carecen absolutamente de metadatos de hardware (EXIF). No nacieron de una cámara.</li>
+                        </ul>
+                    `
+                },
+                'publicacion': {
+                    title: 'El "Espejo Absoluto"',
+                    body: `
+                        <p>Las actas alteradas son subidas a la web. Al someterlas a análisis estocástico:</p>
+                        <ul>
+                            <li><strong>Trampa 10 (Ley de Benford (2do dígito - Mebane)):</strong> Descubrimos que los números publicados no tienen varianza humana (caos natural). Fueron generados por un bucle de programación matemático.</li>
+                        </ul>
+                    `
+                },
+                'preconteo_origen': {
+                    title: 'Ruptura de Trazabilidad Inicial',
+                    body: `
+                        <ul>
+                            <li><strong>Trampa 2 (Códigos Nulos):</strong> Los códigos de barras de los E-14 fueron destruidos criptográficamente a propósito para que los sistemas informáticos no pudieran leerlos.</li>
+                        </ul>
+                    `
+                },
+                'rft': {
+                    title: 'Transmisión RFT Sanitizada',
+                    body: `
+                        <p>Canal primario de transmisión de preconteo desde centros de acopio:</p>
+                        <ul>
+                            <li>Intercepción y alteración de tramas de texto durante la conversión analógica-digital.</li>
+                        </ul>
+                    `
+                },
+                'qr_desvio': {
+                    title: 'Spoofing de Transmisión (Redirección QR)',
+                    body: `
+                        <p>El ataque directo a la maquinaria de los contratistas de transmisión (Indra/Disproel):</p>
+                        <ul>
+                            <li><strong>Trampa 3 (Códigos QR Dobles):</strong> Superpusieron un QR falso exactamente encima del verdadero. Cuando las máquinas escaneaban el acta para transmisión rápida, leían la capa falsa, <strong>desviando los resultados hacia un ID de mesa distinto</strong>.</li>
+                        </ul>
+                    `
+                },
+                'db': {
+                    title: 'Inyección Base de Datos: Vote Swapping',
+                    body: `
+                        <p>Al llegar los datos a los servidores centrales de consolidación:</p>
+                        <ul>
+                            <li><strong>Trampa 8 (Permutación Sintáctica):</strong> Para engañar a los jueces escrutadores (que verifican que los totales cuadren), el software hizo <em>Vote Swapping</em>. Mantuvo estático el total de la mesa, pero intercambió por debajo de la mesa los votos del candidato perdedor hacia el ganador.</li>
+                            <li><strong>Trampa 9 (Impacto 175%):</strong> Todo este ecosistema de fraude sumó un volumen de votos inyectados equivalente al 175% del margen oficial de victoria.</li>
+                        </ul>
+                    `
+                }
             },
-            'escaner': {
-                title: 'Quirófano Digital: Alteración de PDFs',
-                body: `
-                    <p>En el momento en que las actas fueron supuestamente "escaneadas", en realidad pasaron por un software de falsificación masiva:</p>
-                    <ul>
-                        <li><strong>Trampa 5 (Cicatriz XREF):</strong> El software dañó la tabla interna del archivo. Declara 15 objetos pero tiene 13. Un escáner real jamás hace esto.</li>
-                        <li><strong>Trampa 6 (Blind Masking):</strong> Inyectaron una capa transparente por encima de la imagen del acta y escribieron resultados sintéticos (1 bit por canal) tapando los verdaderos.</li>
-                        <li><strong>Trampa 7 (Generación Sintética):</strong> Los archivos carecen absolutamente de metadatos de hardware (EXIF). No nacieron de una cámara.</li>
-                    </ul>
-                `
+            en: {
+                'origen': {
+                    title: 'Point Zero: Physical & Census Manipulation',
+                    body: `
+                        <ul>
+                            <li><strong>Trap 1 (Inflated Census):</strong> Voter potential was artificially altered (e.g., US reported 159,999 registered voters, but the base was inflated to 454,000 to accommodate injected votes).</li>
+                            <li><strong>Trap 4 (Hybrid Foliation):</strong> At polling stations, lithographic packages were physically tampered with, mixing original color pages with B&W photocopies.</li>
+                        </ul>
+                    `
+                },
+                'escaner': {
+                    title: 'Digital Surgery: PDF Alteration',
+                    body: `
+                        <p>When tallies were supposedly "scanned", they were actually routed through automated forgery software:</p>
+                        <ul>
+                            <li><strong>Trap 5 (XREF Scar):</strong> Software corrupted the internal object table (declaring 15 objects with only 13 present). Real scanners never produce this anomaly.</li>
+                            <li><strong>Trap 6 (Blind Masking):</strong> Injection of 1-bit transparent layer masks overwriting genuine hand-written numbers with synthetic graphics.</li>
+                            <li><strong>Trap 7 (Synthetic Generation):</strong> Files completely lack hardware EXIF metadata, proving they were generated programmatically.</li>
+                        </ul>
+                    `
+                },
+                'publicacion': {
+                    title: 'The "Absolute Mirror"',
+                    body: `
+                        <p>Altered tallies published to official repositories. Stochastic analysis reveals:</p>
+                        <ul>
+                            <li><strong>Trap 10 (Benford\'s Law 2BL - Mebane):</strong> Published numbers lack human variance (natural chaos) and fit synthetic math loops.</li>
+                        </ul>
+                    `
+                },
+                'preconteo_origen': {
+                    title: 'Initial Traceability Breakdown',
+                    body: `
+                        <ul>
+                            <li><strong>Trap 2 (Null Barcodes):</strong> E-14 barcodes were intentionally corrupted so automated readers would fail over to manual override.</li>
+                        </ul>
+                    `
+                },
+                'rft': {
+                    title: 'Sanitized RFT Transmission',
+                    body: `
+                        <p>Primary pre-count transmission channel from gathering hubs:</p>
+                        <ul>
+                            <li>Interception and text payload manipulation during analog-to-digital relay.</li>
+                        </ul>
+                    `
+                },
+                'qr_desvio': {
+                    title: 'Transmission Spoofing (QR Rerouting)',
+                    body: `
+                        <p>Direct attack against transmission contractors (Indra/Disproel):</p>
+                        <ul>
+                            <li><strong>Trap 3 (Double QR Codes):</strong> Fake QR codes pasted over physical tallies. Fast-scan cameras read the fake layer, <strong>rerouting votes to a different polling table ID</strong>.</li>
+                        </ul>
+                    `
+                },
+                'db': {
+                    title: 'Database Injection: Vote Swapping',
+                    body: `
+                        <p>Upon reaching central consolidation database servers:</p>
+                        <ul>
+                            <li><strong>Trap 8 (Syntactic Permutation):</strong> Software performed <em>Vote Swapping</em>—keeping table totals constant while swapping vote columns between candidates.</li>
+                            <li><strong>Trap 9 (175% Impact):</strong> Total volume of injected votes equaled 175% of the official margin of victory.</li>
+                        </ul>
+                    `
+                }
             },
-            'publicacion': {
-                title: 'El "Espejo Absoluto"',
-                body: `
-                    <p>Las actas alteradas son subidas a la web. Al someterlas a análisis estocástico:</p>
-                    <ul>
-                        <li><strong>Trampa 10 (Ley de Benford (2do dígito - Mebane)):</strong> Descubrimos que los números publicados no tienen varianza humana (caos natural). Fueron generados por un bucle de programación matemático.</li>
-                    </ul>
-                `
-            },
-            'preconteo_origen': {
-                title: 'Ruptura de Trazabilidad Inicial',
-                body: `
-                    <ul>
-                        <li><strong>Trampa 2 (Códigos Nulos):</strong> Los códigos de barras de los E-14 fueron destruidos criptográficamente a propósito para que los sistemas informáticos no pudieran leerlos.</li>
-                    </ul>
-                `
-            },
-            'qr_desvio': {
-                title: 'Spoofing de Transmisión (Redirección QR)',
-                body: `
-                    <p>El ataque directo a la maquinaria de los contratistas de transmisión (Indra/Disproel):</p>
-                    <ul>
-                        <li><strong>Trampa 3 (Códigos QR Dobles):</strong> Superpusieron un QR falso exactamente encima del verdadero. Cuando las máquinas escaneaban el acta para transmisión rápida, leían la capa falsa, <strong>desviando los resultados hacia un ID de mesa distinto</strong>.</li>
-                    </ul>
-                    <a href="../01_EVIDENCIA/EVIDENCIA_QR_DOBLES_FALSIFICADOS.md" class="btn-link">Ver Evidencia Criptográfica</a>
-                `
-            },
-            'db': {
-                title: 'Inyección Base de Datos: Vote Swapping',
-                body: `
-                    <p>Al llegar los datos a los servidores centrales de consolidación:</p>
-                    <ul>
-                        <li><strong>Trampa 8 (Permutación Sintáctica):</strong> Para engañar a los jueces escrutadores (que verifican que los totales cuadren), el software hizo <em>Vote Swapping</em>. Mantuvo estático el total de la mesa, pero intercambió por debajo de la mesa los votos del candidato perdedor hacia el ganador.</li>
-                        <li><strong>Trampa 9 (Impacto 175%):</strong> Todo este ecosistema de fraude sumó un volumen de votos inyectados equivalente al 175% del margen oficial de victoria.</li>
-                    </ul>
-                `
+            fr: {
+                'origen': {
+                    title: 'Point Zéro : Manipulation Physique et Recensement',
+                    body: `
+                        <ul>
+                            <li><strong>Piège 1 (Recensement Gonflé) :</strong> Potentiel électoral altéré (ex. 159 999 inscrits aux USA gonflés à 454 000 pour ouvrir l'espace aux votes injectés).</li>
+                            <li><strong>Piège 4 (Foliation Hybride) :</strong> Manipulation physique des paquets litographiques (mélange de pages couleur d'origine et photocopies N&B).</li>
+                        </ul>
+                    `
+                },
+                'escaner': {
+                    title: 'Chirurgie Numérique : Altération des PDF',
+                    body: `
+                        <p>Lors du prétendu numérisage, les actes ont été traités par un logiciel de falsification massive :</p>
+                        <ul>
+                            <li><strong>Piège 5 (Cicatrice XREF) :</strong> Incohérence de la table d'objets (15 objets déclarés, 13 présents). Jamais vu sur un vrai scanner.</li>
+                            <li><strong>Piège 6 (Blind Masking) :</strong> Masquage 1-bit superposé recouvrant les vrais chiffres manuscrits par des résultats synthétiques.</li>
+                            <li><strong>Piège 7 (Génération Synthétique) :</strong> Absence totale de métadonnées EXIF matérielles.</li>
+                        </ul>
+                    `
+                },
+                'publicacion': {
+                    title: 'Le "Miroir Absolu"',
+                    body: `
+                        <p>Actes altérés publiés sur le web officiel :</p>
+                        <ul>
+                            <li><strong>Piège 10 (Loi de Benford 2BL - Mebane) :</strong> Les chiffres ne présentent aucune variance humaine organique.</li>
+                        </ul>
+                    `
+                },
+                'preconteo_origen': {
+                    title: 'Rupture de Traçabilité Initiale',
+                    body: `
+                        <ul>
+                            <li><strong>Piège 2 (Codes-Barres Nuls) :</strong> Destruction intentionnelle de la lisibilité des codes-barres E-14.</li>
+                        </ul>
+                    `
+                },
+                'rft': {
+                    title: 'Transmission RFT Interceptée',
+                    body: `
+                        <p>Canal principal de pré-décompte :</p>
+                        <ul>
+                            <li>Interception et altération des données pendant la conversion analogique-numérique.</li>
+                        </ul>
+                    `
+                },
+                'qr_desvio': {
+                    title: 'Usurpation de Transmission (Redirection QR)',
+                    body: `
+                        <p>Attaque directe sur les équipements des prestataires (Indra/Disproel) :</p>
+                        <ul>
+                            <li><strong>Piège 3 (Superposition QR) :</strong> Faux QR collé sur le vrai, <strong>déviant les résultats vers un autre bureau de vote</strong>.</li>
+                        </ul>
+                    `
+                },
+                'db': {
+                    title: 'Injection Base de Données : Vote Swapping',
+                    body: `
+                        <p>Sur les serveurs centraux de consolidation :</p>
+                        <ul>
+                            <li><strong>Piège 8 (Permutation Syntactique) :</strong> Permutation secrète des voix entre candidats tout en conservant le total global de la table.</li>
+                            <li><strong>Piège 9 (Impact 175%) :</strong> Volume total injecté équivalent à 175% de la marge officielle de victoire.</li>
+                        </ul>
+                    `
+                }
             }
         };
 
@@ -426,8 +622,38 @@
         const mTitle = document.getElementById('mTitle');
         const mBody = document.getElementById('mBody');
 
+        function setLang(lang) {
+            currentLang = lang;
+            document.querySelectorAll('.lang-btn').forEach(b => {
+                b.style.background = 'rgba(255,255,255,0.1)';
+                b.style.color = '#94a3b8';
+                b.classList.remove('active');
+            });
+            const btn = document.getElementById('btn-' + lang);
+            if (btn) {
+                btn.style.background = '#38bdf8';
+                btn.style.color = '#0f172a';
+                btn.classList.add('active');
+            }
+
+            const txt = i18nText[lang] || i18nText.es;
+            document.getElementById('pageTitle').textContent = txt.title;
+            document.getElementById('pageSubtitle').textContent = txt.subtitle;
+            document.getElementById('actorJurados').textContent = txt.jurados;
+            document.getElementById('lblActaFisica').textContent = txt.actaFisica;
+            document.getElementById('lblDigitalizacion').textContent = txt.digitalizacion;
+            document.getElementById('lblWebOficial').textContent = txt.webOficial;
+            document.getElementById('lblPreconteo').textContent = txt.preconteo;
+            document.getElementById('lblTransmision').textContent = txt.transmision;
+            document.getElementById('lblLecturaQR').textContent = txt.lecturaQR;
+            document.getElementById('lblBaseDatos').textContent = txt.baseDatos;
+            document.getElementById('lblBolsaSeguridad').textContent = txt.bolsaSeguridad;
+            document.getElementById('lblNotaClaveros').textContent = txt.notaClaveros;
+        }
+
         function openModal(id) {
-            const data = fraudData[id];
+            const langData = fraudData[currentLang] || fraudData.es;
+            const data = langData[id];
             if(data) {
                 mTitle.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${data.title}`;
                 mBody.innerHTML = data.body;
