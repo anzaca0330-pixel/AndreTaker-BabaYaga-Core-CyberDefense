@@ -1,7 +1,8 @@
 # 🔬 NOTA TÉCNICA FORENSE COMPARATIVA: HUELLA BINARIA EN LAS ACTAS ELECTORALES DE PERÚ (LIMA) Y CORRELACIÓN CON EL MOTOR DE DIGITALIZACIÓN / SOFTWARE DE ESCRUTINIO
 
 **Autora:** Andrea Zabala Cárcamo (*Investigadora Ciudadana Independiente y Estudiante de Psicología I-O — Ciencia Ciudadana & Auditoría de Datos Abiertos*)  
-**Laboratorio de Ciencia Abierta:** AndreTaker — BaBaYaga Core (Registro Científico CERN Zenodo DOI: `10.5281/zenodo.21922376`)  
+**Registro Científico Oficial CERN Zenodo (Esta Nota Técnica):** [`10.5281/zenodo.24059804`](https://zenodo.org/records/24059804)  
+**Laboratorio de Ciencia Abierta:** AndreTaker — BaBaYaga Core (Suite Forense DOI: `10.5281/zenodo.23188146` / `10.5281/zenodo.21922376`)  
 **Fecha de Emisión de la Nota Comparativa:** 8 de Noviembre de 2026  
 **Fecha Original de Captura y Ejecución del Peritaje en Bóveda (Timestamp Linux Ext4 Inmutable):** **29 y 30 de Julio de 2026** *(Más de tres meses antes de las revelaciones públicas de noviembre de 2026 sobre el software electoral en Perú)*  
 

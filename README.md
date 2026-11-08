@@ -8,20 +8,22 @@
 ![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
 ![Peer Review Ready](https://img.shields.io/badge/Peer--Review-Ready-purple.svg)
 ![ISO 27037 Compliant](https://img.shields.io/badge/ISO%2FIEC-27037_Compliant-teal.svg)
-![Unit Tests](https://img.shields.io/badge/Unit_Tests-12%2F12_Passed_OK-success.svg)
+[![Unit Tests](https://img.shields.io/badge/Unit_Tests-12%2F12_Passed_OK-success.svg)
+[![DOI Peru](https://zenodo.org/badge/DOI/10.5281/zenodo.24059804.svg)](https://zenodo.org/records/24059804)
 [![DOI Bootkit](https://zenodo.org/badge/DOI/10.5281/zenodo.24046579.svg)](https://zenodo.org/records/24046579)
 [![DOI Shield](https://zenodo.org/badge/DOI/10.5281/zenodo.24043436.svg)](https://zenodo.org/records/24043436)
 [![DOI Suite](https://zenodo.org/badge/DOI/10.5281/zenodo.23188146.svg)](https://zenodo.org/records/23188146)
 [![DOI Aegis](https://zenodo.org/badge/DOI/10.5281/zenodo.22928293.svg)](https://zenodo.org/records/22928293)
 [![DOI Toolkit](https://zenodo.org/badge/DOI/10.5281/zenodo.22346207.svg)](https://zenodo.org/records/22346207)
 
-> **🏛️ Catálogo Oficial CERN Zenodo (5 Registros DOI de Andrea Zabala Cárcamo):**  
+> **🏛️ Catálogo Oficial CERN Zenodo (6 Registros DOI de Andrea Zabala Cárcamo):**  
 > 👉 **[Ver Todos los Registros en CERN Zenodo](https://zenodo.org/search?q=%22ZABALA%20CARCAMO%22&l=list&p=1&s=10&sort=newest)**  
-> 1. 🚨 **DFIR Level-0 Emergency Protocol: UEFI Bootkits, Linux Kernel Rootkits & Mobile Firmware (v1.0.0)** — [`DOI: 10.5281/zenodo.24046579`](https://zenodo.org/records/24046579) *(Nov 2026)*  
-> 2. 🛡️ **ANDRETAKER Shield AntiShadowban (v1.0.0)** — [`DOI: 10.5281/zenodo.24043436`](https://zenodo.org/records/24043436) *(Nov 2026)*  
-> 3. 🪓 **AndreTaker — Forensic Suite (BaBaYaga Core v2.1)** — [`DOI: 10.5281/zenodo.23188146`](https://zenodo.org/records/23188146) *(6 Oct 2026)*  
-> 4. 🎓 **Aegis Educational Shield (Sovereign Local-First Privacy Suite)** — [`DOI: 10.5281/zenodo.22928293`](https://zenodo.org/records/22928293) *(24 Sep 2026)*  
-> 5. 🔬 **Forensic Toolkit: Híbrido Detector Multicapas para Análisis E-14** — [`DOI: 10.5281/zenodo.22346207`](https://zenodo.org/records/22346207) *(5 Sep 2026)*  
+> 1. 🇵🇪 **Comparative Forensic Technical Note: Pre-Existing Binary Footprint in Peru (Lima) Electoral Records (July 30, 2026)** — [`DOI: 10.5281/zenodo.24059804`](https://zenodo.org/records/24059804) *(Nov 2026)*  
+> 2. 🚨 **DFIR Level-0 Emergency Protocol: UEFI Bootkits, Linux Kernel Rootkits & Mobile Firmware (v1.0.0)** — [`DOI: 10.5281/zenodo.24046579`](https://zenodo.org/records/24046579) *(Nov 2026)*  
+> 3. 🛡️ **ANDRETAKER Shield AntiShadowban (v1.0.0)** — [`DOI: 10.5281/zenodo.24043436`](https://zenodo.org/records/24043436) *(Nov 2026)*  
+> 4. 🪓 **AndreTaker — Forensic Suite (BaBaYaga Core v2.1)** — [`DOI: 10.5281/zenodo.23188146`](https://zenodo.org/records/23188146) *(6 Oct 2026)*  
+> 5. 🎓 **Aegis Educational Shield (Sovereign Local-First Privacy Suite)** — [`DOI: 10.5281/zenodo.22928293`](https://zenodo.org/records/22928293) *(24 Sep 2026)*  
+> 6. 🔬 **Forensic Toolkit: Híbrido Detector Multicapas para Análisis E-14** — [`DOI: 10.5281/zenodo.22346207`](https://zenodo.org/records/22346207) *(5 Sep 2026)*  
 
 > **🔎 Keywords / Topics (Indexación Técnica DFIR & Linux Security):**  
 > `linux-rootkit` `bootkit-removal` `uefi-security` `bios-reflash` `dfir` `incident-response` `anti-shadowban` `benford-law` `pdf-forensics` `iso-27037` `bare-metal-recovery` `heimdall` `nvme-sanitize`
