@@ -1,12 +1,25 @@
-# 🏛️ LIBRO JUDICIAL DIGITAL: ENTREGABLES FORENSES E-14
-*(Digital Judicial Book: E-14 Forensic Deliverables)*
+<div align="center">
+  <img src="assets/images/andretaker_babayaga_official_logo.png" alt="AndreTaker — BaBaYaga Core Official Logo" width="220" style="border-radius: 50%; margin-bottom: 12px;">
+  <h1>🏛️ LIBRO JUDICIAL DIGITAL: ENTREGABLES FORENSES E-14 & CIBERDEFENSA</h1>
+  <p><em>(Digital Judicial Book: E-14 Forensic Deliverables & BaBaYaga Core CyberDefense)</em></p>
+</div>
 
 ![Open Source Initiative](https://img.shields.io/badge/Open%20Source-Initiative-brightgreen.svg)
 ![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
 ![Peer Review Ready](https://img.shields.io/badge/Peer--Review-Ready-purple.svg)
 ![ISO 27037 Compliant](https://img.shields.io/badge/ISO%2FIEC-27037_Compliant-teal.svg)
 ![Unit Tests](https://img.shields.io/badge/Unit_Tests-12%2F12_Passed_OK-success.svg)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24043436.svg)](https://zenodo.org/records/24043436)
+[![DOI Shield](https://zenodo.org/badge/DOI/10.5281/zenodo.24043436.svg)](https://zenodo.org/records/24043436)
+[![DOI Suite](https://zenodo.org/badge/DOI/10.5281/zenodo.23188146.svg)](https://zenodo.org/records/23188146)
+[![DOI Aegis](https://zenodo.org/badge/DOI/10.5281/zenodo.22928293.svg)](https://zenodo.org/records/22928293)
+[![DOI Toolkit](https://zenodo.org/badge/DOI/10.5281/zenodo.22346207.svg)](https://zenodo.org/records/22346207)
+
+> **🏛️ Catálogo Oficial CERN Zenodo (4 Registros DOI de Andrea Zabala Cárcamo):**  
+> 👉 **[Ver Todos los Registros en CERN Zenodo](https://zenodo.org/search?q=%22ZABALA%20CARCAMO%22&l=list&p=1&s=10&sort=newest)**  
+> 1. 🛡️ **ANDRETAKER Shield AntiShadowban (v1.0.0)** — [`DOI: 10.5281/zenodo.24043436`](https://zenodo.org/records/24043436) *(7 Nov 2026)*  
+> 2. 🪓 **AndreTaker — Forensic Suite (BaBaYaga Core v2.1)** — [`DOI: 10.5281/zenodo.23188146`](https://zenodo.org/records/23188146) *(6 Oct 2026)*  
+> 3. 🎓 **Aegis Educational Shield (Sovereign Local-First Privacy Suite)** — [`DOI: 10.5281/zenodo.22928293`](https://zenodo.org/records/22928293) *(24 Sep 2026)*  
+> 4. 🔬 **Forensic Toolkit: Híbrido Detector Multicapas para Análisis E-14** — [`DOI: 10.5281/zenodo.22346207`](https://zenodo.org/records/22346207) *(5 Sep 2026)*  
 
 > **🔎 Keywords / Topics (Indexación Técnica DFIR & Linux Security):**  
 > `linux-rootkit` `bootkit-removal` `uefi-security` `bios-reflash` `dfir` `incident-response` `anti-shadowban` `benford-law` `pdf-forensics` `iso-27037` `bare-metal-recovery` `heimdall` `nvme-sanitize`

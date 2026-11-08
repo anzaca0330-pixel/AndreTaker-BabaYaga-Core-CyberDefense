@@ -1,0 +1,41 @@
+{
+  "title": "DFIR Level-0 Emergency Protocol: Bare-Metal Sanitization of UEFI Bootkits, Linux Kernel Rootkits, and Mobile Firmware (v1.0.0)",
+  "upload_type": "publication",
+  "publication_type": "technicalnote",
+  "publication_date": "2026-11-07",
+  "creators": [
+    {
+      "name": "Zabala Cárcamo, Andrea",
+      "affiliation": "AndreTaker — BaBaYaga Core CyberDefense / Independent DFIR Researcher"
+    }
+  ],
+  "description": "Empirical Digital Forensics and Incident Response (DFIR) Level-0 remediation protocol forged during active cyber-siege (June 8 – June 29, 2026; IACHR Precautionary Measure Ref: IACHR-0000113728). Provides step-by-step bare-metal recovery procedures for: (1) Live Linux kernel taint, LKM discrepancy, efivars, and udev rule auditing; (2) Cold SPI Flash / EEPROM UEFI BIOS reflashing and Factory Secure Boot key restoration; (3) Cryptographic MBR/GPT/EFI partition destruction (sgdisk, dd zero-fill, blkdiscard NVMe sanitize); and (4) Physical mobile partition reflashing via Heimdall (PIT table reconstruction) and Fastboot.",
+  "access_right": "open",
+  "license": "Apache-2.0",
+  "keywords": [
+    "linux-rootkit",
+    "bootkit-removal",
+    "uefi-security",
+    "bios-reflash",
+    "dfir",
+    "incident-response",
+    "bare-metal-recovery",
+    "nvme-sanitize",
+    "heimdall",
+    "iso-27037",
+    "andretaker",
+    "babayaga-core"
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "10.5281/zenodo.24043436",
+      "scheme": "doi"
+    },
+    {
+      "relation": "isIdenticalTo",
+      "identifier": "https://github.com/anzaca0330-pixel/AndreTaker-BabaYaga-Core-CyberDefense/blob/main/PROTOCOLO_DESCONTAMINACION_BOOTKIT_ROOTKIT_LINUX.md",
+      "scheme": "url"
+    }
+  ]
+}
