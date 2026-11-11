@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>AnZaCa Neural Command Hub — Telaraña de Frentes</title>
+  <style>
+    :root {
+      --bg-space: #0b1120;
+      --panel-bg: rgba(15, 23, 42, 0.88);
+      --border-glow: rgba(56, 189, 248, 0.45);
+      --accent-cyan: #38bdf8;
+      --accent-gold: #fbbf24;
+      --accent-rose: #f43f5e;
+      --accent-emerald: #10b981;
+      --accent-purple: #c084fc;
+      --text-main: #ffffff;
+      --text-muted: #94a3b8;
+      --font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% 50%, #152238 0%, #070c18 100%);
+      color: var(--text-main);
+      font-family: var(--font-stack);
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    /* Header flotante */
+    header {
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    .brand {
+      pointer-events: auto;
+      background: var(--panel-bg);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border-glow);
+      padding: 8px 18px;
+      border-radius: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .brand h1 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: var(--accent-cyan);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand span {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .quick-stats {
+      pointer-events: auto;
+      display: flex;
+      gap: 8px;
+    }
+
+    .pill-btn {
+      background: var(--panel-bg);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text-main);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pill-btn:hover {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 14px rgba(56, 189, 248, 0.4);
+    }
+
+    /* Lienzo interactivo */
+    #canvas-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Panel lateral de detalle del nodo */
+    #detail-panel {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      max-height: 48vh;
+      background: var(--panel-bg);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-glow);
+      border-radius: 18px;
+      padding: 18px 20px;
+      z-index: 100;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+      transform: translateY(120%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow-y: auto;
+    }
+
+    #detail-panel.active {
+      transform: translateY(0);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 8px;
+    }
+
+    .panel-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+    }
+
+    .task-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .task-item {
+      background: rgba(255,255,255,0.04);
+      border-left: 3px solid var(--accent-cyan);
+      padding: 10px 14px;
+      border-radius: 0 10px 10px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .task-item.urgent {
+      border-left-color: var(--accent-rose);
+      background: rgba(244, 63, 94, 0.12);
+    }
+
+    .task-item.in-progress {
+      border-left-color: var(--accent-gold);
+      background: rgba(251, 191, 36, 0.12);
+    }
+
+    .task-item.done {
+      border-left-color: var(--accent-emerald);
+      opacity: 0.7;
+    }
+
+    .task-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .task-desc {
+      font-size: 0.78rem;
+      color: #cbd5e1;
+      line-height: 1.35;
+    }
+
+    .task-meta {
+      font-size: 0.7rem;
+      color: var(--accent-cyan);
+      display: flex;
+      justify-content: space-between;
+      margin-top: 4px;
+    }
+
+    /* Leyenda inferior de instrucciones */
+    .hint-bar {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.74rem;
+      color: #cbd5e1;
+      pointer-events: none;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 5px 14px;
+      border-radius: 14px;
+      backdrop-filter: blur(6px);
+    }
+
+    @media (min-width: 768px) {
+      #detail-panel {
+        left: auto;
+        right: 20px;
+        bottom: 20px;
+        top: 80px;
+        width: 380px;
+        max-height: none;
+        transform: translateX(120%);
+      }
+      #detail-panel.active {
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <h1>🕸️ AnZaCa Command Hub <span>v1.0 • Neural Web</span></h1>
+    </div>
+    <div class="quick-stats">
+      <button class="pill-btn" onclick="resetView()">🔄 Centrar Red</button>
+    </div>
+  </header>
+
+  <div id="canvas-container">
+    <canvas id="neural-canvas"></canvas>
+  </div>
+
+  <div id="detail-panel">
+    <div class="panel-header">
+      <div class="panel-title" id="panel-title">Frente Seleccionado</div>
+      <button class="close-btn" onclick="closePanel()">✕</button>
+    </div>
+    <div id="panel-body">
+      <ul class="task-list" id="task-list"></ul>
+    </div>
+  </div>
+
+  <div class="hint-bar" id="hint-bar">Toca o arrastra cualquier nodo de la red para abrir su expediente</div>
+
+  <script>
+    const canvas = document.getElementById('neural-canvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    // DEFINICIÓN DE LOS NODOS Y RAMAS CON COLORES BRILLANTES Y LIMPIOS
+    const networkData = {
+      core: { id: "core", label: "Johannes Core", color: "#38bdf8", r: 38, icon: "🛡️" },
+      branches: [
+        {
+          id: "legal",
+          label: "Frente Legal & CIDH",
+          color: "#fb7185", // Rosa rubí vibrante
+          r: 29,
+          icon: "⚖️",
+          tasks: [
+            { title: "Reprogramar reunión Dr. García (Colombia)", desc: "Reunión de seguimiento procesal pendiente.", urgent: true, meta: "Urgente • Prioridad 1" },
+            { title: "Declaración Jurada Charlottesville/Richmond", desc: "Revisión final de líneas 110-135 y radicación CIDH/FBI.", inProgress: true, meta: "En curso • Bóveda lista" },
+            { title: "Custodia de audio 911 (Mutilación 59s)", desc: "18 U.S.C. § 1519 tipificado contra BCSO.", done: true, meta: "Sellado SHA-256" }
+          ]
+        },
+        {
+          id: "finance",
+          label: "Brecha & Finanzas",
+          color: "#fde047", // Oro cálido vibrante
+          r: 27,
+          icon: "💳",
+          tasks: [
+            { title: "Llamada a SchoolsFirst FCU (Fraud Dept)", desc: "Seguimiento al reclamo del 26/09/2026. Tel: 800.462.8328 o 714.258.4000.", urgent: true, meta: "Atención: Lun-Vie 7am-7pm" },
+            { title: "Reclamo Assurant (Daño y Equipo)", desc: "Cruzar paquete documental enviado con SchoolsFirst.", inProgress: true, meta: "Caso abierto" },
+            { title: "Aislamiento de identidad bancaria", desc: "Verificación de zero-leakage en cuentas puente.", done: true, meta: "Protegido" }
+          ]
+        },
+        {
+          id: "academic",
+          label: "Academia & UoPhoenix",
+          color: "#d8b4fe", // Violeta suave luminoso
+          r: 27,
+          icon: "🎓",
+          tasks: [
+            { title: "Comité Fundador Organización AI", desc: "Completar 'Student Organization Interest Form' para el AI Innovation Showcase.", urgent: true, meta: "Revisión: Post-Octubre" },
+            { title: "Preparación Reunión Enero/Feb 2027", desc: "Definir propuesta de alfabetización digital y ética de IA.", inProgress: true, meta: "Planificación" },
+            { title: "Registro de credenciales y cursos", desc: "Skills Profile certificado en UoPhoenix.", done: true, meta: "Acreditado" }
+          ]
+        },
+        {
+          id: "forensics",
+          label: "DFIR & Zenodo / HN",
+          color: "#34d399", // Esmeralda vivo
+          r: 29,
+          icon: "🔬",
+          tasks: [
+            { title: "Monitoreo Experimento 01 en Hacker News", desc: "Atender preguntas técnicas de la comunidad en Show HN (id: 50443670).", inProgress: true, meta: "En vivo" },
+            { title: "Boceto Talk Proposal (Conferencias 2027)", desc: "Propuesta de charla sobre timestamps y asedio en Ubuntu Summit / FOSDEM.", inProgress: true, meta: "En diseño" },
+            { title: "Sellado DOI Zenodo Exp 01", desc: "DOI: 10.5281/zenodo.24116447 garantizado.", done: true, meta: "Completado" }
+          ]
+        },
+        {
+          id: "ventures",
+          label: "Consultoría & Real Estate",
+          color: "#67e8f9", // Cian turquesa luminoso
+          r: 26,
+          icon: "🏡",
+          tasks: [
+            { title: "Propuesta de Flujo para Omari (Niagara)", desc: "Estructurar paquete de apoyo en análisis de MLS y automatización de clientes.", inProgress: true, meta: "Cash for now" },
+            { title: "Framework Real Estate AI Discovery Form", desc: "Formulario listo para auditar necesidades de agentes inmobiliarios.", done: true, meta: "Listo en disco" }
+          ]
+        },
+        {
+          id: "defense",
+          label: "Ciberdefensa & Squad",
+          color: "#94a3b8", // Platino sereno
+          r: 25,
+          icon: "🐾",
+          tasks: [
+            { title: "Centinelas: Tobías y Bianca", desc: "Protocolo de Watchdogs, la Trampa y la Fosa formalizado.", done: true, meta: "Sellado SHA-256" },
+            { title: "Mantenimiento Daemons Offline", desc: "BootAttackWatchdog y aislamiento de red en la estación local.", done: true, meta: "Vigilante" }
+          ]
+        }
+      ]
+    };
+
+    let nodes = [];
+    let links = [];
+
+    function initGraph() {
+      nodes = [];
+      links = [];
+
+      const centerX = width / 2;
+      const centerY = height / 2;
+
+      const coreNode = {
+        ...networkData.core,
+        x: centerX,
+        y: centerY,
+        vx: 0,
+        vy: 0,
+        fixed: true
+      };
+      nodes.push(coreNode);
+
+      const count = networkData.branches.length;
+      networkData.branches.forEach((b, i) => {
+        const angle = (i / count) * Math.PI * 2;
+        const dist = Math.min(width, height) * 0.32;
+        const bNode = {
+          ...b,
+          x: centerX + Math.cos(angle) * dist,
+          y: centerY + Math.sin(angle) * dist,
+          vx: 0,
+          vy: 0,
+          angle: angle,
+          targetDist: dist
+        };
+        nodes.push(bNode);
+        links.push({ source: coreNode, target: bNode, color: b.color });
+      });
+    }
+    initGraph();
+
+    let draggedNode = null;
+    let selectedNode = null;
+
+    function getNodeAt(x, y) {
+      for (let n of nodes) {
+        const dx = x - n.x;
+        const dy = y - n.y;
+        if (Math.hypot(dx, dy) < n.r + 10) return n;
+      }
+      return null;
+    }
+
+    function onPointerDown(e) {
+      const x = e.clientX || (e.touches && e.touches[0].clientX);
+      const y = e.clientY || (e.touches && e.touches[0].clientY);
+      const node = getNodeAt(x, y);
+      if (node) {
+        draggedNode = node;
+        selectNode(node);
+      }
+    }
+
+    function onPointerMove(e) {
+      if (!draggedNode) return;
+      const x = e.clientX || (e.touches && e.touches[0].clientX);
+      const y = e.clientY || (e.touches && e.touches[0].clientY);
+      draggedNode.x = x;
+      draggedNode.y = y;
+    }
+
+    function onPointerUp() {
+      draggedNode = null;
+    }
+
+    window.addEventListener('mousedown', onPointerDown);
+    window.addEventListener('mousemove', onPointerMove);
+    window.addEventListener('mouseup', onPointerUp);
+
+    window.addEventListener('touchstart', onPointerDown, { passive: true });
+    window.addEventListener('touchmove', onPointerMove, { passive: true });
+    window.addEventListener('touchend', onPointerUp, { passive: true });
+
+    function selectNode(node) {
+      selectedNode = node;
+      const panel = document.getElementById('detail-panel');
+      const title = document.getElementById('panel-title');
+      const list = document.getElementById('task-list');
+
+      title.innerHTML = `${node.icon} ${node.label}`;
+      title.style.color = node.color;
+      list.innerHTML = "";
+
+      if (node.id === "core") {
+        list.innerHTML = `
+          <li class="task-item">
+            <div class="task-title">Centro Neuronal de Operaciones</div>
+            <div class="task-desc">Andrea Zabala Cárcamo (Johannes) & Tycho. Toca cualquier nodo orbital para explorar las tareas activas de cada frente.</div>
+            <div class="task-meta"><span>6 Frentes Activos</span><span>Inmutable SHA-256</span></div>
+          </li>
+        `;
+      } else if (node.tasks) {
+        node.tasks.forEach(t => {
+          const statusClass = t.urgent ? 'urgent' : (t.inProgress ? 'in-progress' : (t.done ? 'done' : ''));
+          list.innerHTML += `
+            <li class="task-item ${statusClass}">
+              <div class="task-title">${t.title}</div>
+              <div class="task-desc">${t.desc}</div>
+              <div class="task-meta"><span>${t.meta}</span></div>
+            </li>
+          `;
+        });
+      }
+
+      panel.classList.add('active');
+      document.getElementById('hint-bar').style.display = 'none';
+    }
+
+    function closePanel() {
+      document.getElementById('detail-panel').classList.remove('active');
+      selectedNode = null;
+      document.getElementById('hint-bar').style.display = 'block';
+    }
+
+    function resetView() {
+      initGraph();
+      closePanel();
+    }
+
+    // LA SECUENCIA ORIGINAL RELAJANTE CON MEJOR CLARIDAD DE LUZ
+    let pulseAngle = 0;
+    function animate() {
+      pulseAngle += 0.022; // Ritmo respiratorio pausado y suave
+      ctx.clearRect(0, 0, width, height);
+
+      // Dibujar líneas sinápticas (la secuencia original que te gustaba)
+      links.forEach(l => {
+        ctx.beginPath();
+        ctx.moveTo(l.source.x, l.source.y);
+        ctx.lineTo(l.target.x, l.target.y);
+        ctx.strokeStyle = l.color;
+        ctx.lineWidth = 2.0;
+        ctx.globalAlpha = 0.55 + Math.sin(pulseAngle) * 0.2; // Más iluminada pero suave
+        ctx.stroke();
+
+        // Pulsos de energía que viajan de forma relajante
+        const flow = (Math.sin(pulseAngle * 1.4 + l.target.r) + 1) / 2;
+        const px = l.source.x + (l.target.x - l.source.x) * flow;
+        const py = l.source.y + (l.target.y - l.source.y) * flow;
+
+        ctx.beginPath();
+        ctx.arc(px, py, 4, 0, Math.PI * 2);
+        ctx.fillStyle = l.color;
+        ctx.globalAlpha = 1.0;
+        ctx.fill();
+      });
+
+      // Dibujar Nodos con la estética limpia y colores más vivos
+      nodes.forEach(n => {
+        const isSel = (selectedNode === n);
+
+        // Anillo de respiración exterior
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r + 6 + Math.sin(pulseAngle * 1.8) * 2, 0, Math.PI * 2);
+        ctx.strokeStyle = n.color;
+        ctx.lineWidth = isSel ? 2.8 : 1.5;
+        ctx.globalAlpha = isSel ? 0.9 : 0.45;
+        ctx.stroke();
+
+        // Núcleo del nodo con tono elegante
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = isSel ? n.color : "rgba(18, 28, 48, 0.95)";
+        ctx.globalAlpha = 1.0;
+        ctx.fill();
+        ctx.strokeStyle = n.color;
+        ctx.lineWidth = 2.2;
+        ctx.stroke();
+
+        // Icono centrado
+        ctx.fillStyle = "#ffffff";
+        ctx.font = `${n.r * 0.75}px sans-serif`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(n.icon, n.x, n.y);
+
+        // Etiqueta legible y limpia (sin cajas pesadas)
+        ctx.font = "600 12px -apple-system, BlinkMacSystemFont, sans-serif";
+        ctx.fillStyle = isSel ? "#ffffff" : "#e2e8f0";
+        ctx.globalAlpha = 0.95;
+        ctx.fillText(n.label, n.x, n.y + n.r + 16);
+      });
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
+</body>
+</html>

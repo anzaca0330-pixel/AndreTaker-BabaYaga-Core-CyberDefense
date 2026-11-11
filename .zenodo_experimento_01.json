@@ -1,0 +1,41 @@
+{
+  "title": "Forensic Experiment 01: Empirical Audit of Silent Cloud Exfiltration, Security Alert Quiescence, and AI Training Policy Evolution (2024-2026)",
+  "upload_type": "publication",
+  "publication_type": "technicalnote",
+  "publication_date": "2026-11-10",
+  "creators": [
+    {
+      "name": "Zabala Cárcamo, Andrea",
+      "affiliation": "AndreTaker — BaBaYaga Core CyberDefense / Independent DFIR Researcher"
+    }
+  ],
+  "description": "Empirical digital forensics report documenting Experiment 01: full account data extraction and exfiltration without triggering cloud security notifications (Google). Analyzes the asymmetry between consumer security alerts and quiet mass data extraction, cross-referenced with 2024-2026 AI data harvesting policies and Julian Assange's declarations on transnational surveillance and tech monopolization.",
+  "access_right": "open",
+  "license": "Apache-2.0",
+  "keywords": [
+    "cloud-security",
+    "silent-exfiltration",
+    "google-privacy-policy",
+    "ai-training-data",
+    "dfir",
+    "digital-forensics",
+    "julian-assange",
+    "surveillance-capitalism",
+    "andretaker",
+    "babayaga-core",
+    "security-quiescence"
+  ],
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "10.5281/zenodo.24043436",
+      "scheme": "doi"
+    },
+    {
+      "relation": "isIdenticalTo",
+      "identifier": "https://github.com/anzaca0330-pixel/AndreTaker-BabaYaga-Core-CyberDefense/blob/main/03_DOCUMENTACION/EXPERIMENTO_01_EXFILTRACION_SILENCIOSA_GOOGLE_CLOUD.md",
+      "scheme": "url"
+    }
+  ]
+}
+
