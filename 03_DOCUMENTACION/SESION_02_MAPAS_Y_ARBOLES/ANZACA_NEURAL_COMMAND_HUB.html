@@ -194,13 +194,44 @@
 
     .task-item.done {
       border-left-color: var(--accent-emerald);
-      opacity: 0.7;
+      background: rgba(16, 185, 129, 0.08);
+      opacity: 0.85;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 6px;
+      margin-bottom: 3px;
+      width: fit-content;
+    }
+    .badge-done {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+    .badge-in-progress {
+      background: rgba(251, 191, 36, 0.2);
+      color: #fbbf24;
+      border: 1px solid rgba(251, 191, 36, 0.4);
+    }
+    .badge-urgent {
+      background: rgba(244, 63, 94, 0.2);
+      color: #f43f5e;
+      border: 1px solid rgba(244, 63, 94, 0.4);
     }
 
     .task-title {
       font-size: 0.88rem;
       font-weight: 600;
       color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .task-desc {
@@ -324,21 +355,23 @@
           r: 27,
           icon: "🎓",
           tasks: [
-            { title: "Comité Fundador Organización AI", desc: "Completar 'Student Organization Interest Form' para el AI Innovation Showcase.", urgent: true, meta: "Revisión: Post-Octubre" },
+            { title: "Comité Fundador Organización AI", desc: "Completar 'Student Organization Interest Form' para el AI Innovation Showcase.", done: true, meta: "Formulario Enviado (Liderazgo Fundador)" },
             { title: "Preparación Reunión Enero/Feb 2027", desc: "Definir propuesta de alfabetización digital y ética de IA.", inProgress: true, meta: "Planificación" },
             { title: "Registro de credenciales y cursos", desc: "Skills Profile certificado en UoPhoenix.", done: true, meta: "Acreditado" }
           ]
         },
         {
           id: "forensics",
-          label: "DFIR & Zenodo / HN",
+          label: "DFIR, Zenodo & Reddit",
           color: "#34d399", // Esmeralda vivo
           r: 29,
           icon: "🔬",
           tasks: [
-            { title: "Monitoreo Experimento 01 en Hacker News", desc: "Atender preguntas técnicas de la comunidad en Show HN (id: 50443670).", inProgress: true, meta: "En vivo" },
+            { title: "Despliegue Orgánico en Reddit (r/netsec & r/privacy)", desc: "Publicar paper con enfoque en Telemetry Asymmetry y directrices NIST/ISO (Kit listo).", urgent: true, meta: "Prioridad Hoy • Visibilidad Orgánica" },
+            { title: "Vincular Zenodo a Comunidades Académicas", desc: "Añadir DOI 10.5281/zenodo.24116447 a comunidades Zenodo de DFIR, Cybersecurity y Privacy.", inProgress: true, meta: "Zenodo Dashboard" },
+            { title: "Monitoreo Experimento 01 en Hacker News", desc: "Ticket enviado a hn@ycombinator.com para unflag del comentario metodológico.", inProgress: true, meta: "En seguimiento" },
             { title: "Boceto Talk Proposal (Conferencias 2027)", desc: "Propuesta de charla sobre timestamps y asedio en Ubuntu Summit / FOSDEM.", inProgress: true, meta: "En diseño" },
-            { title: "Sellado DOI Zenodo Exp 01", desc: "DOI: 10.5281/zenodo.24116447 garantizado.", done: true, meta: "Completado" }
+            { title: "Sellado DOI Zenodo Exp 01", desc: "DOI: 10.5281/zenodo.24116447 garantizado e indexado en OpenAIRE.", done: true, meta: "Completado" }
           ]
         },
         {
@@ -359,6 +392,7 @@
           r: 25,
           icon: "🐾",
           tasks: [
+            { title: "Restablecer Email andretaker@andretaker.org", desc: "Configurar registros MX y DKIM de Proton en Squarespace DNS (Faltan registros MX).", urgent: true, meta: "Prioridad Crítica • DNS / Proton" },
             { title: "Centinelas: Tobías y Bianca", desc: "Protocolo de Watchdogs, la Trampa y la Fosa formalizado.", done: true, meta: "Sellado SHA-256" },
             { title: "Mantenimiento Daemons Offline", desc: "BootAttackWatchdog y aislamiento de red en la estación local.", done: true, meta: "Vigilante" }
           ]
@@ -468,9 +502,18 @@
       } else if (node.tasks) {
         node.tasks.forEach(t => {
           const statusClass = t.urgent ? 'urgent' : (t.inProgress ? 'in-progress' : (t.done ? 'done' : ''));
+          const badgeHtml = t.done 
+            ? `<div class="status-badge badge-done">✓ CUMPLIDA</div>`
+            : (t.inProgress 
+                ? `<div class="status-badge badge-in-progress">⏳ EN CURSO</div>`
+                : (t.urgent 
+                    ? `<div class="status-badge badge-urgent">⚠️ URGENTE</div>`
+                    : `<div class="status-badge">⚪ PENDIENTE</div>`));
+          
           list.innerHTML += `
             <li class="task-item ${statusClass}">
-              <div class="task-title">${t.title}</div>
+              ${badgeHtml}
+              <div class="task-title">${t.done ? '✓ ' : ''}${t.title}</div>
               <div class="task-desc">${t.desc}</div>
               <div class="task-meta"><span>${t.meta}</span></div>
             </li>
