@@ -457,6 +457,15 @@
       };
       nodes.push(coreNode);
 
+      // Asegurar que cada tarea tenga un identificador único persistente
+      networkData.branches.forEach((b, bIdx) => {
+        b.tasks.forEach((t, tIdx) => {
+          if (!t.id) {
+            t.id = `${b.id}_task_${tIdx}`;
+          }
+        });
+      });
+
       const count = networkData.branches.length;
       networkData.branches.forEach((b, i) => {
         const angle = (i / count) * Math.PI * 2;
@@ -475,6 +484,7 @@
       });
     }
     initGraph();
+    loadSavedChecks();
 
     let draggedNode = null;
     let selectedNode = null;
@@ -518,6 +528,43 @@
     window.addEventListener('touchmove', onPointerMove, { passive: true });
     window.addEventListener('touchend', onPointerUp, { passive: true });
 
+    // Persistencia en localStorage para recordar tus marcas
+    function loadSavedChecks() {
+      try {
+        const saved = localStorage.getItem('anzaca_hub_tasks_state');
+        if (saved) {
+          const stateMap = JSON.parse(saved);
+          networkData.branches.forEach(b => {
+            b.tasks.forEach(t => {
+              if (stateMap[t.id] !== undefined) {
+                t.done = stateMap[t.id];
+                if (t.done) {
+                  t.urgent = false;
+                  t.inProgress = false;
+                }
+              }
+            });
+          });
+        }
+      } catch (e) {
+        console.warn("No se pudo cargar el estado guardado", e);
+      }
+    }
+
+    function saveChecks() {
+      try {
+        const stateMap = {};
+        networkData.branches.forEach(b => {
+          b.tasks.forEach(t => {
+            stateMap[t.id] = !!t.done;
+          });
+        });
+        localStorage.setItem('anzaca_hub_tasks_state', JSON.stringify(stateMap));
+      } catch (e) {
+        console.warn("No se pudo guardar el estado", e);
+      }
+    }
+
     function toggleTask(branchId, taskId) {
       const branch = networkData.branches.find(b => b.id === branchId);
       if (!branch) return;
@@ -529,6 +576,7 @@
         task.urgent = false;
         task.inProgress = false;
       }
+      saveChecks();
       // Re-renderizar panel manteniendo selección
       selectNode(selectedNode);
     }
@@ -591,6 +639,7 @@
 
     function resetView() {
       initGraph();
+    loadSavedChecks();
       closePanel();
     }
 
