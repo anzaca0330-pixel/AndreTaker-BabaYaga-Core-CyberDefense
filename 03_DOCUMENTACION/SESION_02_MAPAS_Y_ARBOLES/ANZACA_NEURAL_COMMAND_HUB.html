@@ -180,6 +180,42 @@
       display: flex;
       flex-direction: column;
       gap: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .task-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .interactive-check {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      user-select: none;
+    }
+    .check-box {
+      width: 18px;
+      height: 18px;
+      border-radius: 5px;
+      border: 1.5px solid rgba(255,255,255,0.3);
+      background: rgba(15,23,42,0.6);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      color: transparent;
+      transition: all 0.2s ease;
+    }
+    .task-item.done .check-box {
+      background: var(--accent-emerald);
+      border-color: var(--accent-emerald);
+      color: #04101c;
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
     }
 
     .task-item.urgent {
@@ -355,9 +391,10 @@
           r: 27,
           icon: "🎓",
           tasks: [
-            { title: "Comité Fundador Organización AI", desc: "Completar 'Student Organization Interest Form' para el AI Innovation Showcase.", done: true, meta: "Formulario Enviado (Liderazgo Fundador)" },
-            { title: "Preparación Reunión Enero/Feb 2027", desc: "Definir propuesta de alfabetización digital y ética de IA.", inProgress: true, meta: "Planificación" },
-            { title: "Registro de credenciales y cursos", desc: "Skills Profile certificado en UoPhoenix.", done: true, meta: "Acreditado" }
+            { id: "acad_stats", title: "Semana Final de Estadística (PSY/315)", desc: "Capítulo 4: Diagramas de dispersión, correlación (r), regresión de mínimos cuadrados y tablas de contingencia.", inProgress: true, meta: "Última Semana • Cierre Exitoso" },
+            { id: "acad_ai_org", title: "Comité Fundador Organización AI", desc: "Completar 'Student Organization Interest Form' para el AI Innovation Showcase.", done: true, meta: "Formulario Enviado (Liderazgo Fundador)" },
+            { id: "acad_meeting", title: "Preparación Reunión Enero/Feb 2027", desc: "Definir propuesta de alfabetización digital y ética de IA.", inProgress: true, meta: "Planificación" },
+            { id: "acad_skills", title: "Registro de credenciales y cursos", desc: "Skills Profile certificado en UoPhoenix.", done: true, meta: "Acreditado" }
           ]
         },
         {
@@ -481,6 +518,21 @@
     window.addEventListener('touchmove', onPointerMove, { passive: true });
     window.addEventListener('touchend', onPointerUp, { passive: true });
 
+    function toggleTask(branchId, taskId) {
+      const branch = networkData.branches.find(b => b.id === branchId);
+      if (!branch) return;
+      const task = branch.tasks.find(t => t.id === taskId);
+      if (!task) return;
+
+      task.done = !task.done;
+      if (task.done) {
+        task.urgent = false;
+        task.inProgress = false;
+      }
+      // Re-renderizar panel manteniendo selección
+      selectNode(selectedNode);
+    }
+
     function selectNode(node) {
       selectedNode = node;
       const panel = document.getElementById('detail-panel');
@@ -495,8 +547,8 @@
         list.innerHTML = `
           <li class="task-item">
             <div class="task-title">Centro Neuronal de Operaciones</div>
-            <div class="task-desc">Andrea Zabala Cárcamo (Johannes) & Tycho. Toca cualquier nodo orbital para explorar las tareas activas de cada frente.</div>
-            <div class="task-meta"><span>6 Frentes Activos</span><span>Inmutable SHA-256</span></div>
+            <div class="task-desc">Andrea Zabala Cárcamo (Johannes) & Tycho. Toca cualquier nodo orbital para explorar las tareas activas de cada frente. Haz clic en las casillas para marcar tareas cumplidas.</div>
+            <div class="task-meta"><span>6 Frentes Activos</span><span>Interactividad Checkmark Activa</span></div>
           </li>
         `;
       } else if (node.tasks) {
@@ -512,7 +564,13 @@
           
           list.innerHTML += `
             <li class="task-item ${statusClass}">
-              ${badgeHtml}
+              <div class="task-header-row">
+                ${badgeHtml}
+                <div class="interactive-check" onclick="toggleTask('${node.id}', '${t.id}')" title="Marcar/Desmarcar">
+                  <span style="font-size: 0.72rem; color: #94a3b8;">${t.done ? 'Completada' : 'Marcar'}</span>
+                  <div class="check-box">${t.done ? '✓' : ''}</div>
+                </div>
+              </div>
               <div class="task-title">${t.done ? '✓ ' : ''}${t.title}</div>
               <div class="task-desc">${t.desc}</div>
               <div class="task-meta"><span>${t.meta}</span></div>
