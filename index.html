@@ -58,7 +58,7 @@
     }
 
     .container {
-      max-width: 1240px;
+      max-width: 1560px;
       width: 100%;
       margin: 0 auto;
     }
@@ -584,22 +584,22 @@
             <div style="font-size: 2.2rem; line-height: 1;">🛡️</div>
             <div style="flex: 1; min-width: 280px;">
               <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
-                <h3 style="margin: 0; color: #a5b4fc; font-size: 1.15rem; font-family: 'Fira Code', monospace; letter-spacing: 0.5px;">
+                <h3 id="commCalloutTitle" style="margin: 0; color: #a5b4fc; font-size: 1.15rem; font-family: 'Fira Code', monospace; letter-spacing: 0.5px;">
                   UNA INVESTIGADORA INDEPENDIENTE: LLAMADO A MÁS OJOS Y MANOS
                 </h3>
-                <span class="bevel-outset" style="background: #4338ca; color: #e0e7ff; font-size: 0.7rem; font-weight: bold; padding: 2px 8px;">SOBERANÍA CIUDADANA</span>
+                <span id="commCalloutBadge" class="bevel-outset" style="background: #4338ca; color: #e0e7ff; font-size: 0.7rem; font-weight: bold; padding: 2px 8px;">SOBERANÍA CIUDADANA</span>
               </div>
-              <p style="color: #e2e8f0; font-size: 0.92rem; line-height: 1.6; margin: 0 0 12px 0;">
+              <p id="commCalloutP1" style="color: #e2e8f0; font-size: 0.92rem; line-height: 1.6; margin: 0 0 12px 0;">
                 <strong>AndreTaker</strong> no es una corporación, un consorcio tecnológico ni una fachada financiada por intereses políticos. Detrás de esta plataforma, del rescate de más de <strong>677 GB de evidencia técnica e inmutable</strong> y de cada línea de código de estas herramientas, está <strong>una sola investigadora independiente</strong> —mujer, madre, con formación en DFIR y psicología I-O— trabajando en condiciones de resistencia técnica y resguardo tras severos asedios digitales.
               </p>
-              <p style="color: #cbd5e1; font-size: 0.88rem; line-height: 1.5; margin: 0 0 14px 0;">
+              <p id="commCalloutP2" style="color: #cbd5e1; font-size: 0.88rem; line-height: 1.5; margin: 0 0 14px 0;">
                 El monopolio tecnológico, la censura algorítmica opaca y la alteración de datos públicos son desafíos demasiado inmensos para librarse en soledad. <strong>La verdad necesita comunidad:</strong> abrimos este acervo y nuestras herramientas a peritos, ingenieros de software, defensores de derechos humanos y periodistas de investigación en todo el mundo que deseen sumar ojos y manos para auditar, verificar y expandir esta trinchera de libre expresión.
               </p>
               <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                <a href="https://github.com/anzaca0330-pixel/AndreTaker-BabaYaga-Core-CyberDefense/issues" target="_blank" class="card-btn primary bevel-outset" style="text-decoration: none; padding: 6px 14px; font-size: 0.82rem; background: #4f46e5; color: #fff; font-weight: bold;">
+                <a href="https://github.com/anzaca0330-pixel/AndreTaker-BabaYaga-Core-CyberDefense/issues" target="_blank" id="commBtnGithub" class="card-btn primary bevel-outset" style="text-decoration: none; padding: 6px 14px; font-size: 0.82rem; background: #4f46e5; color: #fff; font-weight: bold;">
                   🤝 Sumar Ojos y Manos (Colaborar en GitHub)
                 </a>
-                <a href="https://zenodo.org/search?q=%22ZABALA%20CARCAMO%22&l=list&p=1&s=10&sort=newest" target="_blank" class="card-btn bevel-outset" style="text-decoration: none; padding: 6px 14px; font-size: 0.82rem; background: #1e293b; color: #38bdf8; border: 1px solid #38bdf8;">
+                <a href="https://zenodo.org/search?q=%22ZABALA%20CARCAMO%22&l=list&p=1&s=10&sort=newest" target="_blank" id="commBtnZenodo" class="card-btn bevel-outset" style="text-decoration: none; padding: 6px 14px; font-size: 0.82rem; background: #1e293b; color: #38bdf8; border: 1px solid #38bdf8;">
                   🏛️ Ver los 7 Registros Oficiales en CERN Zenodo
                 </a>
               </div>
@@ -656,23 +656,23 @@
                     <!-- Módulo Destacado: ANDRETAKER Shield AntiShadowban -->
           <div class="card-win bevel-outset highlight" style="border-color: #0284c7;">
             <div class="card-titlebar" style="background: linear-gradient(90deg, #0369a1, #0284c7);">
-              <span>🛡️ App: ShieldAntiShadowban.apk</span>
+              <span id="cardShieldBar">🛡️ App: ShieldAntiShadowban.apk</span>
               <span>[NUEVO]</span>
             </div>
             <div class="card-body bevel-inset">
               <div>
                 <span class="card-header-icon">🛡️</span>
-                <h2 class="card-name">ANDRETAKER Shield AntiShadowban (v1.0.0)</h2>
+                <h2 class="card-name" id="cardShieldTitle">ANDRETAKER Shield AntiShadowban (v1.0.0)</h2>
                 <div class="card-domain-tag">DOI: 10.5281/zenodo.24043436 (CERN)</div>
-                <p class="card-desc">
+                <p class="card-desc" id="cardShieldDesc">
                   Motor cripto-lingüístico para libre expresión y bypass de moderación algorítmica previa (ZWSP + Homóglifos). 100% offline y privado.
                 </p>
               </div>
               <div class="card-actions-row" style="display: flex; gap: 8px; flex-wrap: wrap;">
-                <a href="antishadowban.html" class="card-btn primary bevel-outset" style="text-decoration: none; padding: 4px 10px; font-size: 0.8rem; background: #0284c7; color: #fff;">
+                <a href="antishadowban.html" id="cardShieldTryBtn" class="card-btn primary bevel-outset" style="text-decoration: none; padding: 4px 10px; font-size: 0.8rem; background: #0284c7; color: #fff;">
                   <span>🌐</span> Probar Web
                 </a>
-                <a href="downloads/ANDRETAKER_Shield_AntiShadowban_v1.0.0.apk" class="card-btn bevel-outset" style="text-decoration: none; padding: 4px 10px; font-size: 0.8rem; background: #15803d; color: #fff; font-weight: bold;">
+                <a href="downloads/ANDRETAKER_Shield_AntiShadowban_v1.0.0.apk" id="cardShieldApkBtn" class="card-btn bevel-outset" style="text-decoration: none; padding: 4px 10px; font-size: 0.8rem; background: #15803d; color: #fff; font-weight: bold;">
                   <span>📱</span> Descargar APK
                 </a>
                 <a href="https://zenodo.org/records/24043436" target="_blank" class="card-btn bevel-outset" style="text-decoration: none; padding: 4px 8px; font-size: 0.78rem; background: #e2e8f0; color: #0f172a;">
@@ -800,24 +800,50 @@
           <!-- Módulo 6: Auditoría Forense Twitter / X (@anzaca) -->
           <div class="card-win bevel-outset highlight" style="border-color: #38bdf8;">
             <div class="card-titlebar" style="background: linear-gradient(90deg, #0284c7, #38bdf8);">
-              <span>🐦 App: Twitter_X_Forensics.log</span>
+              <span id="cardTwitterBar">🐦 App: Twitter_X_Forensics.log</span>
               <span>[AUDIT]</span>
             </div>
             <div class="card-body bevel-inset">
               <div>
                 <span class="card-header-icon">🐦</span>
-                <h2 class="card-name">Auditoría Archivo Twitter / X (@anzaca)</h2>
+                <h2 class="card-name" id="cardTwitterTitle">Auditoría Archivo Twitter / X (@anzaca)</h2>
                 <div class="card-domain-tag">18 U.S.C. § 2703(f) • SHA-256 (4.5 GB)</div>
-                <p class="card-desc">
+                <p class="card-desc" id="cardTwitterDesc">
                   Mapeo forense de 266 IPs invasoras, clústeres en Dallas y Los Ángeles (Cerimedo), y nexo causal con la denuncia penal ante RTVC.
                 </p>
               </div>
               <div class="card-actions-row" style="display: flex; gap: 8px; flex-wrap: wrap;">
-                <a href="twitter_audit.html" class="card-btn primary bevel-outset" style="text-decoration: none; padding: 4px 10px; font-size: 0.8rem; background: #0284c7; color: #fff; font-weight: bold;">
+                <a href="twitter_audit.html" id="cardTwitterBtn" class="card-btn primary bevel-outset" style="text-decoration: none; padding: 4px 10px; font-size: 0.8rem; background: #0284c7; color: #fff; font-weight: bold;">
                   <span>🔍</span> Ver Auditoría Forense
                 </a>
-                <a href="convergencia_transnacional.html#eje3" class="card-btn bevel-outset" style="text-decoration: none; padding: 4px 8px; font-size: 0.78rem; background: #1e293b; color: #38bdf8;">
+                <a href="convergencia_transnacional.html#eje3" id="cardTwitterEjeBtn" class="card-btn bevel-outset" style="text-decoration: none; padding: 4px 8px; font-size: 0.78rem; background: #1e293b; color: #38bdf8;">
                   <span>🛰️</span> Ver Eje 3 en Dossier
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Módulo 7: Dashboard Estadístico Campanas de Gauss -->
+          <div class="card-win bevel-outset highlight" style="border-color: #22c55e;">
+            <div class="card-titlebar" style="background: linear-gradient(90deg, #15803d, #22c55e);">
+              <span id="cardGaussBar">📊 App: Gauss_Distribution_Simulator.exe</span>
+              <span>[DATA]</span>
+            </div>
+            <div class="card-body bevel-inset">
+              <div>
+                <span class="card-header-icon">📊</span>
+                <h2 class="card-name" id="cardGaussTitle">Campanas de Gauss (El Síntoma vs. El Cómo)</h2>
+                <div class="card-domain-tag">Z = -56.96 • De la Estadística al Binario</div>
+                <p class="card-desc" id="cardGaussDesc">
+                  Visualizador del colapso estocástico. La estadística nos alertó de la anomalía; el peritaje resolvió el dilema de CÓMO lo hicieron (Blind Masking, XREF y EXIF).
+                </p>
+              </div>
+              <div class="card-actions-row" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <a href="dashboard_campanas_gauss.html" id="cardGaussBtn" class="card-btn primary bevel-outset" style="text-decoration: none; padding: 4px 10px; font-size: 0.8rem; background: #15803d; color: #fff; font-weight: bold;">
+                  <span>🖥️</span> Abrir Dashboard Gauss
+                </a>
+                <a href="fraude_electoral_colombia.html" id="cardGaussE14Btn" class="card-btn bevel-outset" style="text-decoration: none; padding: 4px 8px; font-size: 0.78rem; background: #1e293b; color: #4ade80;">
+                  <span>🏛️</span> Ver Peritaje E-14
                 </a>
               </div>
             </div>
@@ -862,6 +888,9 @@
       </a>
       <a href="https://zenodo.org/search?q=%22ZABALA%20CARCAMO%22&l=list&p=1&s=10&sort=newest" target="_blank" class="task-item bevel-outset">
         <span>📜</span> Zenodo (7 DOIs)
+      </a>
+      <a href="dashboard_campanas_gauss.html" class="task-item bevel-outset" style="background: #14532d; color: #4ade80; font-weight: bold; border-color: #22c55e;">
+        <span>📊</span> <span>Campanas Gauss</span>
       </a>
       <a href="convergencia_transnacional.html" class="task-item bevel-outset" style="background: #0284c7; color: #fff; font-weight: bold;">
         <span>🛰️</span> <span id="taskbarDossierLabel">Red Transnacional</span>
