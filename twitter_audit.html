@@ -15,6 +15,7 @@
       color: #f8fafc;
       padding: 20px;
       margin-bottom: 20px;
+      border-radius: 4px;
     }
     .win-metric-grid {
       display: grid;
@@ -27,6 +28,7 @@
       color: #f1f5f9;
       padding: 14px;
       text-align: center;
+      border-radius: 4px;
     }
     .win-metric-val {
       font-size: 1.6rem;
@@ -39,11 +41,41 @@
       color: #94a3b8;
       margin-top: 4px;
     }
+    .forensic-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.85rem;
+      margin-top: 12px;
+    }
+    .forensic-table th {
+      background: #1e293b;
+      color: #38bdf8;
+      padding: 10px;
+      text-align: left;
+      border-bottom: 2px solid #334155;
+    }
+    .forensic-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid #1e293b;
+      color: #cbd5e1;
+    }
+    .forensic-table tr:hover {
+      background: rgba(56, 189, 248, 0.05);
+    }
+    .badge-pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 0.72rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
   </style>
 </head>
 <body class="retro-os">
 
-  <div class="container" style="margin-top: 10px;">
+  <div class="container" style="max-width: 1440px; margin-top: 10px;">
     <div class="window-main bevel-outset">
       
       <!-- Barra de Título Windows 95 -->
@@ -64,10 +96,11 @@
         <a href="index.html" class="menu-item bevel-outset" style="font-weight: bold; background: #dfdfdf; text-decoration: none;">
           ← [ Volver al Portal Principal ]
         </a>
-        <div class="menu-item">Archivo</div>
-        <div class="menu-item">Trazabilidad</div>
+        <a href="convergencia_transnacional.html#eje3" class="menu-item bevel-outset" style="font-weight: bold; background: #0284c7; color: #fff; text-decoration: none;">
+          🛰️ Ver Eje 3 en Dossier Transnacional
+        </a>
         <div class="menu-item" style="margin-left: auto; background: #000080; color: #fff; font-weight: bold; padding: 2px 8px;">
-          ARCHIVE AUDIT: VERIFIED
+          ARCHIVE AUDIT: ISO/IEC 27037:2012 SEALED
         </div>
       </div>
 
@@ -78,50 +111,151 @@
         <div class="win-card-content bevel-inset">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
             <h1 style="font-size: 1.5rem; font-weight: 800; color: #38bdf8; font-family: 'Fira Code', monospace; margin: 0;">
-              📱 Auditoría Forense Archivo Twitter/X (@anzaca)
+              📱 Auditoría Forense Archivo Digital Twitter/X (@anzaca)
             </h1>
             <span class="bevel-outset" style="background: #fbbf24; color: #000; padding: 4px 10px; font-weight: bold; font-size: 0.75rem; font-family: 'Fira Code', monospace;">
-              ACCOUNT & TIMELINE FORENSICS
+              ISO/IEC 27037 & NIST SP 800-86
             </span>
           </div>
           <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;">
-            Preservación pericial del historial de publicaciones, marcas de tiempo relativas, firmas geográficas y correlación con denuncias radicadas.
+            Preservación pericial del archivo digital de 16 años de la investigadora Andrea Zabala Cárcamo (<code>@anzaca</code>). Correlación matemática entre las publicaciones de denuncias de fraude electoral (E-14) y asedio informático transfronterizo con enjambres de sesiones simultáneas no autorizadas.
           </p>
         </div>
 
-        <!-- Métricas -->
+        <!-- Métricas Clave -->
         <div class="win-card-content bevel-inset">
           <h3 style="color: #fbbf24; font-family: 'Fira Code', monospace; margin-bottom: 10px; font-size: 1.1rem;">
-            📊 Indicadores de Preservación Digital
+            📊 Indicadores de Preservación Digital & Escala del Archivo
           </h3>
           <div class="win-metric-grid">
             <div class="win-metric-card bevel-inset">
-              <div class="win-metric-val">100%</div>
-              <div class="win-metric-lbl">Historial Preservado</div>
+              <div class="win-metric-val">4.5 GB</div>
+              <div class="win-metric-lbl">Archivo Maestro ZIP</div>
             </div>
             <div class="win-metric-card bevel-inset">
-              <div class="win-metric-val">SHA-256</div>
-              <div class="win-metric-lbl">Sello Criptográfico</div>
+              <div class="win-metric-val">19.808</div>
+              <div class="win-metric-lbl">Tweets Históricos Auditados</div>
             </div>
             <div class="win-metric-card bevel-inset">
-              <div class="win-metric-val">UTC/EST</div>
-              <div class="win-metric-lbl">Timestamps Verificados</div>
+              <div class="win-metric-val">266</div>
+              <div class="win-metric-lbl">Direcciones IP Únicas</div>
             </div>
             <div class="win-metric-card bevel-inset">
-              <div class="win-metric-val">Assurant / CIDH</div>
-              <div class="win-metric-lbl">Nexo Causal Jurídico</div>
+              <div class="win-metric-val">492</div>
+              <div class="win-metric-lbl">Eventos de Conexión (ip-audit)</div>
             </div>
           </div>
         </div>
 
-        <!-- Descripción -->
+        <!-- Ficha Técnica y Cadena de Custodia -->
         <div class="win-card-content bevel-inset">
-          <h3 style="color: #38bdf8; font-family: 'Fira Code', monospace; margin-bottom: 10px; font-size: 1.1rem;">
-            ⚖️ Nexo Causal & Cadena de Custodia
+          <h3 style="color: #38bdf8; font-family: 'Fira Code', monospace; margin-bottom: 12px; font-size: 1.1rem;">
+            🏛️ Ficha Técnica y Cadena de Custodia Criptográfica
           </h3>
-          <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6;">
-            El archivo exportado de Twitter / X de la investigadora Andrea Zabala Cárcamo (@anzaca) constituye un registro inalterable de la cronología de publicaciones públicas, denuncias de asedio informático y alertas tempranas emitidas durante la fase crítica de la investigación.
+          <ul style="color: #cbd5e1; font-size: 0.88rem; line-height: 1.8; list-style: square; padding-left: 20px;">
+            <li><strong>Archivo Maestro:</strong> <code>twitter-2026-09-06-9eb32ebc9ab3f304dda1ae8d61c292b565a78a29832755256030833f3f559b39.zip</code></li>
+            <li><strong>Hash SHA-256 Inmutable:</strong> <code style="color: #22c55e; background: #020617; padding: 2px 6px;">18045e289795fe5d6a863057513f359c6e2fda8245a17186aa5a13c7d1c36a18</code></li>
+            <li><strong>Fecha Oficial de Extracción:</strong> 2026-09-07 16:23:56 UTC (Congelado en Bóveda Forense <code>chmod 400</code>).</li>
+            <li><strong>ID Numérico Inmutable de la Cuenta:</strong> <code>109328481</code> (Fecha de creación: <code>2010-01-28T18:04:17.000Z</code> — 16 años de antigüedad).</li>
+            <li><strong>Requerimiento Federal Activo:</strong> Petición formal de preservación bajo <strong>18 U.S.C. § 2703(f)</strong> cursada a X Corp. para logs brutos de User-Agent, IMSI/IMEI y geolocalización perimétrica.</li>
+          </ul>
+        </div>
+
+        <!-- Evidencia Testimonial: Video de Sesiones Activas -->
+        <div class="win-card-content bevel-inset" style="border-left: 4px solid #ef4444; background: #020617;">
+          <div style="display: flex; gap: 14px; align-items: flex-start; flex-wrap: wrap;">
+            <div style="font-size: 2.2rem; line-height: 1;">🎥</div>
+            <div style="flex: 1; min-width: 280px;">
+              <h3 style="color: #f87171; font-family: 'Fira Code', monospace; margin: 0 0 6px 0; font-size: 1.1rem;">
+                Evidencia de Grabación en Vivo: Enjambre de Sesiones Activas No Autorizadas
+              </h3>
+              <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6; margin: 0 0 10px 0;">
+                Durante la fase más agresiva del asedio, se grabó y publicó directamente en la cuenta oficial de Twitter/X (<strong>@anzaca</strong>) un registro audiovisual en tiempo real que documenta la presencia masiva de <strong>sesiones activas concurrentes no autorizadas</strong> operando simultáneamente desde terminales y servidores remotos mientras la investigadora se encontraba bajo aislamiento.
+              </p>
+              <a href="https://x.com/anzaca" target="_blank" class="card-btn primary bevel-outset" style="text-decoration: none; padding: 6px 14px; font-size: 0.82rem; background: #dc2626; color: #fff; font-weight: bold; display: inline-block;">
+                🐦 Ver Registro Audiovisual & Hilo Pericial en @anzaca →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabla: Mapa Forense de Trayectoria Real vs Clústeres Invasores -->
+        <div class="win-card-content bevel-inset">
+          <h3 style="color: #a5b4fc; font-family: 'Fira Code', monospace; margin-bottom: 12px; font-size: 1.1rem;">
+            🧭 Trayectoria Fáctica de la Investigadora (Conectividad Legítima)
+          </h3>
+          <div style="overflow-x: auto;">
+            <table class="forensic-table">
+              <thead>
+                <tr>
+                  <th>Fase Geográfica</th>
+                  <th>Periodo Exacto</th>
+                  <th>Operador / ASN</th>
+                  <th>IPs & Eventos Auditados</th>
+                  <th>Rol en la Línea de Tiempo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="font-weight: bold; color: #38bdf8;">1. Virginia, EE.UU.</td>
+                  <td>Hasta el 07 Julio 2026</td>
+                  <td>Central Virginia Services, INC (<code>AS23277</code>)</td>
+                  <td><strong>5 IPs / 60 Conexiones</strong> (<code>216.126.34.18</code>, <code>.37</code>, etc.)</td>
+                  <td><span class="badge-pill" style="background: #0284c7; color: #fff;">Base Peritaje E-14</span></td>
+                </tr>
+                <tr>
+                  <td style="font-weight: bold; color: #fbbf24;">2. México</td>
+                  <td>07 Julio – 07 Agosto 2026</td>
+                  <td>Uninet / Telmex (<code>AS8151</code>), Pegaso Movistar, Telcel</td>
+                  <td><strong>17 IPs / 46 Conexiones</strong></td>
+                  <td><span class="badge-pill" style="background: #d97706; color: #fff;">Tránsito y Resguardo</span></td>
+                </tr>
+                <tr>
+                  <td style="font-weight: bold; color: #4ade80;">3. Canadá (Asilo)</td>
+                  <td>07 Agosto 2026 – Presente</td>
+                  <td>Bell / Altima (<code>AS577</code>), Rogers (<code>AS812</code>), TELUS (<code>AS852</code>), Cogeco</td>
+                  <td><strong>173 IPs / 257 Conexiones</strong></td>
+                  <td><span class="badge-pill" style="background: #15803d; color: #fff;">Asilo & Resguardo Final</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Clústeres Invasores (Cerimedo / Datacenters) -->
+        <div class="win-card-content bevel-inset">
+          <h3 style="color: #f87171; font-family: 'Fira Code', monospace; margin-bottom: 10px; font-size: 1.1rem;">
+            🚨 Clústeres Invasores Detectados: Tráfico Incompatible y Modus Operandi Cerimedo
+          </h3>
+          <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6; margin-bottom: 14px;">
+            El análisis de <code>ip-audit.js</code> reveló accesos concurrentes desde datacenters corporativos y proxies anónimos sin relación con el hardware físico ni la ubicación de la investigadora:
           </p>
+          <div style="overflow-x: auto;">
+            <table class="forensic-table">
+              <thead>
+                <tr>
+                  <th>Nodo / Infraestructura</th>
+                  <th>Ubicación / ASN</th>
+                  <th>Patrón de Tráfico</th>
+                  <th>Correlación Forense</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="color: #f87171; font-weight: bold;">Datacenter Clúster Dallas</td>
+                  <td>Dallas, Texas — <code>AS39944</code></td>
+                  <td>Peticiones automáticas en bucle a endpoints de sesión</td>
+                  <td>Infraestructura idéntica a las granjas CIB identificadas en Brasil/Bolivia.</td>
+                </tr>
+                <tr>
+                  <td style="color: #f87171; font-weight: bold;">Datacenter Clúster Los Ángeles</td>
+                  <td>Los Ángeles, California — <code>AS62240</code></td>
+                  <td>Conexiones concurrentes con sesiones activas en Virginia y Montreal</td>
+                  <td>Incompatibilidad de latencia física y solapamiento de tokens de autenticación.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
       </div>
@@ -129,7 +263,7 @@
       <!-- Barra de Estado Win95 -->
       <div class="status-bar bevel-inset">
         <span>Status: TWITTER ARCHIVE AUDITED | ZERO MODIFICATION</span>
-        <span>HANDLE: @ANZACA</span>
+        <span>HANDLE: @ANZACA | PRESERVED BY TYCHO</span>
       </div>
 
     </div>
