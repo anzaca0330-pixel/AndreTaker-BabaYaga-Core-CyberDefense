@@ -36,7 +36,8 @@ Pongo en conocimiento formal de este Alto Tribunal que los hechos técnicos que 
 * **Número Único del Caso (NUC / SPOA):** **`110016000049202651911`**
 * **Despacho Judicial Titular:** **DIRECCIÓN SECCIONAL DE BOGOTÁ — ADMINISTRACIÓN PÚBLICA — DELITOS ELECTORALES — FISCALÍA 295 SECCIONAL** (con apoyo de la Fiscalía 571 Seccional de Delitos contra la Administración Pública).
 * **Sede Física del Despacho:** Carrera 28A # 18A-67, Bloque A, Piso 5, Complejo Judicial de Paloquemao, Bogotá D.C.
-* **Fecha de Asignación y Notificación Formal:** Asignado el `05/08/2026` y ratificado procesalmente el `25/10/2026`.
+* **Fecha y Hora de la Noticia Criminal Primigenia (Precedencia Temporal Inmutable):** Radicada formalmente por correo electrónico el **Viernes, 5 de junio de 2026 a las 2:21 p.m.** (`Fri, Jun 5, 2026, 2:21 PM`) con destino simultáneo a la Fiscalía General (`denuncie@fiscalia.gov.co` y `ges.documentalpqrs@fiscalia.gov.co`), CNE, Procuraduría, Registraduría, MOE, CIDH y Corte Penal Internacional, sellando en cadena de custodia el hash primario `25ad8c6bef4602475f59165c362d5dcfbf203181b93caaff19fba037f200214b` previo a los eventos del 8 de junio de 2026.
+* **Fecha de Asignación y Notificación Formal en SPOA:** Asignado el `05/08/2026` y ratificado procesalmente el `25/10/2026` (traslados Arkiva `2026306002094701`, `2026306002150251` y ampliación `2026306002309711`).
 * **Delitos Objeto de Pesquisa Penal:** Fraude al sufragante (Art. 388 C.P.), alteración de resultados electorales (Art. 394 C.P.), falsedad ideológica y material en documento público (Arts. 286 y 287 C.P.) y acceso abusivo a un sistema informático (Art. 269A C.P.).
 
 La existencia de este expediente penal en la **Unidad Especializada de Delitos Electorales** desvirtúa la presunción de autenticidad formal de los formularios E-14 sobre los cuales se consolidó la Resolución E-3181.
@@ -60,7 +61,25 @@ Frente a la tesis recurrente de que las actas electorales físicas son "inaltera
 
 ---
 
-### 📜 IV. FUNDAMENTOS DE DERECHO Y CAUSALES DE NULIDAD ELECTORAL
+### 🏛️ IV. EVOLUCIÓN HISTÓRICA DE LA INVESTIGACIÓN FORENSE Y LA FALACIA DEL PRECONTEO VS. ESCRUTINIO (DELEGADOS VS. CLAVEROS)
+
+Para ilustrar con absoluta transparencia a los Magistrados de la Sección Quinta la solidez de la prueba técnica aportada, se expone la cronología metódica del peritaje (Junio a Noviembre de 2026) y la demostración científica de que **las actas de Claveros son clones prefabricados de la misma plantilla digital que las actas de Delegados**:
+
+#### 1. Cronología Metódica del Peritaje (Junio – Noviembre 2026):
+* **Junio de 2026 (Salvamento e Inmutabilidad ISO 27037):** El 21 de junio de 2026 se ejecutó la descarga masiva y preservación criptográfica inmediata de las actas de Delegados antes de su borrado o alteración en servidores centrales. El examen visual primario evidenció la presencia de rectángulos blancos y grises de saturación digital plana (#FFFFFF, $\sigma = 0$) en las casillas de sufragio.
+* **Julio de 2026 (Línea Base del Grupo de Control):** Se procesó una muestra de contraste de 25.061 formularios PDF mediante herramientas de análisis sintáctico estándar (`QPDF`, `ExifTool`). En esta etapa preliminar, los documentos sirvieron como grupo de control frente a las muestras consulares críticas de España (696 actas) y EE.UU. (987 actas), donde la supresión de códigos QR alcanzaba entre el 21.7% y el 23.3%.
+* **Agosto de 2026 (Evolución de Hipótesis y Huella Estructural):** Se descubrió que la alteración mutó tácticamente entre comicios: mientras en 1ª Vuelta se empleó *Blind Masking* (reemplazo de la tercera página por un lienzo en blanco de $1260 \times 3897\text{ px}$), en 2ª Vuelta evolucionó a la inyección de capas vectoriales internas (`/XObject 12 0 R`) y la consolidación de la cicatriz en la tabla `xref`: **15 objetos reportados frente a 13 objetos reales (`Delta +2`)**.
+* **Septiembre de 2026 (Decompilación Binaria BaBa Yaga Core y Auditoría Nacional a Claveros):** Mediante decompilación binaria `/FlateDecode`, se auditó la totalidad de los 32 departamentos en la base de datos de Claveros (1.069 municipios), corroborando que las actas de Claveros portaban las mismas anomalías estadísticas (Benford 2BL) y la misma varianza matemática artificial ($2.5$ votos) que las actas de preconteo.
+* **Noviembre de 2026 (Reanálisis Masivo a Ciegas y Demostración de Clonación Física):** En auditoría ciega sobre 25.753 actas, el **80.76% (20.799 actas)** ratificó la presencia idéntica del `Delta XREF +2`. El caso testigo de **Acacías (Meta, Mesa 1)** demostró físicamente que el acta de Delegados (72 DPI, B/N) y el acta de Claveros (300 DPI, Color) comparten **exactamente la misma cicatriz de sintaxis interna (15 objetos declarados vs. 13 existentes) y los mismos identificadores de objeto de imagen (ID 6 y ID 11)**.
+
+#### 2. Demolición Científica de la Coartada Registraduría / CNE:
+La entidad electoral ha pretendido desestimar las denuncias alegando que el formulario de *Delegados* es meramente informativo y que la validez jurídica recae exclusivamente en los *Claveros*. Esta defensa queda técnicamente destruida bajo la Ley 527 de 1999 y los principios de la física de escáneres:
+* **Imposibilidad en Hardware Independiente:** Es físicamente imposible que un escáner óptico Kodak Alaris escaneando papel físico en una mesa de votación en Bogotá, y otro escáner Fujitsu digitalizando otra copia física en una comisión escrutadora días después en Acacías, **generen de manera independiente un archivo PDF corrupto con idéntica falla matemática en la tabla de punteros XREF (Delta +2) y los mismos identificadores de objetos incrustados**.
+* **Prueba Irrefutable de Plantilla Digital Previa (*Pre-fabricated Master Clone*):** La identidad sintáctica prueba que el archivo de Claveros a color **no proviene del escaneo directo y autónomo del papel en la audiencia de escrutinio**, sino de la exportación a color de la misma plantilla digital sintética prefabricada por software antes de que el documento fuera procesado por los claveros.
+
+---
+
+### 📜 V. FUNDAMENTOS DE DERECHO Y CAUSALES DE NULIDAD ELECTORAL
 
 Este aporte probatorio encaja con precisión quirúrgica en las causales consagradas en el **Artículo 275 del Código de Procedimiento Administrativo y de lo Contencioso Administrativo (CPACA)**:
 
@@ -70,7 +89,7 @@ Este aporte probatorio encaja con precisión quirúrgica en las causales consagr
 
 ---
 
-### 📑 V. PETICIONES CONCRETAS AL HONORABLE CONSEJO DE ESTADO
+### 📑 VI. PETICIONES CONCRETAS AL HONORABLE CONSEJO DE ESTADO
 
 Con fundamento en los hechos y preceptos jurídicos expuestos, respetuosamente solicito a la Sección Quinta:
 
@@ -80,7 +99,9 @@ Con fundamento en los hechos y preceptos jurídicos expuestos, respetuosamente s
    Oficiar de manera urgente a la **DIRECCIÓN SECCIONAL DE BOGOTÁ — ADMINISTRACIÓN PÚBLICA — DELITOS ELECTORALES — FISCALÍA 295 SECCIONAL** (Complejo Judicial de Paloquemao, Bloque A, Piso 5) para que remita con destino al presente expediente copia íntegra del informe pericial y del estado de la instrucción que cursa bajo el **NUC `110016000049202651911`**.
 4. **ORDENAR A LA REGISTRADURÍA NACIONAL DEL ESTADO CIVIL:**  
    La exhibición y entrega obligatoria de los **archivos brutos de auditoría (`raw audit logs`)**, firmas criptográficas primarias de los escáneres ópticos y las actas físicas originales de las 57.981 mesas identificadas con alteración `XREF`.
-5. **DECLARAR EN LA SENTENCIA DEFINITIVA LA NULIDAD ABSOLUTA** de la **Resolución Sala Plena No. E-3181 del 24 de junio de 2026**, ordenando los efectos restitutivos del orden democrático a que haya lugar.
+5. **ORDENAR LA EXHIBICIÓN FÍSICA JUDICIAL DEL SOPORTE DE PAPEL ORIGINAL (Arts. 265, 267 y 272 del Código General del Proceso):**  
+   Ordenar a la Registraduría Nacional del Estado Civil y al Consejo Nacional Electoral la comparecencia y exhibición física en audiencia de los pliegos de papel E-14 (ejemplares Claveros y Delegados) de los clústeres analizados —con especial énfasis en la mesa testigo de Acacías (Meta, Mesa 1)— para constatar ocularmente ante el Despacho si el papel físico contiene o no las enmendaduras mecánicas correspondientes a los parches monocromáticos inyectados a nivel de stream digital, desvirtuando definitivamente la autenticidad del documento digital conforme al Art. 244 del C.G.P.
+6. **DECLARAR EN LA SENTENCIA DEFINITIVA LA NULIDAD ABSOLUTA** de la **Resolución Sala Plena No. E-3181 del 24 de junio de 2026**, ordenando los efectos restitutivos del orden democrático a que haya lugar.
 
 ---
 
