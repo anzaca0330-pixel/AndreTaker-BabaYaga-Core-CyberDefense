@@ -53,7 +53,7 @@ Frente a la tesis recurrente de que las actas electorales físicas son "inaltera
 2. **Cicatriz Sintética en la Tabla de Referencias Cruzadas (`Delta XREF +2`):**
    * En **57.981 actas procesadas**, la tabla `xref` del formato PDF presenta un desplazamiento anómalo de punteros (+2 objetos huérfanos). Esta alteración estructural es la huella digital canónica de una **re-serialización por script secundario por lotes (*batch script compilation*)**, incompatible con el firmware original de escáneres ópticos Kodak/Fujitsu.
 3. **Purga Sistemática de Metadatos EXIF:**
-   * En el 100% de los documentos analizados (incluyendo la muestra consular de Lima, Perú del 30 de julio de 2026), se eliminaron deliberadamente los campos `Creator`, `Producer` y `CreateDate`, impidiendo la trazabilidad del dispositivo físico de origen.
+   * En el 100% de los documentos analizados (tanto en mesas de circunscripción nacional como en consulados en el exterior), se eliminaron deliberadamente los campos `Creator`, `Producer` y `CreateDate`, impidiendo la trazabilidad del dispositivo físico de origen.
 4. **Desacoplamiento Estructural de Códigos QR:**
    * Los códigos QR no forman parte de la fotografía física del documento; fueron inyectados en capas vectoriales secundarias independientes en el flujo `/Contents`, permitiendo el desvío algorítmico de mesas en la fase de transmisión hacia centros de procesamiento.
 5. **Colapso de Varianza Estocástica y Ley de Benford del Segundo Dígito (2BL):**
@@ -102,6 +102,28 @@ Con fundamento en los hechos y preceptos jurídicos expuestos, respetuosamente s
 5. **ORDENAR LA EXHIBICIÓN FÍSICA JUDICIAL DEL SOPORTE DE PAPEL ORIGINAL (Arts. 265, 267 y 272 del Código General del Proceso):**  
    Ordenar a la Registraduría Nacional del Estado Civil y al Consejo Nacional Electoral la comparecencia y exhibición física en audiencia de los pliegos de papel E-14 (ejemplares Claveros y Delegados) de los clústeres analizados —con especial énfasis en la mesa testigo de Acacías (Meta, Mesa 1)— para constatar ocularmente ante el Despacho si el papel físico contiene o no las enmendaduras mecánicas correspondientes a los parches monocromáticos inyectados a nivel de stream digital, desvirtuando definitivamente la autenticidad del documento digital conforme al Art. 244 del C.G.P.
 6. **DECLARAR EN LA SENTENCIA DEFINITIVA LA NULIDAD ABSOLUTA** de la **Resolución Sala Plena No. E-3181 del 24 de junio de 2026**, ordenando los efectos restitutivos del orden democrático a que haya lugar.
+
+---
+
+### 📚 VIII. MARCO NORMATIVO Y BIBLIOGRAFÍA ACADÉMICA INTERNACIONAL (PEER REVIEW)
+
+Para garantizar la reproducibilidad y el estándar de admisibilidad pericial ante tribunales nacionales e internacionales (Consejo de Estado, Fiscalía General de la Nación, CIDH y estándar Daubert), el presente dictamen se fundamenta en la literatura científica y normativas técnicas consagradas en el acervo institucional (`BIBLIOGRAFIA_FORENSE_CIDH.md`):
+
+1. **Estándares Forenses Internacionales de Silicio:**
+   * **ISO/IEC 27037:2012:** *Guidelines for identification, collection, acquisition and preservation of digital evidence*. Principio de Solo Lectura (*Read-Only*) y preservación de cadena de custodia digital inmutable.
+   * **ISO 32000-1:2008:** *Document management — Portable document format (PDF Standard)*. Especificación fundamental para la identificación de violaciones sintácticas, inyecciones en flujos `/Contents`, objetos huérfanos y desfasajes en la tabla de referencias cruzadas (`xref`).
+   * **FIPS 180-4 (NIST):** *Secure Hash Standard (SHS)*. Estándar oficial para el algoritmo criptográfico **SHA-256**, utilizado en el sellado de las 121.960 actas preservadas.
+   * **Gailly, J., & Adler, M. (1995):** *Zlib / DEFLATE Compression Algorithm*. Base matemática del filtro `/FlateDecode` en documentos PDF, cuya descompresión forense permitió revelar la inyección de comandos vectoriales de enmascaramiento (`cm`, `re`, `Do`).
+
+2. **Estadística Forense y Auditoría Electoral Computacional:**
+   * **Dr. Walter R. Mebane Jr. (2006):** *Election Forensics: The Second-digit Benford's Law (2BL) Test and Recent American Presidential Elections*. Universidad de Michigan. Marco científico del test del segundo dígito para detectar manipulación algorítmica y fraude electoral sintético frente al comportamiento estocástico natural.
+   * **Dr. Mark J. Nigrini (2012):** *Benford's Law: Applications for Forensic Accounting, Auditing, and Fraud Detection*. John Wiley & Sons. Fundamento del "planchado estadístico" y la correlación de varianza nula.
+   * **Fewster, R. M. (2009):** *A simple explanation of Benford's Law*. The American Statistician. Sustento de cálculo probabilístico de valores $p$ y normalidad asintótica.
+
+3. **Manipulación Digital y Detección de Falsificaciones Documentales (*Blind Forensics*):**
+   * **Dra. Jessica Fridrich (2009):** *Steganalysis and Blind Image Forensics*. Base teórica adaptada y aplicada a gran escala para identificar *Blind Masking* (máscaras planas monocromáticas de 1-bit superpuestas) en escaneos sin requerir el original de contraste.
+   * **Dr. Hany Farid (2016):** *Photo Forensics*. MIT Press. Metodología de análisis de compresión (JPEG Quantization), análisis de nivel de error (ELA) y alteraciones estructurales en la grilla de píxeles (*1-Bit Flattening*).
+   * **Mainka, C., Mladenov, V., & Rohlmann, S. (2021):** *Shadow Attacks: Hiding and Replacing Content in Signed PDFs*. NDSS Symposium. Documentación de ataques estructurales mediante inyección de capas vectoriales independientes.
 
 ---
 
