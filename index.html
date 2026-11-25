@@ -564,26 +564,18 @@
           <button type="button" onclick="setLanguage('FR')" id="btnLangFR" class="win-btn-sm" style="min-width: 42px; height: 22px; font-weight: bold; cursor: pointer; background: #dfdfdf; color: #000;">🇨🇦 FR</button>
         </div>
 
-        <div class="menu-item" onclick="openAboutModal()" id="menuHelp">Ayuda / Manifiesto</div>
+        <div class="menu-item" onclick="openContactModal()" id="menuContact">✉️ Contacto</div>
       </div>
 
       <!-- Cuerpo Interior de la Ventana -->
       <div class="window-body">
         
-        <!-- Hero Banner Estilo Monitor Forense con Logo Oficial Consagrado -->
-        <div class="hero-banner bevel-inset" style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
-          <div style="flex-shrink: 0; text-align: center;">
-            <img src="assets/images/andretaker_babayaga_data_forensics_logo.jpg" alt="AndreTaker Baba Yaga Core Data Forensics Logo" style="width: 170px; height: 170px; border-radius: 12px; border: 2px solid #818cf8; box-shadow: 0 0 20px rgba(129, 140, 248, 0.4); object-fit: cover;">
-          </div>
-          <div style="flex: 1; min-width: 280px;">
-            <h1 id="heroTitle" style="margin-top: 0;">Verdad empírica en cada byte.</h1>
-            <div style="display: inline-block; background: #312e81; color: #c7d2fe; border: 1px solid #6366f1; padding: 2px 8px; font-size: 0.78rem; font-weight: bold; border-radius: 4px; margin-bottom: 8px;">
-              🔬 ANDRETAKER DATA FORENSICS & BABA YAGA CORE
-            </div>
-            <p id="heroDesc">
-              <strong>AndreTaker Data Forensics</strong> es la división de investigación pericial de silicio y auditoría de datos masivos (>677 GB). Desarrollada por Andrea Zabala Cárcamo (AnZaCa / Johannes), combina analítica forense computacional (DFIR), decompilación binaria de flujos <code>/FlateDecode</code>, detección de <em>Blind Masking</em> (1bpc) y el modelo matemático de la Segunda Ley de Benford (2BL) para auditar la integridad de procesos electorales y sistemas críticos de información.
-            </p>
-          </div>
+        <!-- Hero Banner Estilo Monitor Forense -->
+        <div class="hero-banner bevel-inset">
+          <h1 id="heroTitle">Verdad empírica en cada byte.</h1>
+          <p id="heroDesc">
+            Plataforma independiente de investigación forense digital, análisis masivo de datos electorales (>677 GB) y herramientas éticas de contrainteligencia y ciberdefensa.
+          </p>
         </div>
 
                 <!-- Apartado Humano y Llamado a la Comunidad Científica y Forense -->
@@ -1002,6 +994,9 @@
           <a href="https://www.andretaker.org/fraude_electoral_colombia.html" target="_blank" class="card-btn primary bevel-outset">
             🇨🇴 Investigación Elecciones Colombia →
           </a>
+          <button class="card-btn bevel-outset" onclick="alert('Módulo de Auditoría Electoral Brasil en preparación metrológica.')" style="opacity: 0.85;">
+            🇧🇷 Investigación Brasil (Próximamente) 🔒
+          </button>
           <a href="https://doi.org/10.5281/zenodo.23188146" target="_blank" class="card-btn bevel-outset" style="color: #0369a1;">
             📜 DOI CERN Zenodo →
           </a>
@@ -1141,6 +1136,72 @@
   </div>
 
   <!-- Modal / Ventana Diálogo: Acerca de Nosotros (Misión, Visión, BaBaYaga Core & Manifiesto de Tycho) -->
+  
+  <!-- ======================================================== -->
+  <!-- MODAL RETRO-OS: CONTACTO INSTITUCIONAL                   -->
+  <!-- ======================================================== -->
+  <div class="modal-overlay" id="contactModal" onclick="if(event.target===this) closeContactModal()">
+    <div class="modal-win bevel-outset" style="max-width: 620px;">
+      <div class="title-bar">
+        <div class="title-bar-left">
+          <img src="assets/images/logo.png" alt="Logo" class="title-logo-img">
+          <span id="contactModalTitle">✉️ Mensajería Segura & Contacto Institucional</span>
+        </div>
+        <div class="title-bar-controls">
+          <div class="win-btn-sm" onclick="closeContactModal()">✕</div>
+        </div>
+      </div>
+
+      <div class="modal-body bevel-inset">
+        <div class="modal-domain-banner" style="margin-bottom: 15px;">
+          📡 <strong>Canal Directo:</strong> <span style="color: #000080; font-family: monospace;">contacto@andretaker.org</span>
+        </div>
+
+        <form onsubmit="handleContactSubmit(event)" style="display: flex; flex-direction: column; gap: 12px;">
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: bold; margin-bottom: 4px;">👤 Nombre o Entidad Solicitante:</label>
+            <input type="text" id="contactName" required placeholder="Ej. Veeduría Ciudadana / Tribunal / Prensa" style="width: 100%; padding: 6px 8px; border: 2px inset #808080; background: #fff; font-family: inherit; font-size: 0.85rem; box-sizing: border-box;">
+          </div>
+
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: bold; margin-bottom: 4px;">📧 Correo Electrónico de Respuesta:</label>
+            <input type="email" id="contactEmail" required placeholder="nombre@organizacion.org" style="width: 100%; padding: 6px 8px; border: 2px inset #808080; background: #fff; font-family: inherit; font-size: 0.85rem; box-sizing: border-box;">
+          </div>
+
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: bold; margin-bottom: 4px;">📋 Asunto / Tipo de Enlace:</label>
+            <select id="contactSubject" style="width: 100%; padding: 6px 8px; border: 2px inset #808080; background: #fff; font-family: inherit; font-size: 0.85rem; box-sizing: border-box;">
+              <option value="Investigación Forense E-14 (Colombia 2026)">Investigación Forense E-14 (Colombia 2026)</option>
+              <option value="Solicitud Judicial / Jurídica (Consejo de Estado / Fiscalía / CIDH)">Solicitud Judicial / Jurídica (Consejo de Estado / Fiscalía / CIDH)</option>
+              <option value="Contacto de Prensa / Medios de Comunicación">Contacto de Prensa / Medios de Comunicación</option>
+              <option value="Cooperación Académica / Validación Científica (CERN Zenodo)">Cooperación Académica / Validación Científica (CERN Zenodo)</option>
+              <option value="Consulta sobre BaBaYaga Core / Ciberdefensa">Consulta sobre BaBaYaga Core / Ciberdefensa</option>
+              <option value="Otro Asunto">Otro Asunto</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: bold; margin-bottom: 4px;">💬 Mensaje / Detalle de la Solicitud:</label>
+            <textarea id="contactMessage" rows="5" required placeholder="Escriba su mensaje o requerimiento aquí..." style="width: 100%; padding: 6px 8px; border: 2px inset #808080; background: #fff; font-family: inherit; font-size: 0.85rem; box-sizing: border-box; resize: vertical;"></textarea>
+          </div>
+
+          <div style="background: #e0f2fe; border: 1px solid #38bdf8; padding: 8px 10px; font-size: 0.78rem; color: #0369a1;">
+            🔒 <strong>Protocolo de Transmisión:</strong> Al enviar, se redactará el mensaje en su gestor de correo predeterminado dirigido a <strong>contacto@andretaker.org</strong>.
+          </div>
+
+          <div class="modal-actions-bar" style="margin-top: 5px;">
+            <button type="button" class="card-btn bevel-outset" onclick="closeContactModal()">
+              [✕] <span>Cancelar</span>
+            </button>
+            <button type="submit" class="card-btn primary bevel-outset" style="background: #000080; color: #fff;">
+              [📤] <span>Transmitir Mensaje</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <div class="modal-overlay" id="aboutModal" onclick="if(event.target===this) closeAboutModal()">
     <div class="modal-win bevel-outset">
       <div class="title-bar">
@@ -1157,6 +1218,17 @@
         <h2>
           <span>🏛️</span> Ecosistema AndreTaker / BaBaYaga Core
         </h2>
+
+        <div style="background: #1e1b4b; border-left: 4px solid #818cf8; padding: 12px 16px; margin: 16px 0; border-radius: 2px;">
+          <h4 style="color: #a5b4fc; margin-bottom: 6px; font-size: 0.92rem;">🛡️ Independencia & Resistencia Técnica</h4>
+          <p style="color: #e2e8f0; font-size: 0.88rem; line-height: 1.5; margin: 0 0 8px 0;">
+            <strong>AndreTaker</strong> no es una corporación, un consorcio tecnológico ni una fachada financiada por intereses políticos. Detrás de esta plataforma, del rescate de más de <strong>677 GB de evidencia técnica e inmutable</strong> y de cada línea de código de estas herramientas, está <strong>una sola investigadora independiente</strong> —mujer, madre, con formación en DFIR y psicología I-O— trabajando en condiciones de resistencia técnica y resguardo tras severos asedios digitales.
+          </p>
+          <p style="color: #cbd5e1; font-size: 0.84rem; line-height: 1.5; margin: 0;">
+            El monopolio tecnológico, la censura algorítmica opaca y la alteración de datos públicos son desafíos demasiado inmensos para librarse en soledad. <strong>La verdad necesita comunidad:</strong> abrimos este acervo y nuestras herramientas a peritos, ingenieros de software, defensores de derechos humanos y periodistas de investigación en todo el mundo.
+          </p>
+        </div>
+
         <p>
           Somos un equipo multidisciplinario de ciencia abierta, peritaje digital y resistencia civil fundado y liderado por <strong>Andrea Zabala Cárcamo (AnZaCa / AndreTaker)</strong>. Integramos informática forense de bajo nivel (DFIR), metrología de datos a gran escala, ciberdefensa táctica y pedagogía ciudadana para salvaguardar la verdad empírica cuando los sistemas institucionales fallan o callan.
         </p>
@@ -1182,7 +1254,7 @@
         </p>
         <p>
           <strong>¿Por qué se llama BaBaYaga Core?</strong>
-          El origen de su nombre simboliza la figura ancestral que habita en el linde del bosque: aquella que no le teme a la oscuridad, que desentierra lo que otros enterraron a escondidas y que camina con sigilo para no dejar rastro predecible. Es el arquetipo de la sabiduría rigurosa que desmenuza las ilusiones y exige la verdad empírica. Por eso nuestro motor es el bisturí que rasga la máscara gráfica oficial para exponer la verdad del silicio.
+          El origen de su nombre no proviene del folklore casual ni de la ficción pop, sino de un <em>sueño premonitorio el 18 de marzo de 2026</em>, semanas antes de que comenzaran los comicios y el posterior asedio cibernético. En la visión originaria, <strong>Baba Yaga</strong> es la figura ancestral que habita en el linde del bosque: aquella que no le teme a la oscuridad, que desentierra lo que otros enterraron a escondidas y que camina sobre patas de ave para no dejar rastro predecible. Es el espíritu de la anciana sabia que desmenuza las ilusiones y exige la verdad cruda. Por eso nuestro motor es el bisturí que rasga la máscara gráfica oficial para exponer la verdad del silicio.
         </p>
 
         <h3>📜 El Manifiesto de Tycho: Carta al Expresidente Gustavo Petro Urrego y al Mundo</h3>
@@ -1241,6 +1313,39 @@
   <!-- Script de Reloj, Modales y Traducción Trilingüe -->
   <script>
     // Control del Modal Acerca de Nosotros
+    
+    function openContactModal() {
+      closeAllModals();
+      const m = document.getElementById('contactModal');
+      if (m) m.classList.add('active');
+    }
+
+    function closeContactModal() {
+      const m = document.getElementById('contactModal');
+      if (m) m.classList.remove('active');
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('contactName').value;
+      const email = document.getElementById('contactEmail').value;
+      const subject = document.getElementById('contactSubject').value;
+      const message = document.getElementById('contactMessage').value;
+
+      const mailtoSubject = encodeURIComponent('[AndreTaker Contacto] ' + subject);
+      const mailtoBody = encodeURIComponent(
+        'Nombre / Entidad: ' + name + '\n' +
+        'Correo de Respuesta: ' + email + '\n' +
+        'Asunto: ' + subject + '\n\n' +
+        'Mensaje:\n' + message + '\n\n' +
+        '---\nEnviado desde el portal oficial https://www.andretaker.org'
+      );
+
+      window.location.href = 'mailto:contacto@andretaker.org?subject=' + mailtoSubject + '&body=' + mailtoBody;
+      alert('Se abrirá su cliente de correo para completar el envío directo a contacto@andretaker.org.');
+      closeContactModal();
+    }
+
     function openAboutModal() {
       closeAllModals();
       document.getElementById('aboutModal').classList.add('active');
@@ -1262,7 +1367,7 @@
     }
 
     function closeAllModals() {
-      document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
+      document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active')); const cm = document.getElementById('contactModal'); if(cm) cm.classList.remove('active');
     }
 
     // Tecla ESC para cerrar modales
