@@ -13,7 +13,9 @@ Palacio de Justicia, Calle 12 No. 7-65, Bogotá D.C., Colombia
 * **MEDIO DE CONTROL:** Nulidad Electoral (Artículos 137, 139 y 275 del CPACA - Ley 1437 de 2011).
 * **ACTO ADMINISTRATIVO ACUSADO:** **Resolución Sala Plena No. E-3181 del 24 de junio de 2026**, expedida por el Consejo Nacional Electoral (CNE), por medio de la cual se declaró la elección del Presidente y Vicepresidente de la República para el período constitucional 2026–2030.
 * **DEMANDADOS:** ABELARDO GABRIEL DE LA ESPRIELLA OTERO y JOSÉ MANUEL RESTREPO ABONDANO.
-* **DEMANDANTES PRINCIPALES:** Jairo Castañeda León, William Ruiz Villanueva, Heleniz Dayan Garcés Restrepo, Alexander Montaña Narváez, Sixto Acuña Acevedo y Luis Alfredo Onofre Palencia.
+* **PROCESOS VIGENTES / ACUMULABLES CONTRA LA RESOLUCIÓN E-3181 DE 2026 (Art. 282 CPACA):**
+  1. **Demanda N.º 1 (Frente Constitucional y Voto Exterior):** Promovida por **Luis Guillermo Pérez Casas** (asignada inicialmente al despacho del Magistrado Luis Alberto Álvarez Parra, Sección Quinta).
+  2. **Demanda N.º 2 (Frente de Escrutinio y Cadena de Custodia):** Promovida por **Damián Garcés Restrepo, Jairo Castañeda León, William Ruiz Villanueva, Heleniz Dayan Garcés Restrepo, Alexander Montaña Narváez, Sixto Acuña Acevedo, Luis Alfredo Onofre Palencia y otros coaccionantes**.
 * **INTERVINIENTE COADYUVANTE & PERITO FORENSE INDEPENDIENTE:**  
   **ANDREA ZABALA CÁRCAMO**, ciudadana colombiana, mayor de edad, identificada con Cédula de Ciudadanía No. **43.925.102** expedida en Bello (Antioquia), domiciliada en el exterior bajo protocolo de protección internacional (Medida Cautelar CIDH `MC-1137-28` / `IACHR-0000113728`), investigadora en Digital Forensics and Incident Response (DFIR) y estudiante universitaria de Psicología Industrial-Organizacional.
 
@@ -56,8 +58,13 @@ Frente a la tesis recurrente de que las actas electorales físicas son "inaltera
    * En el 100% de los documentos analizados (tanto en mesas de circunscripción nacional como en consulados en el exterior), se eliminaron deliberadamente los campos `Creator`, `Producer` y `CreateDate`, impidiendo la trazabilidad del dispositivo físico de origen.
 4. **Desacoplamiento Estructural de Códigos QR:**
    * Los códigos QR no forman parte de la fotografía física del documento; fueron inyectados en capas vectoriales secundarias independientes en el flujo `/Contents`, permitiendo el desvío algorítmico de mesas en la fase de transmisión hacia centros de procesamiento.
-5. **Colapso de Varianza Estocástica y Ley de Benford del Segundo Dígito (2BL):**
-   * En auditoría matemática forense (Mebane et al.), el **segundo dígito** de las mesas electorales es inmune a la escala demográfica. En los resultados consolidados de 2026, la distribución del segundo dígito colapsó con una desviación crítica de **$Z = -56.96$**, una imposibilidad probabilística en poblaciones biológicas naturales que delata la aplicación de un factor de ponderación sintético.
+5. **Protocolo de Replicabilidad Estadística — Ley del Segundo Dígito de Mebane (2BL), NMDM, Control Interno y Contraste Nulo Monte Carlo (Anexo Técnico N.º 2):**
+   * En auditoría matemática forense (Walter R. Mebane Jr., Universidad de Michigan), el **segundo dígito ($d_2$, con censura estructural *a priori* para votaciones $\ge 10$)** es inmune a la escala demográfica de las mesas. Esta métrica **no se presenta como sentencia anticipada**, sino como el **termómetro epidemiológico de sospecha fundada** que justifica objetivamente la exhibición física de los pliegos de papel.
+   * Sobre la matriz consolidada de **122.024 mesas**, se cuantificó tanto el tamaño del efecto (**NMDM** de Mebane) como la significancia asimétrica entre columnas:
+     - **Candidato A (Abelardo de la Espriella, $N = 118.040$):** $\text{NMDM} = 0.3857\%$, con pico anómalo en el dígito `0` ($12.91\%$, $Z = +9.93$, $\chi^2 = 241.64$, $p = 5.79 \times 10^{-47}$).
+     - **Candidato B (Iván Cepeda Castro, $N = 119.717$):** $\text{NMDM} = 0.7259\%$, con depresión severa en el dígito `9` ($6.96\%$ vs. $8.50\%$ esperado, $Z = -19.04$, $\chi^2 = 870.56$, $p = 1.35 \times 10^{-181}$).
+     - **Grupo de Control Interno (Votantes Totales por Mesa, $N = 121.605$):** Distribución plana y uniforme en torno al $10\%$ ($9.23\% - 10.64\%$), demostrando especificidad y descartando que el formato del formulario o el escáner induzcan el sesgo observado en las casillas de candidatos.
+   * **Ruptura de Circularidad y Reproducibilidad Abierta:** Se entrega el script determinista (`auditoria_replicable_2bl_montecarlo.py`, semilla `42`, parámetro `--iterations` escalable para auditoría rápida o exhaustiva) y se invita expresamente al Despacho y a la nómina de peritos judiciales a designar un **corpus de control negativo ciego e independiente** para falsar o ratificar el hallazgo.
 
 ---
 
@@ -93,14 +100,14 @@ Este aporte probatorio encaja con precisión quirúrgica en las causales consagr
 
 Con fundamento en los hechos y preceptos jurídicos expuestos, respetuosamente solicito a la Sección Quinta:
 
-1. **TENERME POR COADYUVANTE ACTIVA** en el medio de control de Nulidad Electoral contra la **Resolución Sala Plena No. E-3181 del 24 de junio de 2026**, admitiendo el presente memorial conforme al Art. 277 del CPACA.
+1. **TENERME POR COADYUVANTE ACTIVA** en los medios de control de Nulidad Electoral vigentes contra la **Resolución Sala Plena No. E-3181 del 24 de junio de 2026** (promovidos por **Luis Guillermo Pérez Casas** y por **Damián Garcés Restrepo, William Ruiz Villanueva y otros coaccionantes**), admitiendo el presente memorial conforme al Art. 277 del CPACA y disponiendo su incorporación conjunta en caso de acumulación procesal (Art. 282 CPACA).
 2. **INCORPORAR Y DECRETAR COMO PRUEBA PERICIAL CIENTÍFICA** el dictamen forense y los anexos metodológicos de la suscrita investigadora preservados bajo los identificadores persistentes universales del CERN: **DOI `10.5281/zenodo.22346207`**, **`10.5281/zenodo.24059804`** y **`10.5281/zenodo.24116446`**.
 3. **ORDENAR COMO PRUEBA TRASLADADA (Art. 174 del C.G.P.):**  
    Oficiar de manera urgente a la **DIRECCIÓN SECCIONAL DE BOGOTÁ — ADMINISTRACIÓN PÚBLICA — DELITOS ELECTORALES — FISCALÍA 295 SECCIONAL** (Complejo Judicial de Paloquemao, Bloque A, Piso 5) para que remita con destino al presente expediente copia íntegra del informe pericial y del estado de la instrucción que cursa bajo el **NUC `110016000049202651911`**.
 4. **ORDENAR A LA REGISTRADURÍA NACIONAL DEL ESTADO CIVIL:**  
    La exhibición y entrega obligatoria de los **archivos brutos de auditoría (`raw audit logs`)**, firmas criptográficas primarias de los escáneres ópticos y las actas físicas originales de las 57.981 mesas identificadas con alteración `XREF`.
-5. **ORDENAR LA EXHIBICIÓN FÍSICA JUDICIAL DEL SOPORTE DE PAPEL ORIGINAL (Arts. 265, 267 y 272 del Código General del Proceso):**  
-   Ordenar a la Registraduría Nacional del Estado Civil y al Consejo Nacional Electoral la comparecencia y exhibición física en audiencia de los pliegos de papel E-14 (ejemplares Claveros y Delegados) de los clústeres analizados —con especial énfasis en la mesa testigo de Acacías (Meta, Mesa 1)— para constatar ocularmente ante el Despacho si el papel físico contiene o no las enmendaduras mecánicas correspondientes a los parches monocromáticos inyectados a nivel de stream digital, desvirtuando definitivamente la autenticidad del documento digital conforme al Art. 244 del C.G.P.
+5. **ORDENAR LA EXHIBICIÓN FÍSICA JUDICIAL Y COTEJO MATERIAL DEL SOPORTE DE PAPEL ORIGINAL (Arts. 265, 266, 267 y 272 del Código General del Proceso):**  
+   Ordenar a la Registraduría Nacional del Estado Civil y al Consejo Nacional Electoral la comparecencia y exhibición física en audiencia —bajo registro audiovisual, verificación de precintos numerados y resealado— de los pliegos de papel originales E-14 (ejemplares de Claveros y Delegados) de las mesas individualizadas en el **Anexo Técnico N.º 1** (incluyendo la muestra aleatoria pre-registrada y la mesa testigo de Acacías, Meta, Mesa 1). El cotejo binario directo entre el papel físico y el acervo digital preservado constituye el **árbitro final de la controversia**. En los términos expresos del **Artículo 267 del C.G.P.**, se solicita advertir a la entidad custodiadora que la renuencia, demora injustificada o no exhibición de las bolsas de seguridad tendrá como consecuencia jurídica **tener por probados los hechos afirmados** en el presente memorial respecto de la divergencia material entre los votos físicos y los guarismos digitales publicados.
 6. **DECLARAR EN LA SENTENCIA DEFINITIVA LA NULIDAD ABSOLUTA** de la **Resolución Sala Plena No. E-3181 del 24 de junio de 2026**, ordenando los efectos restitutivos del orden democrático a que haya lugar.
 
 ---
@@ -127,11 +134,19 @@ Para garantizar la reproducibilidad y el estándar de admisibilidad pericial ant
 
 ---
 
-### 📎 ANEXOS PROBATORIOS
-1. Certificación de registro inmutable en CERN Zenodo del Dictamen Pericial Forense (DOIs: `10.5281/zenodo.22346207` / `10.5281/zenodo.24059804`).
-2. Constancia electrónica de asignación del NUC `110016000049202651911` en la Fiscalía 295 Seccional de Delitos Electorales (Notificación oficial del 25 de octubre de 2026).
-3. Radicados de origen ante el Consejo Nacional Electoral (`CNE-E-DG-2026-021378` y `022140` / Oficios `CNE-FMG-348-2026` y `379-2026`).
-4. Constancia de radicación activa ante la Comisión Interamericana de Derechos Humanos (Expediente `IACHR-0000113728` / `MC-1137-28`).
+### 📎 ANEXOS PROBATORIOS Y TÉCNICOS NUMERADOS
+1. **ANEXO TÉCNICO N.º 1 — Solicitud de Exhibición y Matriz de Individualización de Actas E-14 Físicas (Arts. 265–267 C.G.P.):** Protocolo de apertura de bolsas de seguridad, individualización DIVIPOL y muestra aleatoria pre-registrada (`SOLICITUD_EXHIBICION_COTEJO_PAPEL_CLAVEROS_DAMIAN.md`).
+2. **ANEXO TÉCNICO N.º 2 — Protocolo y Resultados de Replicabilidad Estadística (2BL Mebane, NMDM, Control Interno y Monte Carlo):**
+   * Informe Pericial: `INFORME_PERICIAL_REPLICABILIDAD_ESTADISTICA_LUMO_MEBANE.md` (SHA-256: `9eb73f407e28ea02d153d99c03deae1f48882dd813e3b44a1a897b8d4c46f8ad`).
+   * Script Reproducible Determinista: `auditoria_replicable_2bl_montecarlo.py` (SHA-256: `fa393dd9c0622f39d9164c8e44d9dc9514737bb72cd56f0f2612767217479acc`).
+3. **ANEXO TÉCNICO N.º 3 — Cadena de Custodia Criptográfica y Bóveda Inmutable Internacional:** Manifiesto histórico SHA-256 sellado el 29 de julio de 2026 (`CLAVEROS_MANIFIESTO_HASHES_SHA256_JULIO_2026.txt`), repositorio público inmutable en Internet Archive (`colombia-e14-forensic-acervo-2026`) y certificación en CERN Zenodo (DOIs: `10.5281/zenodo.22346207` / `10.5281/zenodo.24059804`).
+4. **ANEXO TÉCNICO N.º 4 — Análisis Binario PDF Bit a Bit, Máscaras 1-bit, Transparencias (`/SMask` / `/ImageMask`), Decompilación `/FlateDecode` y Deltas `XREF (+2)`:**
+   * Dictamen Pericial Forense de Silicio (`DICTAMEN_PERICIAL_FORENSE_FINAL.md`).
+   * Matriz forense de anomalías estructurales y objetos huérfanos (`REPORTE_XREF_DEEPFAKE.csv` y visualización `XREF_ALTERACIONES_COLOREADAS.html`).
+   * Informe de desacoplamiento vectorial y mapeo de códigos QR (`INFORME_FORENSE_MAPEO_291_CLUSTERS_QR_DUPLICADOS_SEPTIEMBRE.md` y `HALLAZGO_DOS_QR_TRANSMISION.md`).
+5. Constancia electrónica de asignación del NUC `110016000049202651911` en la Fiscalía 295 Seccional de Delitos Electorales (Notificación oficial del 25 de octubre de 2026).
+6. Radicados de origen ante el Consejo Nacional Electoral (`CNE-E-DG-2026-021378` y `022140` / Oficios `CNE-FMG-348-2026` y `379-2026`).
+7. Constancia de radicación activa ante la Comisión Interamericana de Derechos Humanos (Expediente `IACHR-0000113728` / `MC-1137-28`).
 
 ---
 
