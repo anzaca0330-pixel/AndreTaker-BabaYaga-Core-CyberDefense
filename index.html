@@ -529,6 +529,33 @@
       vertical-align: middle;
       box-shadow: 0 0 2px rgba(0,0,0,0.4);
     }
+  
+    /* Estilos del Traductor Universal Retro-OS */
+    #google_translate_element select {
+      background: #dfdfdf;
+      color: #000;
+      border: 1px solid #808080;
+      font-family: inherit;
+      font-size: 0.8rem;
+      padding: 1px 4px;
+      cursor: pointer;
+      outline: none;
+    }
+    .goog-te-banner-frame.skiptranslate, .goog-te-gadget-simple {
+      display: none !important;
+    }
+    body {
+      top: 0px !important;
+    }
+    .goog-te-gadget {
+      font-family: inherit !important;
+      font-size: 0.8rem !important;
+      color: #000 !important;
+    }
+    .goog-te-gadget .goog-te-combo {
+      margin: 0 !important;
+    }
+
   </style>
 </head>
 <body>
@@ -557,12 +584,10 @@
         <div class="menu-item" onclick="location.href='#modulos'" id="menuExplorer">Explorador</div>
         <div class="menu-item" onclick="window.open('https://archive.org/details/colombia-e14-forensic-acervo-2026', '_blank')" id="menuVault" style="color: #000080; font-weight: bold;">📦 Bóvedas (>677 GB)</div>
         
-        <!-- Selector de Idiomas de Acceso Directo Inmediato (Desktop y Móvil) -->
-        <div style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 6px; background: #c0c0c0; border: 1px inset #808080;">
-          <span id="menuLang" style="font-size: 0.8rem; font-weight: bold; margin-right: 4px;">🌐 Idioma:</span>
-          <button type="button" onclick="setLanguage('ES')" id="btnLangES" class="win-btn-sm" style="min-width: 42px; height: 22px; font-weight: bold; cursor: pointer; background: #000080; color: #fff;">🇨🇴 ES</button>
-          <button type="button" onclick="setLanguage('EN')" id="btnLangEN" class="win-btn-sm" style="min-width: 42px; height: 22px; font-weight: bold; cursor: pointer; background: #dfdfdf; color: #000;">🇨🇦 EN</button>
-          <button type="button" onclick="setLanguage('FR')" id="btnLangFR" class="win-btn-sm" style="min-width: 42px; height: 22px; font-weight: bold; cursor: pointer; background: #dfdfdf; color: #000;">🇨🇦 FR</button>
+        <!-- Traductor Universal Automático (Google Translate Integration) -->
+        <div style="display: inline-flex; align-items: center; gap: 6px; padding: 2px 6px; background: #c0c0c0; border: 1px inset #808080;">
+          <span style="font-size: 0.8rem; font-weight: bold;">🌐 Idioma / Language:</span>
+          <div id="google_translate_element" style="display: inline-block;"></div>
         </div>
 
         <div class="menu-item" onclick="openContactModal()" id="menuContact">✉️ Contacto</div>
@@ -1754,6 +1779,20 @@
       document.querySelectorAll('.closeBtnLabel').forEach(el => el.textContent = data.closeBtn);
     }
   </script>
+
+
+  <!-- Script Oficial de Traducción Universal -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'es,en,fr,de,it,pt',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
